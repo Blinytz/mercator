@@ -1,0 +1,94 @@
+{
+  "comment": "Configuration du collecteur POC ferroviaire MercatOr. Tous les seuils sont paramétrables ici.",
+  "start_utc": "2026-07-21T22:19:14.106Z",
+  "end_utc": "2026-07-30T04:00:00Z",
+  "cycle_seconds": 300,
+  "run_deadline_minute": 58,
+  "fetch_timeout_ms": 30000,
+  "retry_per_cycle": 1,
+  "retry_backoff_ms": 5000,
+  "max_response_bytes": 67108864,
+  "max_consecutive_errors": 5,
+  "disable_hours_after_errors": 6,
+  "max_repo_data_mb": 1500,
+  "warn_repo_data_mb": 1000,
+  "coverage_threshold": 0.9,
+  "rail_route_types": [
+    2,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117
+  ],
+  "user_agent": "MercatOr-POC-rail/1.0 (collecte POC 7 jours; contact: depot github Blinytz/mercator-poc-rail)",
+  "sources": {
+    "fr_sncf": {
+      "pays": "France",
+      "trip_updates": "https://proxy.transport.data.gouv.fr/resource/sncf-gtfs-rt-trip-updates",
+      "service_alerts": "https://proxy.transport.data.gouv.fr/resource/sncf-gtfs-rt-service-alerts",
+      "static_gtfs": "https://eu.ftp.opendatasoft.com/sncf/plandata/Export_OpenData_SNCF_GTFS_NewTripId.zip",
+      "filtre": "trips",
+      "garder_inconnus": true,
+      "licence": "ODbL"
+    },
+    "nl_ovapi": {
+      "pays": "Pays-Bas",
+      "trip_updates": "https://gtfs.ovapi.nl/nl/trainUpdates.pb",
+      "service_alerts": "https://gtfs.ovapi.nl/nl/alerts.pb",
+      "static_gtfs": "https://gtfs.ovapi.nl/nl/gtfs-nl.zip",
+      "filtre": "aucun",
+      "licence": "Usage libre OVapi / Stichting OpenGeo, attribution demandée"
+    },
+    "de_gtfsde": {
+      "pays": "Allemagne",
+      "trip_updates": "https://realtime.gtfs.de/realtime-free.pb",
+      "static_gtfs": [
+        "https://download.gtfs.de/germany/fv_free/latest.zip",
+        "https://download.gtfs.de/germany/rv_free/latest.zip"
+      ],
+      "filtre": "trips",
+      "licence": "CC BY-SA 4.0"
+    },
+    "us_mbta": {
+      "pays": "États-Unis (Boston)",
+      "trip_updates": "https://cdn.mbta.com/realtime/TripUpdates.pb",
+      "service_alerts": "https://cdn.mbta.com/realtime/Alerts.pb",
+      "static_gtfs": "https://cdn.mbta.com/MBTA_GTFS.zip",
+      "filtre": "routes",
+      "licence": "MassDOT developer license, attribution"
+    },
+    "us_mta_lirr": {
+      "pays": "États-Unis (New York)",
+      "trip_updates": "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/lirr%2Fgtfs-lirr",
+      "filtre": "aucun",
+      "licence": "Conditions MTA, attribution"
+    },
+    "us_mta_mnr": {
+      "pays": "États-Unis (New York)",
+      "trip_updates": "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/mnr%2Fgtfs-mnr",
+      "filtre": "aucun",
+      "licence": "Conditions MTA, attribution"
+    },
+    "au_translink_seq": {
+      "pays": "Australie (Queensland)",
+      "trip_updates": "https://gtfsrt.api.translink.com.au/api/realtime/SEQ/TripUpdates",
+      "static_gtfs": "https://gtfsrt.api.translink.com.au/GTFS/SEQ_GTFS.zip",
+      "filtre": "routes",
+      "licence": "CC BY 4.0"
+    }
+  }
+}

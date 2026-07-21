@@ -1,0 +1,69 @@
+# Collecte GTFS-Realtime · POC ferroviaire MercatOr
+# Un run par heure (minute décalée pour limiter les retards GitHub Actions) ;
+# le collecteur enchaîne en interne des cycles de 5 minutes jusqu'à la minute 58,
+# puis un unique commit pousse les observations de l'heure.
+name: collect
+
+on:
+  schedule:
+    - cron: '2 * * * *'
+  workflow_dispatch:
+    inputs:
+      cycles:
+        description: "Nombre de cycles (vide = jusqu'à la minute 58)"
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Restaurer l'état de déduplication
+        uses: actions/cache/restore@v4
+        with:
+          path: .state-cache
+          key: laststate-${{ github.run_id }}
+          restore-keys: laststate-
+
+      - run: npm ci
+
+      - name: Collecter
+        env:
+          CYCLES: ${{ github.event.inputs.cycles }}
+        run: node src/collect.mjs
+
+      - name: Sauvegarder l'état de déduplication
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .state-cache
+          key: laststate-${{ github.run_id }}
+
+      - name: Committer les observations
+        if: always()
+        run: |
+          git config user.name "mercator-poc-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data logs state
+          if git diff --cached --quiet; then echo "rien à committer"; exit 0; fi
+          git commit -m "collecte $(date -u +%FT%H:%MZ)"
+          for i in 1 2 3; do
+            if git push; then exit 0; fi
+            git pull --rebase
+          done
+          git push

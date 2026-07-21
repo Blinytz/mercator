@@ -1,0 +1,46 @@
+# Référentiels de filtrage ferroviaire (routes/trips rail par source).
+# Quotidien : les statiques SNCF et gtfs.de régénèrent leurs identifiants.
+name: refdata
+
+on:
+  schedule:
+    - cron: '35 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refdata
+  cancel-in-progress: false
+
+jobs:
+  refdata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Construire les référentiels
+        run: node src/refdata.mjs
+
+      - name: Committer les référentiels
+        if: always()
+        run: |
+          git config user.name "mercator-poc-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A state/refdata
+          if git diff --cached --quiet; then echo "rien à committer"; exit 0; fi
+          git commit -m "refdata $(date -u +%FT%H:%MZ)"
+          for i in 1 2 3; do
+            if git push; then exit 0; fi
+            git pull --rebase
+          done
+          git push
