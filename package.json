@@ -1,7 +1,7 @@
 {
-  "name": "mercator-poc-rail",
+  "name": "mercator-rail",
   "version": "1.0.0",
-  "description": "",
+  "description": "POC ferroviaire du jeu Mercator.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

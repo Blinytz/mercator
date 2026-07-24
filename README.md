@@ -1,7 +1,7 @@
-# mercator-poc-rail
+# Mercator Rail
 
 Collecte temporaire (7 jours) d'observations ferroviaires dérivées de flux
-GTFS-Realtime publics, pour un POC de faisabilité du jeu MercatOr : évaluer si
+GTFS-Realtime publics, pour un POC de faisabilité du jeu Mercator : évaluer si
 au moins 500 gares peuvent recevoir une note quotidienne calculée sur des
 données réelles couvrant toute la journée.
 
@@ -56,7 +56,7 @@ des sources : `state/health.json`.
 
 ## Journée complète et seuil de couverture
 
-Une journée MercatOr se termine à 05:00 heure de Paris ; le stockage est en UTC.
+Une journée Mercator se termine à 05:00 heure de Paris ; le stockage est en UTC.
 Une journée d'une source est déclarée **complète** si sa couverture temporelle
 atteint `coverage_threshold` (90 % par défaut) : nombre de créneaux de 5 minutes
 contenant au moins une capture réussie de la source, divisé par 288. Les

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // ============================================================
-// Référentiel de filtrage ferroviaire · POC MercatOr
+// Référentiel de filtrage ferroviaire · POC Mercator
 //
 // Télécharge les GTFS statiques et construit, par source, l'ensemble des
 // route_id (ou trip_id) ferroviaires servant à filtrer les TripUpdates.
