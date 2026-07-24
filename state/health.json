@@ -1,54 +1,54 @@
 {
   "sources": {
     "fr_sncf": {
-      "requetes": 2,
+      "requetes": 192,
       "erreurs": 0,
       "erreursConsecutives": 0,
       "desactiveeJusqua": null,
-      "derniereReussite": "2026-07-21T22:25:00.100Z"
+      "derniereReussite": "2026-07-24T08:55:00.077Z"
     },
     "nl_ovapi": {
-      "requetes": 2,
+      "requetes": 192,
       "erreurs": 0,
       "erreursConsecutives": 0,
       "desactiveeJusqua": null,
-      "derniereReussite": "2026-07-21T22:25:00.102Z"
+      "derniereReussite": "2026-07-24T08:55:00.079Z"
     },
     "de_gtfsde": {
-      "requetes": 2,
+      "requetes": 192,
       "erreurs": 0,
       "erreursConsecutives": 0,
       "desactiveeJusqua": null,
-      "derniereReussite": "2026-07-21T22:25:00.103Z"
+      "derniereReussite": "2026-07-24T08:55:00.079Z"
     },
     "us_mbta": {
-      "requetes": 2,
+      "requetes": 192,
       "erreurs": 0,
       "erreursConsecutives": 0,
       "desactiveeJusqua": null,
-      "derniereReussite": "2026-07-21T22:25:00.104Z"
+      "derniereReussite": "2026-07-24T08:55:00.080Z"
     },
     "us_mta_lirr": {
-      "requetes": 2,
+      "requetes": 192,
       "erreurs": 0,
       "erreursConsecutives": 0,
       "desactiveeJusqua": null,
-      "derniereReussite": "2026-07-21T22:25:00.104Z"
+      "derniereReussite": "2026-07-24T08:55:00.081Z"
     },
     "us_mta_mnr": {
-      "requetes": 2,
+      "requetes": 192,
       "erreurs": 0,
       "erreursConsecutives": 0,
       "desactiveeJusqua": null,
-      "derniereReussite": "2026-07-21T22:25:00.105Z"
+      "derniereReussite": "2026-07-24T08:55:00.081Z"
     },
     "au_translink_seq": {
-      "requetes": 2,
+      "requetes": 192,
       "erreurs": 0,
       "erreursConsecutives": 0,
       "desactiveeJusqua": null,
-      "derniereReussite": "2026-07-21T22:25:00.105Z"
+      "derniereReussite": "2026-07-24T08:55:00.082Z"
     }
   },
-  "derniereCapture": "2026-07-21T22:25:00.100Z"
+  "derniereCapture": "2026-07-24T08:55:00.076Z"
 }
