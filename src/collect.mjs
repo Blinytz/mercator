@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // ============================================================
-// Collecteur GTFS-Realtime · POC ferroviaire Mercator
+// Collecteur GTFS-Realtime · POC ferroviaire MercatOr
 //
 // Conçu pour tourner UNE FOIS PAR HEURE (GitHub Actions, cron minute 2) et
 // exécuter en interne des cycles de capture toutes les cycle_seconds (300 s)

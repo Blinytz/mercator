@@ -1,5 +1,5 @@
 {
-  "comment": "Configuration du collecteur POC ferroviaire Mercator. Tous les seuils sont paramétrables ici.",
+  "comment": "Configuration du collecteur POC ferroviaire MercatOr. Tous les seuils sont paramétrables ici.",
   "start_utc": "2026-07-21T22:19:14.106Z",
   "end_utc": "2026-07-30T04:00:00Z",
   "cycle_seconds": 300,
@@ -34,7 +34,7 @@
     116,
     117
   ],
-  "user_agent": "Mercator-Rail/1.0 (collecte POC 7 jours; contact: depot github Blinytz/mercator-rail)",
+  "user_agent": "MercatOr-Rail/1.0 (collecte POC 7 jours; contact: depot github Blinytz/mercator)",
   "sources": {
     "fr_sncf": {
       "pays": "France",
