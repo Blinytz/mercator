@@ -1,0 +1,33 @@
+Pool : 1753 gares. 50 tirages par duel, roles alternes (soit 100 matchs par ligne).
+
+=== A. PROFILS TACTIQUES EN 4-4-2, BOTS STATIQUES ===
+duel                            buts/match  buts/eq/jour    IC95  frappes  bloq.  blocs j. sans but
+equilibre vs equilibre                46.0          3.56  +-0.26      108    55%    1.6         14%
+offensif vs offensif                 157.0         11.18  +-0.38      184    16%    0.6          0%
+defensif vs defensif                   6.0          0.52  +-0.09       55    88%    2.7         69%
+offensif vs defensif                  52.0          4.01  +-0.28      125    57%    1.5         16%
+passes vs equilibre                   59.0          4.17  +-0.25      105    45%    1.3         10%
+centres vs equilibre                  65.0          4.88  +-0.29      115    43%    1.1         10%
+frappes vs equilibre                  80.0          5.87  +-0.36      160    50%    1.6         11%
+penetrantes vs defensif               44.0          3.42  +-0.24      101    55%    1.6         20%
+seconds vs equilibre                  26.0          2.03  +-0.19       80    66%    1.8         28%
+possession vs equilibre               31.0          2.46  +-0.20       73    55%    1.4         32%
+transitions vs equilibre              37.0          2.73  +-0.21      101    63%    1.4         23%
+
+=== B. FORMATIONS (profil equilibre des deux cotes) ===
+formation A vs B                buts/match   buts A   buts B  bloq.  blocs actifs
+4-4-2 vs 4-4-2                        46.0     26.3     23.5    55%           1.6
+3-4-3 vs 5-4-1                        43.0     25.0     18.6    55%           1.6
+3-4-3 vs 3-4-3                        75.0     38.4     35.9    42%           1.1
+5-3-2 vs 5-3-2                        26.0     14.8     13.7    70%           1.9
+4-3-3 vs 4-5-1                        36.0     23.1     14.4    58%           1.6
+5-4-1 vs 5-4-1                        24.0     13.3     12.1    62%           2.0
+4-3-3 vs 4-3-3                        43.0     23.0     20.8    62%           1.6
+
+=== C. BOTS STATIQUES CONTRE BOTS ADAPTATIFS ===
+scenario                        buts/match   bloq.  echecs cond  centres exp 2e ballons util.
+equilibre 4-4-2, statiques            46.0     55%          12%           47             0/46
+equilibre 4-4-2, adaptatifs           57.0     39%           5%           13             1/24
+centres 4-3-3 vs defensif 5-3-2 : statiques 34.0 buts, adaptatifs 70.0 buts
+  centres expires : statiques 24, adaptatifs 7
+  cascades de bonus declenchees : 2203 (statiques), 1073 (adaptatifs) | chaine max de seconds ballons : 3
