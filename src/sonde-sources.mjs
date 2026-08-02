@@ -17,7 +17,15 @@ const med = a => { if (!a.length) return null; const s = [...a].sort((x, y) => x
 const pct = (n, d) => d ? (n / d * 100).toFixed(1) + ' %' : 'n/a';
 
 function presence(nom, v) {
-  console.log(`  ${nom.padEnd(18)} : ${v ? 'present, longueur ' + v.length : 'ABSENT'}`);
+  // Empreinte sans jamais reveler la valeur : longueur et classe de caracteres.
+  let forme = 'absente';
+  if (v) {
+    if (/^x+$/i.test(v)) forme = 'UNIQUEMENT DES x, valeur factice copiee depuis l affichage masque';
+    else if (/^[0-9a-f]+$/i.test(v)) forme = 'hexadecimal';
+    else if (/^[A-Za-z0-9]+$/.test(v)) forme = 'alphanumerique';
+    else forme = 'mixte avec caracteres speciaux';
+  }
+  console.log(`  ${nom.padEnd(18)} : ${v ? 'present, longueur ' + v.length + ', ' + forme : 'ABSENT'}`);
   return v;
 }
 function entetesQuota(rep) {
@@ -188,7 +196,8 @@ async function idfm() {
 }
 
 console.log('Sonde des sources a cle, ' + new Date().toISOString());
-await suisse();
-await irlande();
-await idfm();
+const only = (process.env.SOURCES || 'toutes').toLowerCase();
+if (only === 'toutes' || only.includes('suisse')) await suisse();
+if (only === 'toutes' || only.includes('irlande')) await irlande();
+if (only === 'toutes' || only.includes('idfm')) await idfm();
 console.log('\nSonde terminee.');

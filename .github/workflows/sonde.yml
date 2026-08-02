@@ -5,6 +5,11 @@ name: sonde
 
 on:
   workflow_dispatch:
+    inputs:
+      sources:
+        description: "toutes, suisse, irlande, idfm"
+        required: false
+        default: "toutes"
 
 permissions:
   contents: read
@@ -26,4 +31,5 @@ jobs:
           SWISS_TOKEN_HASH: ${{ secrets.SWISS_TOKEN_HASH }}
           IRELAND_API_KEY: ${{ secrets.IRELAND_API_KEY }}
           IDFM_API_KEY: ${{ secrets.IDFM_API_KEY }}
+          SOURCES: ${{ github.event.inputs.sources }}
         run: node src/sonde-sources.mjs
