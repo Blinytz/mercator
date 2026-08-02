@@ -54,7 +54,7 @@ function decouper(ligne) {
 
 async function telecharger(url) {
   const controle = new AbortController();
-  const minuteur = setTimeout(() => controle.abort(), 900000);
+  const minuteur = setTimeout(() => controle.abort(), 1500000);
   try {
     const rep = await fetch(url, { signal: controle.signal, headers: { 'User-Agent': config.user_agent } });
     if (rep.status !== 200) throw new Error(`HTTP ${rep.status} sur ${url}`);
@@ -110,8 +110,10 @@ async function construire(nom, source) {
     writeFileSync(join(SORTIE, `${nom}.json.gz`),
       gzipSync(JSON.stringify({ mode, ids, exclus, builtAt: new Date().toISOString(), stats: { ...stats, routesRail: routesRail.size, tripsRail: tripsRail.size } })));
   }
-  writeFileSync(join(SORTIE, `${nom}_stops.json.gz`),
-    gzipSync(JSON.stringify({ builtAt: new Date().toISOString(), arrets })));
+  const jour = new Date().toISOString().slice(0, 10);
+  const charge = gzipSync(JSON.stringify({ builtAt: new Date().toISOString(), arrets }));
+  writeFileSync(join(SORTIE, `${nom}_stops_${jour}.json.gz`), charge);
+  writeFileSync(join(SORTIE, `${nom}_stops.json.gz`), charge);   // alias du plus recent
   console.log(`[${nom}] ${mode} : rail ${mode === 'trips' ? tripsRail.size : routesRail.size}, ` +
     `exclus ${tripsExclus.size} (routes ${routesRail.size}/${stats.routesTotal}), arrêts ${Object.keys(arrets).length}`);
 }

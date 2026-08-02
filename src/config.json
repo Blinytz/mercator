@@ -1,18 +1,18 @@
 {
-  "comment": "Configuration du collecteur POC ferroviaire MercatOr. Tous les seuils sont paramétrables ici.",
-  "start_utc": "2026-07-21T22:19:14.106Z",
-  "end_utc": "2026-07-30T04:00:00Z",
+  "comment": "Configuration du collecteur MercatOr. Aucune valeur codee en dur ailleurs.",
+  "start_utc": "2026-08-02T09:00:00Z",
+  "end_utc": "2026-08-11T04:00:00Z",
   "cycle_seconds": 300,
-  "run_deadline_minute": 58,
-  "fetch_timeout_ms": 30000,
-  "retry_per_cycle": 1,
-  "retry_backoff_ms": 5000,
-  "max_response_bytes": 67108864,
-  "max_consecutive_errors": 5,
-  "disable_hours_after_errors": 6,
-  "max_repo_data_mb": 1500,
-  "warn_repo_data_mb": 1000,
-  "coverage_threshold": 0.9,
+  "fenetre_avant_s": 420,
+  "fenetre_apres_s": 60,
+  "fetch_timeout_ms": 45000,
+  "retry_par_cycle": 1,
+  "retry_backoff_ms": 4000,
+  "max_response_bytes": 134217728,
+  "max_repo_data_mb": 3000,
+  "warn_repo_data_mb": 2000,
+  "seuil_retard_s": 300,
+  "couverture_cible": 0.9,
   "rail_route_types": [
     2,
     100,
@@ -34,91 +34,160 @@
     116,
     117
   ],
-  "user_agent": "MercatOr-Rail/1.0 (collecte POC 7 jours; contact: depot github Blinytz/mercator)",
+  "user_agent": "MercatOr-POC/1.0 (collecte de faisabilite; github.com/Blinytz/mercator)",
   "sources": {
     "fr_sncf": {
       "pays": "France",
+      "format": "gtfsrt",
       "trip_updates": "https://proxy.transport.data.gouv.fr/resource/sncf-gtfs-rt-trip-updates",
-      "service_alerts": "https://proxy.transport.data.gouv.fr/resource/sncf-gtfs-rt-service-alerts",
       "static_gtfs": "https://eu.ftp.opendatasoft.com/sncf/plandata/Export_OpenData_SNCF_GTFS_NewTripId.zip",
       "filtre": "trips",
       "garder_inconnus": true,
-      "licence": "ODbL"
+      "identite": "uic",
+      "licence": "ODbL, SNCF Voyageurs via transport.data.gouv.fr"
+    },
+    "fr_idfm": {
+      "pays": "France",
+      "format": "siri",
+      "siri_base": "https://prim.iledefrance-mobilites.fr/marketplace/estimated-timetable",
+      "lignes": [
+        [
+          "RER A",
+          "C01742"
+        ],
+        [
+          "RER B",
+          "C01743"
+        ],
+        [
+          "RER C",
+          "C01727"
+        ],
+        [
+          "RER D",
+          "C01728"
+        ],
+        [
+          "RER E",
+          "C01729"
+        ]
+      ],
+      "auth": {
+        "entete": "apikey",
+        "secret": "IDFM_API_KEY"
+      },
+      "cadence_ticks": 2,
+      "identite": "brut",
+      "licence": "Licence Mobilites, Ile-de-France Mobilites",
+      "quota_jour": 1000
+    },
+    "ch_opentransport": {
+      "pays": "Suisse",
+      "format": "gtfsrt",
+      "trip_updates": "https://api.opentransportdata.swiss/la/gtfs-rt",
+      "auth": {
+        "entete": "Authorization",
+        "secret": "SWISS_TOKEN"
+      },
+      "filtre": "aucun",
+      "identite": "brut",
+      "licence": "Open data opentransportdata.swiss",
+      "note": "tous modes, filtrage ferroviaire a l'analyse : portail statique inaccessible"
+    },
+    "no_entur": {
+      "pays": "Norvege",
+      "format": "gtfsrt",
+      "trip_updates": [
+        "https://api.entur.io/realtime/v1/gtfs-rt/trip-updates?datasource=VYG",
+        "https://api.entur.io/realtime/v1/gtfs-rt/trip-updates?datasource=FLT",
+        "https://api.entur.io/realtime/v1/gtfs-rt/trip-updates?datasource=GJB",
+        "https://api.entur.io/realtime/v1/gtfs-rt/trip-updates?datasource=SJN"
+      ],
+      "entetes": {
+        "ET-Client-Name": "blinytz-mercator"
+      },
+      "static_gtfs": "https://storage.googleapis.com/marduk-production/outbound/gtfs/rb_norway-aggregated-gtfs.zip",
+      "filtre": "aucun",
+      "identite": "statique",
+      "licence": "NLOD, Entur",
+      "sans_fenetre": true,
+      "cadence_ticks": 3,
+      "note": "operateurs ferroviaires uniquement ; le flux ne donne que le retard, sans heure absolue, d'ou la cadence reduite a 15 min et la reconstitution de l'heure a l'analyse"
+    },
+    "ie_nta": {
+      "pays": "Irlande",
+      "format": "gtfsrt",
+      "trip_updates": "https://api.nationaltransport.ie/gtfsr/v2/TripUpdates",
+      "auth": {
+        "entete": "x-api-key",
+        "secret": "IRELAND_API_KEY"
+      },
+      "static_gtfs": "https://www.transportforireland.ie/transitData/Data/GTFS_Realtime.zip",
+      "filtre": "routes",
+      "identite": "statique",
+      "licence": "NTA developer terms"
+    },
+    "fi_digitraffic": {
+      "pays": "Finlande",
+      "format": "gtfsrt",
+      "trip_updates": "https://rata.digitraffic.fi/api/v1/trains/gtfs-rt-updates",
+      "entetes": {
+        "Digitraffic-User": "Blinytz/MercatOr-POC"
+      },
+      "filtre": "aucun",
+      "identite": "brut",
+      "licence": "CC BY 4.0, Fintraffic",
+      "sans_fenetre": true,
+      "note": "flux exclusivement ferroviaire et de petite taille ; retard seul, sans heure absolue"
     },
     "nl_ovapi": {
       "pays": "Pays-Bas",
+      "format": "gtfsrt",
       "trip_updates": "https://gtfs.ovapi.nl/nl/trainUpdates.pb",
-      "service_alerts": "https://gtfs.ovapi.nl/nl/alerts.pb",
       "static_gtfs": "https://gtfs.ovapi.nl/nl/gtfs-nl.zip",
       "filtre": "aucun",
-      "licence": "Usage libre OVapi / Stichting OpenGeo, attribution demandée"
+      "identite": "statique",
+      "licence": "Usage libre, Stichting OpenGeo"
     },
     "de_gtfsde": {
       "pays": "Allemagne",
+      "format": "gtfsrt",
       "trip_updates": "https://realtime.gtfs.de/realtime-free.pb",
       "static_gtfs": [
         "https://download.gtfs.de/germany/fv_free/latest.zip",
         "https://download.gtfs.de/germany/rv_free/latest.zip"
       ],
       "filtre": "trips",
-      "licence": "CC BY-SA 4.0"
-    },
-    "us_mbta": {
-      "pays": "États-Unis (Boston)",
-      "trip_updates": "https://cdn.mbta.com/realtime/TripUpdates.pb",
-      "service_alerts": "https://cdn.mbta.com/realtime/Alerts.pb",
-      "static_gtfs": "https://cdn.mbta.com/MBTA_GTFS.zip",
-      "filtre": "routes",
-      "licence": "MassDOT developer license, attribution"
-    },
-    "us_mta_lirr": {
-      "pays": "États-Unis (New York)",
-      "trip_updates": "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/lirr%2Fgtfs-lirr",
-      "filtre": "aucun",
-      "licence": "Conditions MTA, attribution"
+      "identite": "statique",
+      "licence": "CC BY-SA 4.0, gtfs.de / DELFI"
     },
     "us_mta_mnr": {
-      "pays": "États-Unis (New York)",
+      "pays": "Etats-Unis",
+      "format": "gtfsrt",
       "trip_updates": "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/mnr%2Fgtfs-mnr",
+      "static_gtfs": "https://rrgtfsfeeds.s3.amazonaws.com/gtfsmnr.zip",
       "filtre": "aucun",
-      "licence": "Conditions MTA, attribution"
+      "identite": "statique",
+      "licence": "Conditions MTA"
     },
-    "ch_opentransport": {
-      "pays": "Suisse",
-      "trip_updates": "https://api.opentransportdata.swiss/la/gtfs-rt",
-      "auth": { "entete": "Authorization", "secret": "SWISS_TOKEN", "prefixe": "" },
-      "filtre": "routes",
-      "licence": "Open data opentransportdata.swiss, attribution",
-      "quota": "illimite, 5 appels par minute"
-    },
-    "ie_nta": {
-      "pays": "Irlande",
-      "trip_updates": "https://api.nationaltransport.ie/gtfsr/v2/TripUpdates",
-      "auth": { "entete": "x-api-key", "secret": "IRELAND_API_KEY", "prefixe": "" },
-      "static_gtfs": "https://www.transportforireland.ie/transitData/Data/GTFS_Realtime.zip",
-      "filtre": "routes",
-      "licence": "NTA developer terms, attribution"
-    },
-    "no_entur": {
-      "pays": "Norvege",
-      "trip_updates": "https://api.entur.io/realtime/v1/gtfs-rt/trip-updates",
-      "entetes": { "ET-Client-Name": "blinytz-mercator" },
-      "filtre": "routes",
-      "licence": "NLOD / CC BY 4.0, attribution Entur"
-    },
-    "fi_digitraffic": {
-      "pays": "Finlande",
-      "trip_updates": "https://rata.digitraffic.fi/api/v1/trains/gtfs-rt-updates",
-      "entetes": { "Digitraffic-User": "Blinytz/MercatOr-POC" },
+    "us_mta_lirr": {
+      "pays": "Etats-Unis",
+      "format": "gtfsrt",
+      "trip_updates": "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/lirr%2Fgtfs-lirr",
+      "static_gtfs": "https://rrgtfsfeeds.s3.amazonaws.com/gtfslirr.zip",
       "filtre": "aucun",
-      "licence": "CC BY 4.0, attribution Fintraffic"
+      "identite": "statique",
+      "licence": "Conditions MTA"
     },
     "au_translink_seq": {
-      "pays": "Australie (Queensland)",
+      "pays": "Australie",
+      "format": "gtfsrt",
       "trip_updates": "https://gtfsrt.api.translink.com.au/api/realtime/SEQ/TripUpdates",
       "static_gtfs": "https://gtfsrt.api.translink.com.au/GTFS/SEQ_GTFS.zip",
       "filtre": "routes",
-      "licence": "CC BY 4.0"
+      "identite": "statique",
+      "licence": "CC BY 4.0, State of Queensland"
     }
-  }
+  },
+  "commentaire_fenetre": "Fenetre de qualification visee : lundi 3 aout 05:00 Paris au lundi 10 aout 05:00 Paris, soit 7 journees MercatOr completes. La marge jusqu au 11 permet de decaler d un jour si un incident survient."
 }

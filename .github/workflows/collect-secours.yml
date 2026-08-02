@@ -1,17 +1,13 @@
-# Collecte MercatOr · exécution courte, un créneau de 5 minutes par run.
+# Collecte de secours · décalée de deux minutes.
 #
-# Remplace la conception précédente, où une exécution occupait l'heure entière
-# et où un seul retard de GitHub supprimait douze captures d'un coup. Ici un
-# abandon ne coûte qu'un créneau, et le workflow de secours décalé le rattrape.
-#
-# Pas de groupe de concurrence : aucune exécution ne doit jamais être annulée
-# au profit d'une autre. Les collisions sont réglées par le témoin de créneau
-# côté collecteur et par la republication avec rebase.
-name: collect
+# Ne fait rien si le workflow principal a déjà servi le créneau : le collecteur
+# sort immédiatement quand le témoin existe. Ce workflow n'existe donc que pour
+# rattraper les exécutions que GitHub abandonne, sans jamais doubler les données.
+name: collect-secours
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '2-59/5 * * * *'
   workflow_dispatch:
 
 permissions:
