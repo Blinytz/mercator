@@ -76,6 +76,15 @@ function analyserGtfsRt(buf, etiquette) {
   console.log(`  fraicheur en-tete   : ${age} s`);
   console.log(`  volume              : ${tus.length} trajets, ${arrets} arrets, ${gares.size} points d'arret`);
   console.log(`  arrivee ET depart   : ${pct(arrEtDep, arrets)}`);
+  // Diagnostic decisif : le flux fournit-il une HEURE ABSOLUE, ou seulement un
+  // retard ? Sans heure absolue, le filtre de creneau du collecteur ne peut pas
+  // placer l'arret dans le temps. protobufjs rend 0 quand le champ est absent.
+  let avecHeure = 0, avecDelay = 0;
+  for (const e of tus) for (const s of e.tripUpdate.stopTimeUpdate || []) {
+    if (Number(s.arrival?.time || 0) > 0 || Number(s.departure?.time || 0) > 0) avecHeure++;
+    if (s.arrival?.delay != null || s.departure?.delay != null) avecDelay++;
+  }
+  console.log(`  heure absolue       : ${pct(avecHeure, arrets)} | retard seul : ${pct(avecDelay - avecHeure, arrets)}`);
   console.log(`  annules ${annules}, arrets supprimes ${supprimes}, retards renseignes ${retards.length}`);
   if (retards.length) {
     console.log(`  retard median ${med(retards)} s | nuls ${pct(zero, retards.length)} | <=60 s ${pct(s60, retards.length)} | >5 min ${pct(p300, retards.length)} | ${distinctes} valeurs distinctes`);
