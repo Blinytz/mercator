@@ -128,11 +128,28 @@ async function irlande() {
   console.log('\n===== IRLANDE · National Transport Authority =====');
   const cle = presence('IRELAND_API_KEY', process.env.IRELAND_API_KEY);
   if (!cle) return;
-  const r = await appel('https://api.nationaltransport.ie/gtfsr/v2/TripUpdates', { 'Ocp-Apim-Subscription-Key': cle });
-  console.log(`  statut ${r.statut} en ${r.ms} ms${r.buf ? ', ' + (r.buf.length / 1024).toFixed(0) + ' Ko' : ''}`);
-  if (Object.keys(r.quota || {}).length) console.log('  quotas :', JSON.stringify(r.quota));
-  if (r.statut !== 200) { console.log(`  reponse : ${r.buf ? r.buf.toString('utf8').slice(0, 200) : r.erreur}`); return; }
-  analyserGtfsRt(r.buf, 'irlande');
+  const base = 'https://api.nationaltransport.ie/gtfsr/v2/TripUpdates';
+  const essais = [
+    ['Ocp-Apim-Subscription-Key', base, { 'Ocp-Apim-Subscription-Key': cle }],
+    ['x-api-key', base, { 'x-api-key': cle }],
+    ['apikey', base, { apikey: cle }],
+    ['parametre subscription-key', `${base}?subscription-key=${encodeURIComponent(cle)}`, {}],
+    ['v1 avec x-api-key', 'https://api.nationaltransport.ie/gtfsr/v1/TripUpdates', { 'x-api-key': cle }],
+    ['gtfsr.transportforireland.ie', 'https://gtfsr.transportforireland.ie/v2/TripUpdates', { 'Ocp-Apim-Subscription-Key': cle }],
+  ];
+  for (const [libelle, url, headers] of essais) {
+    const r = await appel(url, headers);
+    console.log(`  essai ${libelle.padEnd(30)} -> ${r.statut}${r.buf ? ' (' + (r.buf.length / 1024).toFixed(0) + ' Ko)' : ''}`);
+    if (r.statut === 200 && r.buf.length > 500) {
+      console.log(`  ACCES RETENU : ${libelle}`);
+      if (Object.keys(r.quota || {}).length) console.log('  quotas :', JSON.stringify(r.quota));
+      analyserGtfsRt(r.buf, 'irlande');
+      return;
+    }
+    if (r.buf && r.buf.length) console.log(`     ${r.buf.toString('utf8').slice(0, 140).replace(/\s+/g, ' ')}`);
+    await dodo(1500);
+  }
+  console.log('  AUCUN ACCES : abonnement probablement pas encore actif, ou produit different');
 }
 
 async function idfm() {
