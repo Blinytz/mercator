@@ -1,0 +1,29 @@
+# Sonde ponctuelle des sources à clé. Déclenchement manuel uniquement.
+# Les secrets ne sont lisibles que depuis GitHub Actions : c'est la seule
+# façon de tester ces sources sans jamais exposer les clés.
+name: sonde
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sonde:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Sonder les sources
+        env:
+          SWISS_TOKEN: ${{ secrets.SWISS_TOKEN }}
+          SWISS_TOKEN_HASH: ${{ secrets.SWISS_TOKEN_HASH }}
+          IRELAND_API_KEY: ${{ secrets.IRELAND_API_KEY }}
+          IDFM_API_KEY: ${{ secrets.IDFM_API_KEY }}
+        run: node src/sonde-sources.mjs
