@@ -79,7 +79,10 @@
       "cadence_ticks": 2,
       "identite": "brut",
       "licence": "Licence Mobilites, Ile-de-France Mobilites",
-      "quota_jour": 1000
+      "quota_jour": 1000,
+      "fenetre_avant_s": 60,
+      "fenetre_apres_s": 660,
+      "note": "Flux de prochains passages : ne contient que les arrets futurs, d ou une fenetre tournee vers l avant couvrant les 11 minutes suivantes."
     },
     "ch_opentransport": {
       "pays": "Suisse",
@@ -92,7 +95,8 @@
       "filtre": "aucun",
       "identite": "brut",
       "licence": "Open data opentransportdata.swiss",
-      "note": "tous modes, filtrage ferroviaire a l'analyse : portail statique inaccessible"
+      "note": "EN ATTENTE du GTFS statique. Mesure du 02/08 : 1,1 % des arrets seulement portent une heure absolue, 98,9 % un retard seul. Le flux couvre tous les modes, 111 000 arrets par capture : sans filtre ferroviaire la collecte represente 32 millions de lignes par jour. Le portail statique refuse l acces automatise (403).",
+      "actif": false
     },
     "no_entur": {
       "pays": "Norvege",

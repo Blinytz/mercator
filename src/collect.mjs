@@ -38,8 +38,10 @@ const slotIndex = Math.floor(slotDebutMs / CYCLE_MS);
 
 // Fenêtre d'événements retenue, un peu plus large que le cycle pour couvrir
 // les flux qui retirent un trajet dès qu'il est terminé.
-const bornBasse = slotDebutMs / 1000 - config.fenetre_avant_s;
-const bornHaute = slotDebutMs / 1000 + config.fenetre_apres_s;
+const fenetre = src => [
+  slotDebutMs / 1000 - (src.fenetre_avant_s ?? config.fenetre_avant_s),
+  slotDebutMs / 1000 + (src.fenetre_apres_s ?? config.fenetre_apres_s),
+];
 
 // ---- Exclusions décidées sur critères intrinsèques ----
 let exclusions = { sourcesRejetees: {}, garesExclues: [], garesQuarantaine: [] };
@@ -128,6 +130,7 @@ async function collecterGtfsRt(net, src, lignes) {
   if (!feeds.length) return { statut: 'aucun flux exploitable' };
   const fts = feeds[0].header.timestamp ? Number(feeds[0].header.timestamp) : null;
   const filtre = filtres[net];
+  const [bBasse, bHaute] = fenetre(src);
   let vus = 0, rail = 0, retenus = 0;
   for (const e of feeds.flatMap(f => f.entity)) {
     const tu = e.tripUpdate;
@@ -148,7 +151,7 @@ async function collecterGtfsRt(net, src, lignes) {
       const ea = Number(stu.arrival?.time || 0) > 0 ? Number(stu.arrival.time) : null;
       const ed = Number(stu.departure?.time || 0) > 0 ? Number(stu.departure.time) : null;
       const evt = ed ?? ea;
-      if (!src.sans_fenetre && (evt == null || evt < bornBasse || evt > bornHaute)) continue;
+      if (!src.sans_fenetre && (evt == null || evt < bBasse || evt > bHaute)) continue;
       if (src.sans_fenetre && stu.arrival?.delay == null && stu.departure?.delay == null) continue;
       const gare = identite(net, src, stu.stopId);
       if (!gare || garesKO.has(`${net}|${gare}`)) continue;
@@ -170,6 +173,7 @@ async function collecterSiri(net, src, lignes) {
   const entetes = entetesDe(src);
   if (!entetes) return { statut: 'secret absent' };
   let courses = 0, retenus = 0, appels = 0, quota = {};
+  const [bBasse, bHaute] = fenetre(src);
   for (const [, code] of src.lignes) {
     const url = `${src.siri_base}?LineRef=${encodeURIComponent(`STIF:Line::${code}:`)}`;
     const r = await chercher(url, { ...entetes, Accept: 'application/json' });
@@ -190,7 +194,7 @@ async function collecterSiri(net, src, lignes) {
         const ad = call.AimedDepartureTime ? Date.parse(call.AimedDepartureTime) / 1000 : null;
         const ed = call.ExpectedDepartureTime ? Date.parse(call.ExpectedDepartureTime) / 1000 : null;
         const evt = ed ?? ea;
-        if (evt == null || evt < bornBasse || evt > bornHaute) continue;
+        if (evt == null || evt < bBasse || evt > bHaute) continue;
         const gare = call.StopPointRef?.value;
         if (!gare || garesKO.has(`${net}|${gare}`)) continue;
         const annule = call.DepartureStatus === 'CANCELLED' || call.ArrivalStatus === 'CANCELLED';
@@ -230,6 +234,7 @@ async function principal() {
   const lignes = [];
   const journal = { slot: slotISO, debutReel: debut.toISOString(), sources: {} };
   await Promise.all(Object.entries(config.sources).map(async ([net, src]) => {
+    if (src.actif === false) { journal.sources[net] = { statut: 'desactivee' }; return; }
     if (sourcesKO.has(net)) { journal.sources[net] = { statut: 'source rejetee' }; return; }
     if (src.cadence_ticks && slotIndex % src.cadence_ticks !== 0) { journal.sources[net] = { statut: 'hors cadence' }; return; }
     journal.sources[net] = src.format === 'siri'
