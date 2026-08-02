@@ -16,7 +16,7 @@ permissions:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
         with:
@@ -29,23 +29,29 @@ jobs:
 
       - run: npm ci --omit=dev
 
-      - name: Collecter le créneau
+      - name: Collecter plusieurs créneaux
         env:
           SWISS_TOKEN: ${{ secrets.SWISS_TOKEN }}
           IRELAND_API_KEY: ${{ secrets.IRELAND_API_KEY }}
           IDFM_API_KEY: ${{ secrets.IDFM_API_KEY }}
-        run: node src/collect.mjs
-
-      - name: Publier
         run: |
           git config user.name "mercator-poc-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A data logs state
-          if git diff --cached --quiet; then echo "rien a publier"; exit 0; fi
-          git commit -q -m "collecte $(date -u +%FT%H:%MZ)"
-          for i in 1 2 3 4 5; do
-            if git push -q 2>/dev/null; then exit 0; fi
-            sleep $((RANDOM % 5 + 2))
+          # GitHub abandonne une grande partie des executions planifiees. Chaque
+          # execution couvre donc plusieurs creneaux successifs : meme si une
+          # seule sur six demarre, la couverture reste complete. Le temoin de
+          # creneau, relu apres chaque pull, evite toute duplication.
+          for i in $(seq 1 ${CRENEAUX:-6}); do
             git pull --rebase -q --autostash || true
+            node src/collect.mjs || true
+            git add -A data logs state
+            if ! git diff --cached --quiet; then
+              git commit -q -m "collecte $(date -u +%FT%H:%MZ)"
+              for k in 1 2 3; do
+                git push -q 2>/dev/null && break
+                sleep $((RANDOM % 4 + 2)); git pull --rebase -q --autostash || true
+              done
+            fi
+            now=$(date +%s); suivant=$(( (now/300+1)*300 ))
+            [ $i -lt ${CRENEAUX:-6} ] && sleep $(( suivant - now + 5 ))
           done
-          git push -q
