@@ -129,7 +129,9 @@
       "static_gtfs": "https://www.transportforireland.ie/transitData/Data/GTFS_Realtime.zip",
       "filtre": "routes",
       "identite": "statique",
-      "licence": "NTA developer terms"
+      "licence": "NTA developer terms",
+      "sans_fenetre": true,
+      "note": "Retard seul, sans heure absolue : fenetre desactivee. Volume ferroviaire faible apres filtre, environ 50 trains par capture."
     },
     "fi_digitraffic": {
       "pays": "Finlande",
