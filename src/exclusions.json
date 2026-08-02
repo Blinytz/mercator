@@ -1,0 +1,2437 @@
+{
+ "genere": "2026-08-02",
+ "methode": "criteres intrinseques du handoff v3 section 3.5 : test anti-parfait et ponctualite superieure a 98 %",
+ "sourcesRejetees": {
+  "us_mbta": "100.0 % des mouvements sous 60 s ; quasiment aucun retard superieur a 5 min ; dispersion agregee 0.0 pt (echantillon 5495 mouvements)"
+ },
+ "garesExclues": [
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|denhaagcentraal@52.08,4.32",
+   "nom": "Den Haag Centraal",
+   "motif": "ponctualite 98.1 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|539704",
+   "nom": "",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|598131",
+   "nom": "",
+   "motif": "ponctualite 98.6 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|404734",
+   "nom": "",
+   "motif": "ponctualite 98.3 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|232735",
+   "nom": "",
+   "motif": "ponctualite 98.8 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|utrechtovervecht@52.11,5.13",
+   "nom": "Utrecht Overvecht",
+   "motif": "ponctualite 98.1 %"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|clevelandstation@-27.52,153.27",
+   "nom": "Cleveland station",
+   "motif": "ponctualite 99.1 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|91154",
+   "nom": "",
+   "motif": "ponctualite 98.3 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|karlsruhekurtschumacherstr@49.03,8.38",
+   "nom": "Karlsruhe Kurt-Schumacher-Str.",
+   "motif": "ponctualite 98.7 %"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|ormistonstation@-27.51,153.26",
+   "nom": "Ormiston station",
+   "motif": "ponctualite 98.4 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|vlissingen@51.44,3.60",
+   "nom": "Vlissingen",
+   "motif": "ponctualite 98.4 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|485206",
+   "nom": "",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|638286",
+   "nom": "",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|324900",
+   "nom": "",
+   "motif": "99 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.6 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|409909",
+   "nom": "",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|228165",
+   "nom": "",
+   "motif": "99 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 1.5 pt"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|springfieldcentralstation@-27.67,152.90",
+   "nom": "Springfield Central station",
+   "motif": "ponctualite 98.3 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|59420",
+   "nom": "",
+   "motif": "99 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 1.4 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|528705",
+   "nom": "",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|599229",
+   "nom": "",
+   "motif": "98 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 1.9 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|238431",
+   "nom": "",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|340768",
+   "nom": "",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|353620",
+   "nom": "",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|426868",
+   "nom": "",
+   "motif": "98 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 2.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|192011",
+   "nom": "",
+   "motif": "ponctualite 99.1 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|voorschoten@52.13,4.43",
+   "nom": "Voorschoten",
+   "motif": "ponctualite 98.6 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|best@51.51,5.39",
+   "nom": "Best",
+   "motif": "ponctualite 98.6 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|eindhovenstrijps@51.45,5.46",
+   "nom": "Eindhoven Strijp-S",
+   "motif": "ponctualite 98.9 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|denhelder@52.96,4.76",
+   "nom": "Den Helder",
+   "motif": "ponctualite 98.2 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|hollandscherading@52.18,5.18",
+   "nom": "Hollandsche Rading",
+   "motif": "ponctualite 98.4 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|315593",
+   "nom": "",
+   "motif": "ponctualite 99.1 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|zandvoortaanzee@52.38,4.53",
+   "nom": "Zandvoort aan Zee",
+   "motif": "ponctualite 99.0 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|feanwlden@53.24,5.99",
+   "nom": "Feanwâlden",
+   "motif": "ponctualite 99.2 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|alphenadrijn@52.12,4.66",
+   "nom": "Alphen a/d Rijn",
+   "motif": "ponctualite 98.4 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|utrechtleidscherijn@52.10,5.07",
+   "nom": "Utrecht Leidsche Rijn",
+   "motif": "ponctualite 98.4 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|halfwegzwanenburg@52.38,4.75",
+   "nom": "Halfweg-Zwanenburg",
+   "motif": "ponctualite 99.1 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|haarlemspaarnwoude@52.38,4.67",
+   "nom": "Haarlem Spaarnwoude",
+   "motif": "ponctualite 98.5 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|vleuten@52.10,5.01",
+   "nom": "Vleuten",
+   "motif": "ponctualite 98.1 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|oudenbosch@51.59,4.53",
+   "nom": "Oudenbosch",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|beverwijk@52.48,4.66",
+   "nom": "Beverwijk",
+   "motif": "ponctualite 98.3 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|voorburg@52.07,4.36",
+   "nom": "Voorburg",
+   "motif": "ponctualite 99.1 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|denhaagypenburg@52.06,4.39",
+   "nom": "Den Haag Ypenburg",
+   "motif": "ponctualite 98.3 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|zoetermeer@52.05,4.48",
+   "nom": "Zoetermeer",
+   "motif": "ponctualite 99.2 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|zoetermeeroost@52.05,4.49",
+   "nom": "Zoetermeer Oost",
+   "motif": "ponctualite 99.1 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|lansingerlandzoetermeer@52.04,4.52",
+   "nom": "Lansingerland-Zoetermeer",
+   "motif": "ponctualite 99.2 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|oisterwijk@51.58,5.19",
+   "nom": "Oisterwijk",
+   "motif": "ponctualite 99.1 %"
+  }
+ ],
+ "garesQuarantaine": [
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|640296",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|almereparkwijk@52.38,5.24",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|67279",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|143346",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|63682",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|618702",
+   "motif": "98 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 1.7 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|485199",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|515396",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|458298",
+   "motif": "98 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 1.9 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|624898",
+   "motif": "99 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 1.1 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|47670",
+   "motif": "ponctualite 98.7 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|159463",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|89764",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|162085",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|meckenheimlftelbergkottenforstbf@50.66,7.02",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|225933",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|349450",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|571564",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|brusselzuid@50.83,4.34",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214577",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|15618",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|overveen@52.39,4.61",
+   "motif": "ponctualite 98.9 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|498988",
+   "motif": "ponctualite 99.0 %"
+  },
+  {
+   "reseau": "us_mta_mnr",
+   "cle": "us_mta_mnr|172",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|31426",
+   "motif": "ponctualite 98.8 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|247110",
+   "motif": "ponctualite 98.8 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|winterswijk@51.97,6.72",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|434268",
+   "motif": "ponctualite 98.8 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|zevenbergen@51.64,4.61",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|valkenburg@50.87,5.83",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214528",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87757740",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87757732",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87757724",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|101259",
+   "motif": "ponctualite 98.7 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|oosterbeek@51.99,5.84",
+   "motif": "ponctualite 98.4 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|222747",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|260634",
+   "motif": "ponctualite 98.4 %"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87747287",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|333022",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|270098",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|leidenlammenschans@52.15,4.49",
+   "motif": "ponctualite 98.9 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|623465",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|dautphetalbuchenaulahnbahnhof@50.87,8.60",
+   "motif": "ponctualite 98.4 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|21122",
+   "motif": "ponctualite 98.5 %"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC85161554",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC85171421",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC85162727",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC85162735",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC85162743",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|karrabinstation@-27.60,152.71",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|399693",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|walloonstation@-27.61,152.67",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|wolfheze@52.01,5.79",
+   "motif": "ponctualite 98.4 %"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|wulkurakastation@-27.61,152.73",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|thomasstreetstation@-27.61,152.75",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|194678",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|81598",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|knittlingenkleinvillars@48.99,8.74",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|645078",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|33211",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|531201",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|538854",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|sauwerd@53.29,6.54",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|brusselsairportzaventem@50.90,4.48",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|brusselnoord@50.86,4.36",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|brusselcentraal@50.85,4.36",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|thagoonastation@-27.63,152.63",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|groningennoord@53.23,6.56",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|247103",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87213058",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|161443",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87756304",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|82350",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|624472",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|12654",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|13718",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|zuidbroek@53.16,6.87",
+   "motif": "ponctualite 98.6 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|hoogezandsappemeer@53.16,6.77",
+   "motif": "ponctualite 98.7 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|martenshoek@53.16,6.74",
+   "motif": "ponctualite 98.8 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|kropswolde@53.16,6.72",
+   "motif": "ponctualite 98.9 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|119184",
+   "motif": "98 % des mouvements sous 60 s ; dispersion 2.0 pt ; ponctualite 98.0 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|63565",
+   "motif": "ponctualite 98.2 %"
+  },
+  {
+   "reseau": "us_mta_mnr",
+   "cle": "us_mta_mnr|97",
+   "motif": "ponctualite 98.1 %"
+  },
+  {
+   "reseau": "us_mta_mnr",
+   "cle": "us_mta_mnr|98",
+   "motif": "ponctualite 98.2 %"
+  },
+  {
+   "reseau": "us_mta_mnr",
+   "cle": "us_mta_mnr|100",
+   "motif": "ponctualite 98.1 %"
+  },
+  {
+   "reseau": "us_mta_mnr",
+   "cle": "us_mta_mnr|101",
+   "motif": "ponctualite 98.0 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|55440",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|leeuwardencamminghaburen@53.20,5.84",
+   "motif": "ponctualite 98.7 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|473703",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87576207",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|rosewoodstation@-27.64,152.59",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87721282",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|marinberg@52.51,6.57",
+   "motif": "ponctualite 99.0 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|obdam@52.68,4.91",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "us_mta_mnr",
+   "cle": "us_mta_mnr|176",
+   "motif": "ponctualite 98.1 %"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87574004",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|hardenberg@52.57,6.63",
+   "motif": "ponctualite 99.0 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|545463",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|166484",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|208846",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87751438",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|scheemda@53.17,6.98",
+   "motif": "ponctualite 98.2 %"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87313510",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|maastrichtrandwyck@50.84,5.72",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|ascotstation@-27.43,153.06",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|12852",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|388345",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|hendrastation@-27.42,153.06",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|clayfieldstation@-27.42,153.06",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|159692",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214320",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|doombenstation@-27.43,153.07",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214338",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214296",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214288",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87276469",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|bunnik@52.06,5.20",
+   "motif": "ponctualite 98.8 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|rollhofen@49.54,11.34",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "us_mta_mnr",
+   "cle": "us_mta_mnr|167",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "us_mta_mnr",
+   "cle": "us_mta_mnr|168",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "us_mta_mnr",
+   "cle": "us_mta_mnr|169",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "us_mta_mnr",
+   "cle": "us_mta_mnr|170",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "us_mta_mnr",
+   "cle": "us_mta_mnr|171",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87474007",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87345025",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|37611",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|doetinchemdehuet@51.96,6.26",
+   "motif": "ponctualite 98.5 %"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87574194",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87574160",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|herzbergamharz@51.64,10.33",
+   "motif": "ponctualite 98.2 %"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87172007",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212142",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|ommen@52.51,6.42",
+   "motif": "ponctualite 98.8 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|emmen@52.79,6.90",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87574319",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214270",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|emmenzuid@52.75,6.87",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|618594",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87574343",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87673400",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|dalfsen@52.50,6.26",
+   "motif": "ponctualite 98.8 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|coevorden@52.66,6.74",
+   "motif": "ponctualite 98.8 %"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87751800",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|nieuwamsterdam@52.72,6.85",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87396408",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214254",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87413013",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|winsum@53.33,6.52",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|baflo@53.36,6.52",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|warffum@53.39,6.57",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|usquert@53.40,6.61",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|uithuizen@53.41,6.67",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|uithuizermeeden@53.41,6.72",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|roodeschool@53.42,6.76",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87191007",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87393843",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87184002",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|gaanderen@51.93,6.35",
+   "motif": "ponctualite 98.0 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|terborg@51.92,6.36",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|varsseveld@51.94,6.46",
+   "motif": "ponctualite 98.1 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|aalten@51.92,6.58",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|249717",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87271536",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|504367",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87213470",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|350554",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|frydlantvcechach@50.92,15.07",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|sneek@53.03,5.65",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|341105",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|sneeknoord@53.04,5.66",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|oldenzaal@52.31,6.93",
+   "motif": "ponctualite 98.1 %"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|137615",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|160195",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|183999",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|mantgum@53.13,5.71",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|rhenen@51.96,5.58",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|maarn@52.06,5.37",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|veenendaalcentrum@52.02,5.55",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|360354",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|582235",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87118190",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "us_mta_lirr",
+   "cle": "us_mta_lirr|219",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87741728",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|hoevelaken@52.17,5.46",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|barneveldnoord@52.16,5.60",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|barneveldzuid@52.13,5.60",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|lunteren@52.09,5.62",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|edecentrum@52.04,5.67",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|raalte@52.39,6.28",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87545137",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87313684",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87313668",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87276717",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87276725",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87723767",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87723700",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87478073",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|zwollestadshagen@52.53,6.05",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|kampen@52.56,5.92",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87713545",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|barneveldcentrum@52.14,5.59",
+   "motif": "ponctualite 98.7 %"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|helmondbrouwhuis@51.47,5.70",
+   "motif": "ponctualite 98.1 %"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214106",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214114",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214130",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212274",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212266",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87191130",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|271001",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|474117",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87741793",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212258",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87271817",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87444372",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734699",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87698332",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212167",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212183",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212209",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87723742",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87723726",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87723718",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87393348",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|angermndebahnhof@53.02,14.00",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|dsseldorfhbf@51.22,6.79",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87741769",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87741777",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87193003",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182816",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212241",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212159",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212175",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|duisburghbf@51.43,6.77",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|650683",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182618",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182394",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|150345",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87677104",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212340",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87411207",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214536",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214544",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214551",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87485300",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87698340",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212191",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87214502",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182642",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87673459",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182378",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182659",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182733",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87723759",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|131350",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87212332",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|markelfingenbahnhof@47.74,9.00",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87697128",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87142000",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87174276",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|344510",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87694307",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182600",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182592",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87415877",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182634",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182626",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87723734",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182402",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87576876",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87747246",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87671016",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87338517",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|kerkradecentrum@50.86,6.06",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|parisnord@48.88,2.36",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|363154",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87571273",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87215665",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87471508",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87481747",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87747337",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87747279",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|klnhbf@50.94,6.96",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|353561",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|440630",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87698662",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|jaromer@50.34,15.91",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|nordholzbbremerhaven@53.78,8.62",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|neuwokernbahnhof@53.76,12.50",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87295014",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87574475",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87732008",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87396325",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87713115",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87671487",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87755629",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87576884",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87478107",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87476259",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87313304",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87641001",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87747204",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|rothenburgobdertauber@49.38,10.19",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734186",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87295568",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87696013",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|stavoren@52.89,5.36",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|koudummolkwerum@52.90,5.41",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|hindeloopen@52.95,5.42",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|workum@52.97,5.46",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|ijlst@53.01,5.62",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|frankfurtflughafenfernb@50.05,8.57",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87411173",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87444315",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87746305",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87485227",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87611152",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87775072",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87763607",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|kesteren@51.93,5.58",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|opheusden@51.93,5.64",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|hemmendodewaard@51.92,5.67",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|zettenandelst@51.92,5.72",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|enschededeeschmarke@52.22,6.95",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|glanerbrug@52.22,6.97",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|545832",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87576116",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|zeutern@49.18,8.68",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|neuendettelsau@49.28,10.78",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87683201",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87683219",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC80191031",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87481697",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87763557",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734715",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734707",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "nl_ovapi",
+   "cle": "nl_ovapi|frankfurtmhbf@50.11,8.66",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87721340",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87725739",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87725721",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87725713",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC80646141",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC80191049",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87182543",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC80646133",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87746479",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87576728",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|124096",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "de_gtfsde",
+   "cle": "de_gtfsde|seelzebahnhof@52.39,9.59",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87746438",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87393595",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87271577",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87271551",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87491803",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87718833",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734152",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734160",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734178",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87171595",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87171587",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC80253914",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87726448",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87481184",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87481168",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87481150",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87594275",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87594093",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87745679",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87595322",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734228",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734194",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87487884",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87576132",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87576108",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87576090",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87191106",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87192088",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87192070",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734426",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87487876",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87487892",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87487843",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87701532",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87481804",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87481812",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87575704",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87394288",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87394270",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87394247",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87394213",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87394205",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87478164",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87334490",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87471540",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87471532",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87471524",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87592055",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87592063",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87592071",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87592097",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87592105",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87592121",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734475",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734459",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734442",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87775239",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87775353",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87194001",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87673251",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87673269",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87673285",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87673293",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87673319",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87673095",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87671479",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87671495",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC80110684",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87592147",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87592162",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87592170",
+   "motif": "dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87594085",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87734087",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "fr_sncf",
+   "cle": "fr_sncf|UIC87562421",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|travestonstation@-26.32,152.78",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|cooranstation@-26.33,152.82",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|pomonastation@-26.37,152.86",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|cooroystation@-26.42,152.91",
+   "motif": "100 % des mouvements sous 60 s ; aucun retard superieur a 5 min ; dispersion 0.0 pt"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|eumundistation@-26.48,152.96",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|yandinastation@-26.56,152.96",
+   "motif": "aucun retard superieur a 5 min"
+  },
+  {
+   "reseau": "au_translink_seq",
+   "cle": "au_translink_seq|gympienorthstation@-26.16,152.68",
+   "motif": "aucun retard superieur a 5 min"
+  }
+ ]
+}
