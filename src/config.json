@@ -83,6 +83,36 @@
       "filtre": "aucun",
       "licence": "Conditions MTA, attribution"
     },
+    "ch_opentransport": {
+      "pays": "Suisse",
+      "trip_updates": "https://api.opentransportdata.swiss/la/gtfs-rt",
+      "auth": { "entete": "Authorization", "secret": "SWISS_TOKEN", "prefixe": "" },
+      "filtre": "routes",
+      "licence": "Open data opentransportdata.swiss, attribution",
+      "quota": "illimite, 5 appels par minute"
+    },
+    "ie_nta": {
+      "pays": "Irlande",
+      "trip_updates": "https://api.nationaltransport.ie/gtfsr/v2/TripUpdates",
+      "auth": { "entete": "x-api-key", "secret": "IRELAND_API_KEY", "prefixe": "" },
+      "static_gtfs": "https://www.transportforireland.ie/transitData/Data/GTFS_Realtime.zip",
+      "filtre": "routes",
+      "licence": "NTA developer terms, attribution"
+    },
+    "no_entur": {
+      "pays": "Norvege",
+      "trip_updates": "https://api.entur.io/realtime/v1/gtfs-rt/trip-updates",
+      "entetes": { "ET-Client-Name": "blinytz-mercator" },
+      "filtre": "routes",
+      "licence": "NLOD / CC BY 4.0, attribution Entur"
+    },
+    "fi_digitraffic": {
+      "pays": "Finlande",
+      "trip_updates": "https://rata.digitraffic.fi/api/v1/trains/gtfs-rt-updates",
+      "entetes": { "Digitraffic-User": "Blinytz/MercatOr-POC" },
+      "filtre": "aucun",
+      "licence": "CC BY 4.0, attribution Fintraffic"
+    },
     "au_translink_seq": {
       "pays": "Australie (Queensland)",
       "trip_updates": "https://gtfsrt.api.translink.com.au/api/realtime/SEQ/TripUpdates",
