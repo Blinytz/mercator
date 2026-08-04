@@ -56,6 +56,12 @@ jobs:
                 sleep $((RANDOM % 4 + 2)); git pull --rebase -q --autostash || true
               done
             fi
-            now=$(date +%s); suivant=$(( (now/300+1)*300 ))
-            [ $i -lt ${CRENEAUX:-6} ] && sleep $(( suivant - now + 5 ))
+            # Le test seul renverrait 1 a la derniere iteration et ferait
+            # echouer l'etape alors que la collecte s'est bien passee.
+            if [ $i -lt ${CRENEAUX:-6} ]; then
+              now=$(date +%s); suivant=$(( (now/300+1)*300 ))
+              sleep $(( suivant - now + 5 ))
+            fi
           done
+          echo "collecte terminee"
+
