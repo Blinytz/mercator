@@ -1,8 +1,10 @@
-# Collecte MercatOr · exécution courte, un créneau de 5 minutes par run.
+# Collecte MercatOr · une exécution sert 36 créneaux de 5 minutes, soit 3 heures.
 #
-# Remplace la conception précédente, où une exécution occupait l'heure entière
-# et où un seul retard de GitHub supprimait douze captures d'un coup. Ici un
-# abandon ne coûte qu'un créneau, et le workflow de secours décalé le rattrape.
+# Mesure du 4 août : GitHub ne déclenche le cron qu'une douzaine de fois par
+# jour, quelle que soit la fréquence demandée. Avec un seul créneau par
+# exécution la couverture plafonnait à 25 %. En couvrant 3 heures par
+# exécution, une douzaine de déclenchements suffit à couvrir la journée, et le
+# recouvrement entre exécutions absorbe les déclenchements manqués.
 #
 # Pas de groupe de concurrence : aucune exécution ne doit jamais être annulée
 # au profit d'une autre. Les collisions sont réglées par le témoin de créneau
