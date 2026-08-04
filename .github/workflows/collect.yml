@@ -20,7 +20,7 @@ permissions:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 200
     steps:
       - uses: actions/checkout@v4
         with:
@@ -41,11 +41,13 @@ jobs:
         run: |
           git config user.name "mercator-poc-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # GitHub abandonne une grande partie des executions planifiees. Chaque
-          # execution couvre donc plusieurs creneaux successifs : meme si une
-          # seule sur six demarre, la couverture reste complete. Le temoin de
-          # creneau, relu apres chaque pull, evite toute duplication.
-          for i in $(seq 1 ${CRENEAUX:-6}); do
+          # Mesure du 4 aout : GitHub ne declenche le cron qu'une douzaine de
+          # fois par jour, quelle que soit la frequence demandee. Avec 6 creneaux
+          # par execution la couverture plafonnait a 25 %. Chaque execution
+          # couvre donc desormais 36 creneaux, soit 3 heures : une douzaine de
+          # declenchements suffit alors a couvrir la journee entiere. Le temoin
+          # de creneau, relu apres chaque pull, evite toute duplication.
+          for i in $(seq 1 ${CRENEAUX:-36}); do
             git pull --rebase -q --autostash || true
             node src/collect.mjs || true
             git add -A data logs state
@@ -58,7 +60,7 @@ jobs:
             fi
             # Le test seul renverrait 1 a la derniere iteration et ferait
             # echouer l'etape alors que la collecte s'est bien passee.
-            if [ $i -lt ${CRENEAUX:-6} ]; then
+            if [ $i -lt ${CRENEAUX:-36} ]; then
               now=$(date +%s); suivant=$(( (now/300+1)*300 ))
               sleep $(( suivant - now + 5 ))
             fi
