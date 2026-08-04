@@ -111,12 +111,17 @@
         "ET-Client-Name": "blinytz-mercator"
       },
       "static_gtfs": "https://storage.googleapis.com/marduk-production/outbound/gtfs/rb_norway-aggregated-gtfs.zip",
+      "horaires_gtfs": [
+        "https://storage.googleapis.com/marduk-production/outbound/gtfs/rb_vyg-aggregated-gtfs.zip",
+        "https://storage.googleapis.com/marduk-production/outbound/gtfs/rb_flt-aggregated-gtfs.zip"
+      ],
       "filtre": "aucun",
       "identite": "statique",
       "licence": "NLOD, Entur",
       "sans_fenetre": true,
-      "cadence_ticks": 3,
-      "note": "operateurs ferroviaires uniquement ; le flux ne donne que le retard, sans heure absolue, d'ou la cadence reduite a 15 min et la reconstitution de l'heure a l'analyse"
+      "fuseau": "Europe/Oslo",
+      "jours_service_admis": [-1, 0],
+      "note": "operateurs ferroviaires uniquement ; le flux ne donne que le retard, sans heure absolue, d'ou la reconstitution de l'heure par jointure statique. La cadence reduite a 15 min (cadence_ticks 3) est retiree le 04/08 : elle avait ete posee a cause du volume, 13 464 arrets par capture, dont le filtre sur le jour de service retire desormais 84,8 %. A 1 987 arrets par capture la source est comparable a gtfs.de, et passer a la cadence pleine reduit encore le volume par rapport a l'ancien reglage (1 987 par creneau contre 4 488 en equivalent). C'etait aussi necessaire : une fenetre de fraicheur de 5 minutes ne peut pas etre tenue par une capture toutes les 15 minutes. Mesure du 04/08 : le flux publie les circulations jusqu'a cinq jours a l'avance, toutes annoncees a un retard de zero exactement ; 84,8 % d'une capture etait ainsi du bruit predit, d'ou le filtre sur le jour de service. Les horaires viennent des statiques par operateur (79 Mo) et non de l'agrege national (587 Mo), pour un appariement mesure a 100 %."
     },
     "ie_nta": {
       "pays": "Irlande",
@@ -127,11 +132,14 @@
         "secret": "IRELAND_API_KEY"
       },
       "static_gtfs": "https://www.transportforireland.ie/transitData/Data/GTFS_Realtime.zip",
+      "horaires_gtfs": "https://www.transportforireland.ie/transitData/Data/GTFS_Irish_Rail.zip",
       "filtre": "routes",
       "identite": "statique",
       "licence": "NTA developer terms",
       "sans_fenetre": true,
-      "note": "Retard seul, sans heure absolue : fenetre desactivee. Volume ferroviaire faible apres filtre, environ 50 trains par capture."
+      "fuseau": "Europe/Dublin",
+      "jours_service_admis": [-1, 0],
+      "note": "Retard seul, sans heure absolue : fenetre desactivee, heure reconstituee par jointure statique. Les horaires viennent du statique Irish Rail seul (7,9 Mo) et non du statique tous operateurs (106 Mo) : appariement mesure a 100 % sur 1 905 observations reelles du 04/08. agency.txt declare Europe/London la ou Europe/Dublin serait attendu ; les deux fuseaux ont le meme decalage toute l annee, la jointure n en est pas affectee."
     },
     "fi_digitraffic": {
       "pays": "Finlande",
@@ -140,11 +148,14 @@
       "entetes": {
         "Digitraffic-User": "Blinytz/MercatOr-POC"
       },
+      "horaires_gtfs": "https://rata.digitraffic.fi/api/v1/trains/gtfs-all.zip",
       "filtre": "aucun",
       "identite": "brut",
       "licence": "CC BY 4.0, Fintraffic",
       "sans_fenetre": true,
-      "note": "flux exclusivement ferroviaire et de petite taille ; retard seul, sans heure absolue"
+      "fuseau": "Europe/Helsinki",
+      "jours_service_admis": [-1, 0],
+      "note": "flux exclusivement ferroviaire et de petite taille ; retard seul, sans heure absolue, heure reconstituee par jointure statique. Appariement mesure a 100 % des trajets et 95,2 % des arrets le 04/08."
     },
     "nl_ovapi": {
       "pays": "Pays-Bas",

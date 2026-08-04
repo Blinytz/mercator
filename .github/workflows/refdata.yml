@@ -1,5 +1,8 @@
-# Référentiels de filtrage ferroviaire (routes/trips rail par source).
-# Quotidien : les statiques SNCF et gtfs.de régénèrent leurs identifiants.
+# Référentiels de filtrage ferroviaire (routes/trips rail par source) et
+# tables d'horaires théoriques.
+# Quotidien : les statiques SNCF et gtfs.de régénèrent leurs identifiants, et
+# les tables d'horaires doivent être archivées par jour pour que la jointure
+# des jours passés reste possible.
 name: refdata
 
 on:
@@ -31,12 +34,19 @@ jobs:
       - name: Construire les référentiels
         run: node src/refdata.mjs
 
+      # Norvège, Finlande et Irlande ne publient qu'un retard : sans horaire
+      # théorique daté, leurs observations restent sans heure d'événement.
+      # Un échec ici ne doit pas empêcher de committer les référentiels.
+      - name: Construire les tables d'horaires
+        if: always()
+        run: node src/horaires.mjs
+
       - name: Committer les référentiels
         if: always()
         run: |
           git config user.name "mercator-poc-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A state/refdata
+          git add -A state/refdata state/horaires
           if git diff --cached --quiet; then echo "rien à committer"; exit 0; fi
           git commit -m "refdata $(date -u +%FT%H:%MZ)"
           for i in 1 2 3; do

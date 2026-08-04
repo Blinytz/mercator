@@ -85,6 +85,19 @@ function analyserGtfsRt(buf, etiquette) {
     if (s.arrival?.delay != null || s.departure?.delay != null) avecDelay++;
   }
   console.log(`  heure absolue       : ${pct(avecHeure, arrets)} | retard seul : ${pct(avecDelay - avecHeure, arrets)}`);
+  // Quand le flux ne donne que le retard, l'heure se reconstitue par jointure
+  // avec l'horaire statique, ce qui exige le JOUR DE SERVICE et une sequence
+  // d'arret exploitable. Sans startDate, la source reste inutilisable meme si
+  // ses retards sont bons : c'est le point a verifier avant de la qualifier.
+  let avecSd = 0, avecSeq = 0;
+  const formesSd = new Set();
+  for (const e of tus) {
+    if (e.tripUpdate.trip?.startDate) { avecSd++; formesSd.add(String(e.tripUpdate.trip.startDate)); }
+    for (const s of e.tripUpdate.stopTimeUpdate || []) if (s.stopSequence) avecSeq++;
+  }
+  console.log(`  jour de service     : ${pct(avecSd, tus.length)} des trajets` +
+    `${formesSd.size ? ' (ex. ' + [...formesSd].slice(0, 2).join(', ') + ')' : ' -> JOINTURE STATIQUE IMPOSSIBLE'}`);
+  console.log(`  stopSequence        : ${pct(avecSeq, arrets)} des arrets`);
   console.log(`  annules ${annules}, arrets supprimes ${supprimes}, retards renseignes ${retards.length}`);
   if (retards.length) {
     console.log(`  retard median ${med(retards)} s | nuls ${pct(zero, retards.length)} | <=60 s ${pct(s60, retards.length)} | >5 min ${pct(p300, retards.length)} | ${distinctes} valeurs distinctes`);

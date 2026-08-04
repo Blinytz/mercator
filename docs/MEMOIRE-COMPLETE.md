@@ -343,6 +343,7 @@ données collectées, le simulateur du moteur et la documentation.
 ```
 src/collect.mjs        collecteur v2, par créneaux de 5 minutes
 src/refdata.mjs        référentiels : filtres ferroviaires et tables d'arrêts datées
+src/horaires.mjs       tables d'horaires théoriques datées, pour la jointure statique
 src/config.json        toute la configuration, sources comprises
 src/exclusions.json    gares et sources écartées, avec motif
 src/sonde-sources.mjs  sonde des sources à clé, exécutable en Actions
@@ -351,6 +352,7 @@ data/<source>/<jour>/  observations, un fichier par créneau
 data/_slots/<jour>/    témoins de créneau, empêchent la duplication
 logs/runs.ndjson       journal d'exécution
 state/refdata/         filtres et tables d'arrêts, archivées par jour
+state/horaires/        horaires théoriques, archivés par jour (NO, FI, IE)
 sim/                   simulateur du moteur et scripts d'analyse
 docs/                  rapports et catalogues
 ```
@@ -359,7 +361,7 @@ docs/                  rapports et catalogues
 
 ```json
 {"t":"2026-08-04T17:45:00.000Z","net":"fr_sncf","gare":"UIC87319012",
- "trip":"OCESN12177F1187_...","seq":0,"rel":"OK",
+ "trip":"OCESN12177F1187_...","seq":0,"sd":"20260804","rel":"OK",
  "ra":300,"rd":300,"ea":1785864900,"ed":1785865080,"fts":1785865416}
 ```
 
@@ -367,6 +369,11 @@ docs/                  rapports et catalogues
 CANCELED ou NO_DATA, `ra` et `rd` retards à l'arrivée et au départ en secondes,
 `ea` et `ed` heures estimées en époque Unix, `fts` horodatage de fraîcheur du
 flux.
+
+`sd`, ajouté le 4 août, est le jour de service normalisé en YYYYMMDD. C'est la
+clé de la jointure statique : sans lui, l'heure théorique devrait être devinée
+à partir de l'heure de collecte, ce qui échoue sur les trains de nuit. Il est
+nul pour l'Île-de-France, dont le flux SIRI porte déjà l'heure absolue.
 
 ## Le principe du collecteur v2
 
@@ -387,9 +394,9 @@ déclenche qu'une douzaine de fois par jour.
 | `fr_sncf` | France | GTFS-RT | aucune | identité par code UIC |
 | `fr_idfm` | France IdF | SIRI Lite | `apikey` | 5 RER, 1 000 appels/jour, fenêtre vers l'avant |
 | `ch_opentransport` | Suisse | GTFS-RT | `Authorization` | **désactivée**, en attente du statique |
-| `no_entur` | Norvège | GTFS-RT | aucune | opérateurs VYG et FLT, sans fenêtre, cadence 15 min |
-| `ie_nta` | Irlande | GTFS-RT | **`x-api-key`** | sans fenêtre |
-| `fi_digitraffic` | Finlande | GTFS-RT | aucune | sans fenêtre |
+| `no_entur` | Norvège | GTFS-RT | aucune | opérateurs VYG et FLT, sans fenêtre, borné au jour de service, cadence pleine depuis le 4 août |
+| `ie_nta` | Irlande | GTFS-RT | **`x-api-key`** | sans fenêtre, borné au jour de service |
+| `fi_digitraffic` | Finlande | GTFS-RT | aucune | sans fenêtre, borné au jour de service |
 | `nl_ovapi` | Pays-Bas | GTFS-RT | aucune | flux `trainUpdates.pb` |
 | `de_gtfsde` | Allemagne | GTFS-RT | aucune | meilleur contributeur |
 | `us_mta_mnr` | États-Unis | GTFS-RT | aucune | statique ajouté |
@@ -405,9 +412,12 @@ depuis GitHub Actions : pour tester une source à clé, lancer
 
 ## La fenêtre de qualification en cours
 
-Du **mercredi 5 août 03:00 UTC au mardi 11 août 03:00 UTC**, soit sept journées
+Du **mercredi 5 août 03:00 UTC au mercredi 12 août 03:00 UTC**, soit sept journées
 MercatOr complètes, chacune de 05:00 à 05:00 heure de Paris, week-end compris.
 Le collecteur tourne jusqu'au 13 août pour garder un jour de marge.
+
+C'est-à-dire du mercredi 5 au mardi 11 août inclus, sept jours de jeu. La date
+qui fait foi est `fenetre_qualification` dans `src/config.json`.
 
 ---
 
@@ -540,6 +550,17 @@ Volume : environ 135 Ko par créneau, soit 39 Mo par jour à couverture complèt
 8. **Un test bash en fin de boucle fait échouer toute la tâche.**
 9. **Le critère de régularité ne peut pas s'appliquer tant que la collecte est
    trouée** : il mesurerait nos trous et rejetterait Utrecht Centraal.
+10. **Entur publie les circulations jusqu'à cinq jours à l'avance**, toutes
+    annoncées à un retard de zéro exactement. Mesure du 4 août : 84,8 % d'une
+    capture était du bruit prédit, ce qui portait la source à 95,8 % de retards
+    nuls et l'aurait fait rejeter par le test anti-parfait. Toute source
+    déclarée `sans_fenetre` doit être bornée au jour de service.
+11. **La SNCF ne renseigne pas `stopSequence`** dans son flux temps réel : le
+    champ vaut 0 partout. Le `seq` de nos observations SNCF ne veut rien dire.
+    Variante du piège 4.
+12. **Un jour de service est local, jamais UTC.** Comparer une `startDate` à la
+    date UTC écarte toutes les observations valides pendant deux heures par
+    jour en Norvège, trois en Finlande, une en Irlande.
 
 ---
 
@@ -564,8 +585,10 @@ Volume : environ 135 Ko par créneau, soit 39 Mo par jour à couverture complèt
 1. **La Suisse est désactivée**, faute de GTFS statique pour filtrer le
    ferroviaire. Le concepteur peut le télécharger depuis sa session connectée
    sur opentransportdata.swiss. C'est la meilleure source du projet.
-2. **La reconstitution de l'heure d'événement** pour la Norvège, la Finlande et
-   l'Irlande, par jointure avec l'horaire statique, reste à écrire.
+2. ~~La reconstitution de l'heure d'événement pour la Norvège, la Finlande et
+   l'Irlande.~~ **Fait le 4 août**, voir `docs/jointure-statique.md`. Validée
+   contre la SNCF, qui publie à la fois l'heure et le retard : 8 191
+   comparaisons, 8 191 exactes à la seconde.
 3. **La couverture doit être vérifiée** sur 24 heures avec le correctif des
    36 créneaux. Si elle n'atteint pas 90 %, il faudra sortir de GitHub Actions.
 4. **Le catalogue officiel** n'existe pas encore. Le chiffre de 704 gares est
@@ -580,9 +603,11 @@ Dans cet ordre.
 1. **Vérifier la couverture** sur une journée pleine avec le correctif des
    36 créneaux. Seuil d'acceptation : 90 % des 288 créneaux par jour et par
    source. Script : compter les fichiers de `data/_slots/<jour>/`.
-2. **Écrire la jointure statique** pour la Norvège, la Finlande et l'Irlande,
-   afin de reconstituer l'heure d'événement à partir du retard et de l'horaire
-   théorique.
+2. ~~Écrire la jointure statique pour la Norvège, la Finlande et l'Irlande.~~
+   **Fait le 4 août.** `src/horaires.mjs` construit les tables d'horaires
+   datées, `sim/jointure.mjs` reconstitue l'heure, déduplique et filtre sur la
+   fraîcheur, `sim/verifier-jointure.mjs` rejoue la validation. Détail et
+   mesures dans `docs/jointure-statique.md`.
 3. **Débloquer la Suisse** si le concepteur fournit le GTFS statique.
 4. **Qualifier** sur la fenêtre du 5 au 11 août, en appliquant mécaniquement les
    critères de la partie 3, et produire `docs/catalogue-joueurs.md` : liste
@@ -609,6 +634,9 @@ Dans cet ordre.
 | `docs/handoff-catalogue-donnees.md` | critères de qualité |
 | `docs/tri-gares.csv` | tri des 2 743 gares en trois familles |
 | `docs/etat-donnees-retenues.csv` | listes nominatives |
+| `docs/jointure-statique.md` | reconstitution de l'heure d'événement, mesures du 4 août |
+| `sim/jointure.mjs` | jointure statique : heure, déduplication, fraîcheur |
+| `sim/verifier-jointure.mjs` | validation de la jointure contre la vérité SNCF |
 | `sim/moteur2.mjs` | simulateur du moteur v3 |
 | `sim/bilan.mjs` | bilan de campagne |
 | `sim/projection.mjs` | projection du catalogue |

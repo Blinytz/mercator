@@ -85,6 +85,41 @@ function identite(net, src, stopId) {
   return s;                                         // DIDOK suisse, code finlandais, StopArea francilien
 }
 
+// ---- Jour de service ----
+// GTFS impose YYYYMMDD, Entur publie les deux formes dans le même flux :
+// il faut normaliser avant toute comparaison.
+const normJour = d => String(d || '').replace(/-/g, '');
+
+// Un jour de service est LOCAL, jamais UTC. Oslo est à UTC+2 en été : entre
+// 22:00 et minuit UTC, le jour de service norvégien est déjà celui du
+// lendemain. Comparer à la date UTC écarterait alors toutes les observations
+// valides, deux heures par jour pour la Norvège, trois pour la Finlande.
+const fmtJour = new Map();
+function jourLocal(fuseau, ms) {
+  let f = fmtJour.get(fuseau);
+  if (!f) fmtJour.set(fuseau, f = new Intl.DateTimeFormat('en-CA', {
+    timeZone: fuseau, year: 'numeric', month: '2-digit', day: '2-digit',
+  }));
+  const p = Object.fromEntries(f.formatToParts(new Date(ms)).map(x => [x.type, x.value]));
+  return `${p.year}${p.month}${p.day}`;
+}
+// Les sources sans fenêtre livrent tout ce que contient le flux, y compris des
+// circulations futures. Mesure du 4 août sur Entur : 84,8 % d'une capture
+// portaient un jour de service postérieur, tous annoncés à un retard de zéro
+// exactement, soit une seule valeur distincte. Agrégé, cela porte la source à
+// 95,8 % de retards nuls et la ferait rejeter par le test anti-parfait, alors
+// que la journée du jour affiche 321 valeurs distinctes et 4,8 % de retards
+// supérieurs à cinq minutes. On borne donc au jour de service courant et à la
+// veille, qui suffit aux trains de nuit.
+function jourServiceAdmis(src, sd) {
+  if (!src.jours_service_admis) return true;
+  if (!sd) return true;                              // absence non pénalisée
+  const fuseau = src.fuseau || 'UTC';
+  return src.jours_service_admis
+    .map(n => jourLocal(fuseau, slotDebutMs + n * 86400000))
+    .includes(sd);
+}
+
 // ---- Réseau ----
 async function chercher(url, entetes) {
   for (let essai = 0; essai <= config.retry_par_cycle; essai++) {
@@ -131,7 +166,7 @@ async function collecterGtfsRt(net, src, lignes) {
   const fts = feeds[0].header.timestamp ? Number(feeds[0].header.timestamp) : null;
   const filtre = filtres[net];
   const [bBasse, bHaute] = fenetre(src);
-  let vus = 0, rail = 0, retenus = 0;
+  let vus = 0, rail = 0, retenus = 0, horsJour = 0;
   for (const e of feeds.flatMap(f => f.entity)) {
     const tu = e.tripUpdate;
     if (!tu?.trip) continue;
@@ -141,6 +176,8 @@ async function collecterGtfsRt(net, src, lignes) {
       const id = filtre.mode === 'trips' ? trip : route;
       if (!filtre.ids.has(id) && (filtre.exclus.has(id) || !src.garder_inconnus)) continue;
     }
+    const sd = normJour(tu.trip.startDate) || null;
+    if (!jourServiceAdmis(src, sd)) { horsJour++; continue; }
     rail++;
     const annule = REL_TRIP[tu.trip.scheduleRelationship ?? 0] === 'CANCELED';
     for (const stu of tu.stopTimeUpdate || []) {
@@ -159,13 +196,16 @@ async function collecterGtfsRt(net, src, lignes) {
         : (stu.scheduleRelationship ?? 0) === 1 ? 'SKIPPED'
           : (stu.scheduleRelationship ?? 0) === 2 ? 'NO_DATA' : 'OK';
       lignes.push({
-        t: slotISO, net, gare, trip, seq: stu.stopSequence ?? null, rel,
+        // sd, le jour de service, est la clé qui rend la jointure statique
+        // exacte : sans lui l'heure théorique devrait être devinée à partir de
+        // l'heure de collecte, ce qui échoue sur les trains de nuit.
+        t: slotISO, net, gare, trip, seq: stu.stopSequence ?? null, sd, rel,
         ra: stu.arrival?.delay ?? null, rd: stu.departure?.delay ?? null, ea, ed, fts,
       });
       retenus++;
     }
   }
-  return { statut: 'ok', vus, rail, retenus, quota, fraicheur: fts ? Math.round(Date.now() / 1000 - fts) : null };
+  return { statut: 'ok', vus, rail, retenus, horsJour, quota, fraicheur: fts ? Math.round(Date.now() / 1000 - fts) : null };
 }
 
 // ---- Collecte SIRI Lite, Île-de-France ----
@@ -199,7 +239,8 @@ async function collecterSiri(net, src, lignes) {
         if (!gare || garesKO.has(`${net}|${gare}`)) continue;
         const annule = call.DepartureStatus === 'CANCELLED' || call.ArrivalStatus === 'CANCELLED';
         lignes.push({
-          t: slotISO, net, gare, trip, seq: null, rel: annule ? 'CANCELED' : 'OK',
+          // SIRI porte l'heure absolue : aucune jointure statique nécessaire, d'où sd null.
+          t: slotISO, net, gare, trip, seq: null, sd: null, rel: annule ? 'CANCELED' : 'OK',
           ra: (aa != null && ea != null) ? Math.round(ea - aa) : null,
           rd: (ad != null && ed != null) ? Math.round(ed - ad) : null,
           ea, ed, fts: rec,
@@ -247,7 +288,7 @@ async function principal() {
   console.log(`Creneau ${slotJour} ${slotNom} : ${lignes.length} observations en ${journal.dureeS} s`);
   for (const [net, r] of Object.entries(journal.sources)) {
     console.log(`  ${net.padEnd(18)} ${r.statut === 'ok'
-      ? `${String(r.retenus).padStart(6)} retenues sur ${r.rail}/${r.vus} trajets${r.fraicheur != null ? ', fraicheur ' + r.fraicheur + ' s' : ''}`
+      ? `${String(r.retenus).padStart(6)} retenues sur ${r.rail}/${r.vus} trajets${r.horsJour ? ', ' + r.horsJour + ' hors jour de service' : ''}${r.fraicheur != null ? ', fraicheur ' + r.fraicheur + ' s' : ''}`
       : r.statut}`);
     if (r.quota && Object.keys(r.quota).length) console.log(`    quota : ${JSON.stringify(r.quota)}`);
   }
