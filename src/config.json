@@ -1,7 +1,7 @@
 {
   "comment": "Configuration du collecteur MercatOr. Aucune valeur codee en dur ailleurs.",
   "start_utc": "2026-08-02T09:00:00Z",
-  "end_utc": "2026-08-11T04:00:00Z",
+  "end_utc": "2026-08-13T04:00:00Z",
   "cycle_seconds": 300,
   "fenetre_avant_s": 420,
   "fenetre_apres_s": 60,
@@ -195,5 +195,16 @@
       "licence": "CC BY 4.0, State of Queensland"
     }
   },
-  "commentaire_fenetre": "Fenetre de qualification visee : lundi 3 aout 05:00 Paris au lundi 10 aout 05:00 Paris, soit 7 journees MercatOr completes. La marge jusqu au 11 permet de decaler d un jour si un incident survient."
+  "fenetre_qualification": {
+    "debut_utc": "2026-08-05T03:00:00Z",
+    "fin_utc": "2026-08-12T03:00:00Z",
+    "description": "7 journees MercatOr completes, du mercredi 5 au mardi 11 aout inclus, chaque journee courant de 05:00 a 05:00 heure de Paris. Comprend un week-end complet. Le collecteur tourne jusqu au 13 pour garder un jour de marge.",
+    "criteres": {
+      "jours_requis": 7,
+      "mouvements_min_par_jour": 15,
+      "fraicheur_min": 0.8,
+      "ponctualite_max": 0.98,
+      "couverture_min_par_jour": 0.9
+    }
+  }
 }
