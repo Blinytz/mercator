@@ -1,0 +1,15 @@
+# Le journal d'execution est un fichier en ajout seul, ecrit simultanement par
+# plusieurs executions de collecte qui se recouvrent. Sans strategie d'union,
+# chaque recouvrement produit un conflit que le workflow ne sait pas resoudre :
+# le 5 aout, un conflit sur ce seul fichier a bloque le depot en plein rebase
+# et fait perdre 2 h 05 de collecte, publication comprise.
+#
+# L'union concatene les deux versions au lieu de les opposer, ce qui est
+# exactement le comportement voulu pour un journal.
+logs/runs.ndjson merge=union
+
+# Les donnees collectees sont deja compressees : ni diff ni fusion n'ont de
+# sens dessus, et deux executions n'ecrivent jamais le meme creneau grace au
+# temoin. On les declare binaires pour eviter toute tentative de fusion.
+*.ndjson.gz binary
+*.json.gz binary

@@ -49,16 +49,36 @@ jobs:
           # couvre donc desormais 36 creneaux, soit 3 heures : une douzaine de
           # declenchements suffit alors a couvrir la journee entiere. Le temoin
           # de creneau, relu apres chaque pull, evite toute duplication.
+          # Mesure du 5 aout : deux executions simultanees ecrivent toutes deux
+          # dans logs/runs.ndjson, git ne sait pas les reconcilier, le || true
+          # avale l'echec et le depot reste bloque en plein rebase. Le
+          # collecteur a continue de collecter pendant 2 h 05 sans que rien ne
+          # soit publie, et l'execution s'est terminee en succes. 25 creneaux
+          # perdus sur une journee de qualification, et la couverture du jour
+          # tombee a 89,6 %.
+          #
+          # Deux garde-fous. Le conflit lui-meme disparait par la strategie
+          # d'union declaree dans .gitattributes, un journal en ajout seul se
+          # fusionnant par concatenation. Et par precaution chaque creneau
+          # repart d'une copie propre d'origin : aucun etat casse ne peut plus
+          # survivre d'un creneau au suivant.
+          publies=0
+          perdus=0
           for i in $(seq 1 ${CRENEAUX:-36}); do
-            git pull --rebase -q --autostash || true
+            git rebase --abort 2>/dev/null || true
+            git fetch -q origin main && git reset --hard -q origin/main
             node src/collect.mjs || true
             git add -A data logs state
             if ! git diff --cached --quiet; then
               git commit -q -m "collecte $(date -u +%FT%H:%MZ)"
+              pousse=0
               for k in 1 2 3; do
-                git push -q 2>/dev/null && break
-                sleep $((RANDOM % 4 + 2)); git pull --rebase -q --autostash || true
+                if git push -q 2>/dev/null; then pousse=1; break; fi
+                sleep $((RANDOM % 4 + 2))
+                git fetch -q origin main
+                git rebase -q origin/main || { git rebase --abort 2>/dev/null; break; }
               done
+              if [ $pousse -eq 1 ]; then publies=$((publies+1)); else perdus=$((perdus+1)); fi
             fi
             # Le test seul renverrait 1 a la derniere iteration et ferait
             # echouer l'etape alors que la collecte s'est bien passee.
@@ -67,5 +87,11 @@ jobs:
               sleep $(( suivant - now + 5 ))
             fi
           done
-          echo "collecte terminee"
+          echo "creneaux publies : $publies, perdus : $perdus"
+          # Une execution qui n'a rien publie alors qu'elle avait des donnees
+          # doit se voir : c'est exactement le silence qui a coute le 5 aout.
+          if [ $publies -eq 0 ] && [ $perdus -gt 0 ]; then
+            echo "AUCUN creneau publie sur $perdus tentatives" >&2
+            exit 1
+          fi
 
