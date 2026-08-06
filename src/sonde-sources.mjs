@@ -116,7 +116,47 @@ function analyserGtfsRt(buf, etiquette) {
 }
 
 // ============================================================
+// Le direct suisse ne sert a rien sans l'horaire theorique : la Suisse ne
+// publie que le retard, et son flux melange tous les modes de transport.
+// Tout depend donc d'une seule question : peut-on telecharger l'horaire
+// automatiquement ? Depuis un poste ordinaire, non, le portail repond 403.
+// Reste a savoir si un serveur, avec le jeton, obtient autre chose.
+async function suisseHoraire() {
+  console.log('\n===== SUISSE · telechargement automatique de l\'horaire =====');
+  const token = process.env.SWISS_TOKEN;
+  const base = 'https://data.opentransportdata.swiss';
+  const fichier = '/fr/dataset/timetable-2026-gtfs2020/resource_permalink/gtfs_fp2026_20260801.zip';
+  const essais = [
+    ['sans en-tete', {}],
+    ['Authorization brut', token ? { Authorization: token } : null],
+    ['Authorization Bearer', token ? { Authorization: 'Bearer ' + token } : null],
+    ['apikey', token ? { apikey: token } : null],
+    ['navigateur simule', { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0 Safari/537.36', Accept: '*/*' }],
+  ];
+  let gagnant = null;
+  for (const [libelle, entetes] of essais) {
+    if (!entetes) { console.log(`  essai ${libelle.padEnd(24)} -> jeton absent, ignore`); continue; }
+    try {
+      const ctl = new AbortController();
+      const t = setTimeout(() => ctl.abort(), 30000);
+      const r = await fetch(base + fichier, { method: 'GET', headers: entetes, redirect: 'follow', signal: ctl.signal });
+      clearTimeout(t);
+      const type = r.headers.get('content-type') || '';
+      const taille = r.headers.get('content-length');
+      console.log(`  essai ${libelle.padEnd(24)} -> ${r.statut ?? r.status} ${type.slice(0, 28)} ${taille ? (taille / 1048576).toFixed(0) + ' Mo' : ''}`);
+      if (r.status === 200 && /zip|octet-stream/.test(type)) { gagnant = libelle; break; }
+      r.body?.cancel?.();
+    } catch (e) {
+      console.log(`  essai ${libelle.padEnd(24)} -> echec : ${e.message}`);
+    }
+  }
+  console.log(gagnant
+    ? `  TELECHARGEMENT AUTOMATIQUE POSSIBLE : ${gagnant}`
+    : '  AUCUN ACCES AUTOMATIQUE : la Suisse ne peut pas etre entretenue sans intervention manuelle');
+}
+
 async function suisse() {
+  await suisseHoraire();
   console.log('\n===== SUISSE · opentransportdata.swiss =====');
   const token = presence('SWISS_TOKEN', process.env.SWISS_TOKEN);
   const hash = presence('SWISS_TOKEN_HASH', process.env.SWISS_TOKEN_HASH);
