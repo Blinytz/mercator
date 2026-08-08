@@ -412,12 +412,19 @@ depuis GitHub Actions : pour tester une source à clé, lancer
 
 ## La fenêtre de qualification en cours
 
-Du **mercredi 5 août 03:00 UTC au mercredi 12 août 03:00 UTC**, soit sept journées
+Du **vendredi 7 août 03:00 UTC au vendredi 14 août 03:00 UTC**, soit sept journées
 MercatOr complètes, chacune de 05:00 à 05:00 heure de Paris, week-end compris.
-Le collecteur tourne jusqu'au 13 août pour garder un jour de marge.
+Le collecteur tourne jusqu'au 15 août pour garder un jour de marge.
 
-C'est-à-dire du mercredi 5 au mardi 11 août inclus, sept jours de jeu. La date
+C'est-à-dire du vendredi 7 au jeudi 13 août inclus, sept jours de jeu. La date
 qui fait foi est `fenetre_qualification` dans `src/config.json`.
+
+**Décalée de deux jours le 8 août.** La fenêtre partait du 5. Ses deux premières
+journées ont été abîmées par un conflit sur le journal d'exécution qui bloquait
+la publication sans rien signaler : 89,6 % de couverture du 5 au 6, 64,9 % du 6
+au 7. La journée du 7 au 8, première entièrement postérieure au correctif, est à
+**288 créneaux sur 288**. Décaler valait mieux que de qualifier des gares sur des
+données trouées par notre propre panne.
 
 ---
 
@@ -561,6 +568,23 @@ Volume : environ 135 Ko par créneau, soit 39 Mo par jour à couverture complèt
 12. **Un jour de service est local, jamais UTC.** Comparer une `startDate` à la
     date UTC écarte toutes les observations valides pendant deux heures par
     jour en Norvège, trois en Finlande, une en Irlande.
+13. **Deux exécutions qui se recouvrent écrivent dans le même journal et le
+    conflit git bloque tout.** Le `|| true` avale l'échec, le dépôt reste en
+    plein rebase, le collecteur continue de collecter dans le vide et
+    l'exécution se termine en succès. 2 h 05 perdues le 5 août. Réglé par la
+    stratégie d'union dans `.gitattributes` et une remise à zéro sur origin
+    avant chaque créneau. **Une étape qui ne peut plus publier doit échouer
+    bruyamment.**
+14. **Le témoin de créneau empêche d'écrire deux fois, pas d'appeler deux
+    fois.** Les exécutions concurrentes interrogent toutes le même créneau au
+    même instant. Sans conséquence pour les sources libres, fatal pour
+    l'Île-de-France qui épuise ses 1 000 appels quotidiens en huit heures et
+    n'est donc observée que le matin.
+15. **Regrouper les événements par jour calendaire fausse la fraîcheur.** Les
+    trains de nuit appartiennent au jour de service suivant : la Norvège
+    tombait à 58,7 % de fraîcheur mesurée par dossier, contre **98,3 %**
+    mesurée par jour de service. L'analyse doit raisonner en journées de
+    service.
 
 ---
 
@@ -589,8 +613,10 @@ Volume : environ 135 Ko par créneau, soit 39 Mo par jour à couverture complèt
    l'Irlande.~~ **Fait le 4 août**, voir `docs/jointure-statique.md`. Validée
    contre la SNCF, qui publie à la fois l'heure et le retard : 8 191
    comparaisons, 8 191 exactes à la seconde.
-3. **La couverture doit être vérifiée** sur 24 heures avec le correctif des
-   36 créneaux. Si elle n'atteint pas 90 %, il faudra sortir de GitHub Actions.
+3. ~~La couverture doit être vérifiée sur 24 heures.~~ **Fait le 8 août :
+   288 créneaux sur 288** pour la journée du 7 au 8, soit 100 %. Il n'y a pas
+   lieu de sortir de GitHub Actions. Le plafond n'était pas le déclenchement du
+   cron mais un conflit git qui bloquait la publication, voir le piège 13.
 4. **Le catalogue officiel** n'existe pas encore. Le chiffre de 704 gares est
    une projection, pas un catalogue.
 

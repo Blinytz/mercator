@@ -1,7 +1,7 @@
 {
   "comment": "Configuration du collecteur MercatOr. Aucune valeur codee en dur ailleurs.",
   "start_utc": "2026-08-02T09:00:00Z",
-  "end_utc": "2026-08-13T04:00:00Z",
+  "end_utc": "2026-08-15T04:00:00Z",
   "cycle_seconds": 300,
   "fenetre_avant_s": 420,
   "fenetre_apres_s": 60,
@@ -207,9 +207,10 @@
     }
   },
   "fenetre_qualification": {
-    "debut_utc": "2026-08-05T03:00:00Z",
-    "fin_utc": "2026-08-12T03:00:00Z",
-    "description": "7 journees MercatOr completes, du mercredi 5 au mardi 11 aout inclus, chaque journee courant de 05:00 a 05:00 heure de Paris. Comprend un week-end complet. Le collecteur tourne jusqu au 13 pour garder un jour de marge.",
+    "debut_utc": "2026-08-07T03:00:00Z",
+    "fin_utc": "2026-08-14T03:00:00Z",
+    "description": "7 journees MercatOr completes, du vendredi 7 au jeudi 13 aout inclus, chaque journee courant de 05:00 a 05:00 heure de Paris. Comprend un week-end complet. Le collecteur tourne jusqu au 15 pour garder un jour de marge.",
+    "decalage_du_08_08": "La fenetre commencait le 5 aout. Les deux premieres journees ont ete abimees par un conflit de journal qui bloquait la publication sans rien signaler : 89,6 % de couverture du 5 au 6, 64,9 % du 6 au 7. La journee du 7 au 8, premiere entierement posterieure au correctif, est a 288 creneaux sur 288. La fenetre est donc decalee de deux jours plutot que de qualifier des gares sur des donnees trouees par notre propre panne.",
     "criteres": {
       "jours_requis": 7,
       "mouvements_min_par_jour": 15,
