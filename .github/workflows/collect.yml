@@ -62,6 +62,25 @@ jobs:
           # fusionnant par concatenation. Et par precaution chaque creneau
           # repart d'une copie propre d'origin : aucun etat casse ne peut plus
           # survivre d'un creneau au suivant.
+          #
+          # Mesure du 8 aout : il restait un second conflit, add/add cette fois,
+          # sur les fichiers de donnees eux-memes. Toutes les executions se
+          # reveillent a la meme seconde, donc aucune ne voit encore le temoin
+          # de l'autre : elles collectent le meme creneau en double, produisent
+          # deux fichiers differents sous le meme nom, et git ne peut pas
+          # trancher. Sans perte de donnees, l'une gagnant toujours, mais avec
+          # un gaspillage massif. Fatal pour la seule source a quota :
+          # l'Ile-de-France epuisait ses 1 000 appels quotidiens en huit heures
+          # et n'etait donc observee que le matin.
+          #
+          # Chaque execution tire donc une fois son propre decalage dans le
+          # creneau. La premiere reveillee publie, les suivantes constatent le
+          # temoin et passent leur tour : le temoin redevient efficace, et les
+          # executions qui se recouvrent deviennent de vraies remplacantes au
+          # lieu de concurrentes.
+          DECALAGE=$(( RANDOM % 40 + 3 ))
+          echo "decalage de cette execution : ${DECALAGE}s apres la borne du creneau"
+          sleep $DECALAGE
           publies=0
           perdus=0
           for i in $(seq 1 ${CRENEAUX:-36}); do
@@ -84,14 +103,20 @@ jobs:
             # echouer l'etape alors que la collecte s'est bien passee.
             if [ $i -lt ${CRENEAUX:-36} ]; then
               now=$(date +%s); suivant=$(( (now/300+1)*300 ))
-              sleep $(( suivant - now + 5 ))
+              sleep $(( suivant - now + DECALAGE ))
             fi
           done
           echo "creneaux publies : $publies, perdus : $perdus"
-          # Une execution qui n'a rien publie alors qu'elle avait des donnees
-          # doit se voir : c'est exactement le silence qui a coute le 5 aout.
-          if [ $publies -eq 0 ] && [ $perdus -gt 0 ]; then
-            echo "AUCUN creneau publie sur $perdus tentatives" >&2
+          # Une execution qui perd ses creneaux doit se voir. Le seuil du 5 aout
+          # etait mal choisi : il exigeait ZERO creneau publie, et laissait donc
+          # passer en silence une execution qui en avait publie 2 et perdu 33.
+          # Desormais on alerte des qu'une heure de collecte est perdue.
+          #
+          # Ne rien publier n'est en revanche pas une anomalie : une execution
+          # qui se reveille apres une autre trouve tous les temoins deja poses
+          # et n'a legitimement rien a faire. C'est le role de remplacante.
+          if [ $perdus -gt 12 ]; then
+            echo "$perdus creneaux perdus sur $((publies+perdus)) : la publication est en echec" >&2
             exit 1
           fi
 
