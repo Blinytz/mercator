@@ -77,12 +77,14 @@
         "secret": "IDFM_API_KEY"
       },
       "cadence_ticks": 2,
+      "fuseau": "Europe/Paris",
+      "heures_service": [4, 2],
       "identite": "brut",
       "licence": "Licence Mobilites, Ile-de-France Mobilites",
       "quota_jour": 1000,
       "fenetre_avant_s": 60,
       "fenetre_apres_s": 660,
-      "note": "Flux de prochains passages : ne contient que les arrets futurs, d ou une fenetre tournee vers l avant couvrant les 11 minutes suivantes."
+      "note": "Flux de prochains passages : ne contient que les arrets futurs, d ou une fenetre tournee vers l avant couvrant les 11 minutes suivantes. Seule source a quota, donc seule source ou un appel inutile coute quelque chose. Mesure du 8 aout : quota epuise a 05:30 UTC, la source ne repondait plus de la journee et n etait donc observee que le matin. Deux causes, corrigees le meme jour. Les executions concurrentes interrogeaient toutes le meme creneau, environ 8 fois trop d appels, reglé par la desynchronisation cote workflow. Et le collecteur interrogeait un reseau a l arret : 507 appels entre minuit et 2h UTC pour zero observation, d ou heures_service. Sur sept jours, la tranche 02h-04h heure de Paris n a jamais produit qu une seule observation."
     },
     "ch_opentransport": {
       "pays": "Suisse",

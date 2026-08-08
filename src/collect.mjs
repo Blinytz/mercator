@@ -120,6 +120,25 @@ function jourServiceAdmis(src, sd) {
     .includes(sd);
 }
 
+// ---- Amplitude de service ----
+// Interroger un réseau à l'arrêt coûte des appels et ne rapporte rien. Sans
+// quota c'est indolore, mais l'Île-de-France en paie chacun : mesure du 8 août,
+// 507 appels consommés entre minuit et 2 h UTC pour zéro observation, soit la
+// moitié du quota quotidien brûlée avant le premier RER. Sur sept jours de
+// collecte, cette tranche n'a jamais produit qu'une seule observation.
+//
+// Les bornes sont locales et peuvent enjamber minuit : [4, 2] signifie de
+// 04:00 à 01:59 le lendemain. Locales et non UTC, pour que le changement
+// d'heure ne décale pas la fenêtre.
+function enService(src) {
+  if (!src.heures_service) return true;
+  const h = Number(new Intl.DateTimeFormat('en-GB', {
+    timeZone: src.fuseau || 'UTC', hour: '2-digit', hour12: false,
+  }).format(slotDebut));
+  const [debut, fin] = src.heures_service;
+  return debut <= fin ? (h >= debut && h < fin) : (h >= debut || h < fin);
+}
+
 // ---- Réseau ----
 async function chercher(url, entetes) {
   for (let essai = 0; essai <= config.retry_par_cycle; essai++) {
@@ -278,6 +297,7 @@ async function principal() {
     if (src.actif === false) { journal.sources[net] = { statut: 'desactivee' }; return; }
     if (sourcesKO.has(net)) { journal.sources[net] = { statut: 'source rejetee' }; return; }
     if (src.cadence_ticks && slotIndex % src.cadence_ticks !== 0) { journal.sources[net] = { statut: 'hors cadence' }; return; }
+    if (!enService(src)) { journal.sources[net] = { statut: 'hors service' }; return; }
     journal.sources[net] = src.format === 'siri'
       ? await collecterSiri(net, src, lignes)
       : await collecterGtfsRt(net, src, lignes);
