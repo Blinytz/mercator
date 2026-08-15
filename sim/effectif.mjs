@@ -30,6 +30,21 @@ import { construireNoms } from './noms.mjs';
 
 const RACINE = join(dirname(fileURLToPath(import.meta.url)), '..');
 
+// Les emblèmes. Ces gares entrent dans l'effectif quoi qu'il arrive, en plus
+// des quotas, parce qu'un jeu ferroviaire sans Lyon Part-Dieu ni Marseille
+// Saint-Charles manquerait quelque chose.
+//
+// Elles sont là parce que l'équilibrage par pays, qui traite la France comme
+// la Finlande, n'accordait que deux places de superstar à un pays qui en a
+// vingt : dix-huit gares majeures sortaient, et le trou était brutal, la
+// française suivante retenue tombant de 472 à 190 mouvements par jour.
+// Plutôt que de tordre l'équilibrage, on nomme les exceptions.
+const EMBLEMES = [
+  'Lyon Part Dieu', 'Bordeaux Saint-Jean', 'Lille Flandres',
+  'Marseille Saint-Charles', 'Juvisy', 'Toulouse Matabiau', 'Lyon Perrache',
+  'Paris Montparnasse Hall 1 - 2',   // déjà retenue par les quotas, listée par cohérence
+];
+
 // La pyramide. Modifiable ici, c'est le seul réglage de l'effectif.
 const PYRAMIDE = [
   ['superstar', 12],
@@ -82,6 +97,21 @@ for (const [statut, quota] of PYRAMIDE) {
   for (const g of choisis) effectif.push(g);
 }
 
+// ---- Les emblèmes, ajoutés par-dessus les quotas ----
+// Il faut leur nom de gare complet pour les reconnaître : le catalogue ne
+// porte que l'identité technique, on passe donc par le module de noms.
+const nomsBruts = construireNoms(toutes.map(g => ({ cle: g.cle, net: g.net })));
+const dejaPris = new Set(effectif.map(g => g.net + '|' + g.cle));
+const ajoutes = [];
+for (const emblème of EMBLEMES) {
+  const g = toutes.find(x => nomsBruts.get(x.net + '|' + x.cle)?.complet === emblème);
+  if (!g) { manques.push(`emblème introuvable au catalogue : ${emblème}`); continue; }
+  if (dejaPris.has(g.net + '|' + g.cle)) continue;     // déjà retenue par les quotas
+  effectif.push(g);
+  dejaPris.add(g.net + '|' + g.cle);
+  ajoutes.push(g);
+}
+
 // ---- Noms de joueurs ----
 // La rareté des mots est calculée sur TOUT le catalogue, pas sur le seul
 // effectif : « Berlin » doit rester un mot fréquent même si une seule gare
@@ -96,6 +126,7 @@ const noms = construireNoms(ordreNommage.map(g => ({ cle: g.cle, net: g.net })))
 for (const g of effectif) {
   const n = noms.get(g.net + '|' + g.cle);
   g.nom = n.nom; g.gareComplete = n.complet; g.motifNom = n.motif || '';
+  g.reseau = g.net;      // la colonne du fichier s'appelle reseau, l'objet net
 }
 
 // ---- Synthèse ----

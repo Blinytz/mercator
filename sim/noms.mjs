@@ -111,6 +111,11 @@ export const EXCEPTIONS = {
 
   // -- France. Le composé n'est gardé que s'il est le nom, jamais s'il situe.
   'Lyon Part Dieu': 'Part-Dieu',
+  'Toulouse Matabiau': 'Matabiau',
+  'Lyon Perrache': 'Perrache',
+  'Lille Flandres': 'Flandres',
+  'Le Mans': 'Le Mans',                             // l'article fait partie du nom
+  'Le Mans Hôpital-Université': 'Hôpital-Université',
   'Paris Montparnasse Hall 1 - 2': 'Montparnasse',
   'Brive-la-Gaillarde': 'Brive',                    // « la Gaillarde » est un surnom de ville
   'Castelnau-d\'Estrétefonds': 'Castelnau',

@@ -1,9 +1,8 @@
 # Les noms de joueurs · règles et arbitrages
 
-15 août 2026. Effectif porté à 360 joueurs, prénoms supprimés, noms simplifiés.
+16 août 2026. Effectif porté à 367 joueurs, prénoms supprimés, noms simplifiés.
 
-**Résultat : 360 noms, 360 uniques, 7,8 caractères en moyenne, 353 en un seul
-mot.** Le nom complet de la gare est conservé dans chaque fiche.
+**Résultat : 367 noms, 367 uniques, tous distincts.** Le nom complet de la gare est conservé dans chaque fiche.
 
 ## Les six règles
 
@@ -32,7 +31,7 @@ font pas : **un nom propre en deux mots reste entier, deux villes accolées
 n'en donnent qu'une.** Fortitude Valley et Kew Gardens sont des noms ;
 Wolterdingen Soltau est une juxtaposition.
 
-Huit noms sur 360 gardent deux mots à ce titre : Fortitude Valley, Grand
+Huit noms sur 367 gardent deux mots à ce titre : Fortitude Valley, Grand
 Central, Kew Gardens, Hempstead Gardens, West Hempstead, Central Islip,
 Wynnum Central, Veenendaal West.
 
@@ -70,6 +69,10 @@ Retirer le qualificatif les confondrait, je l'ai donc gardé.
 | Lamotte-Beuvron | **Lamotte** | |
 | Les Sables-d'Olonne | **Olonne** | |
 | Lyon Part Dieu | **Part-Dieu** | composé gardé, c'est le nom et non la situation |
+| Toulouse Matabiau | **Matabiau** | votre exemple d'origine |
+| Lyon Perrache | **Perrache** | |
+| Lille Flandres | **Flandres** | |
+| Le Mans | **Le Mans** | l'article fait partie du nom, décision du concepteur |
 
 Les gares à Saint ont leur propre section plus bas : leur cas ne se règle pas
 par une règle.
