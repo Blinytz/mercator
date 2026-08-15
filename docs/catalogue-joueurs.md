@@ -41,10 +41,12 @@ A est la production cible d'actions par jour, K le coût d'une action,
 | Rotation | 25 à 50 | 1,5 | 2 575 | 1 973 |
 | Petit joueur | 15 à 25 | 1 | 1 152 | 709 |
 
-Quelques têtes d'affiche : Schiphol Airport (Pays-Bas, N = 742, la plus grosse
-gare du catalogue), Tampere TKL (Finlande, N = 467), Brisbane Central
-(Australie, N = 444), Asker (Norvège, N = 429), Paris Gare de Lyon (N = 429),
-Dublin Connolly (Irlande, N = 177).
+Quelques têtes d'affiche : Berlin Ostkreuz, la plus grosse gare du catalogue
+avec N = 1 595 et un K de superstar à 426, suivie de Berlin Friedrichstraße
+(N = 1 304) ; hors d'Allemagne, Schiphol Airport (Pays-Bas, N = 742),
+Tampere TKL (Finlande, N = 467), Brisbane Central (Australie, N = 444),
+Asker (Norvège, N = 429), Paris Gare de Lyon (N = 429), Dublin Connolly
+(Irlande, N = 177).
 
 **L'Allemagne représente 72 % du catalogue.** L'équilibrage du nombre de
 joueurs par pays au mercato est une décision réservée au concepteur, partie 5
