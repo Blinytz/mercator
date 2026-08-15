@@ -1,4 +1,4 @@
-# Effectif de la saison 1 · 367 joueurs
+# Effectif de la saison 1 · 370 joueurs
 
 Établi le 15 août 2026 à partir du catalogue qualifié de 6 555 gares, sur trois
 demandes du concepteur : casser la domination allemande, rendre les noms
@@ -8,11 +8,11 @@ prononçables, et ramener l'effectif à une taille jouable.
 
 | | Catalogue qualifié | Effectif de la saison |
 |---|---:|---:|
-| Joueurs | 6 555 | **367** |
+| Joueurs | 6 555 | **370** |
 | Part de l'Allemagne | 72 % | **19 %** |
-| Superstars | 377 | **19**, dont 7 emblèmes hors quota |
+| Superstars | 377 | **22**, dont 10 emblèmes hors quota |
 | Noms illisibles | la majorité | **aucun** |
-| Mots par nom | 3 à 5 | **1** dans 359 cas sur 367 |
+| Mots par nom | 3 à 5 | **1** dans 362 cas sur 370 |
 
 ## La pyramide
 
@@ -27,8 +27,8 @@ produit qu'une poignée de très grands joueurs.
 | Rotation | 120 | 25 à 50 | 1,5 |
 | Petit joueur | 130 | 15 à 25 | 1 |
 
-367 joueurs pour 8 équipes, soit 46 par équipe : de quoi composer un onze,
-tenir un banc et laisser au mercato de quoi négocier. La réserve des 6 188
+370 joueurs pour 8 équipes, soit 46 par équipe : de quoi composer un onze,
+tenir un banc et laisser au mercato de quoi négocier. La réserve des 6 185
 autres gares qualifiées reste disponible si le jeu s'ouvre un jour à plus de
 clubs.
 
@@ -40,7 +40,7 @@ récupèrent que le surplus dont les autres n'ont pas l'usage.
 
 | Pays | Superstar | Star | Titulaire | Rotation | Petit | Total | Part |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| France | 9 | 4 | 10 | 17 | 37 | 77 | 21 % |
+| France | 12 | 4 | 10 | 17 | 37 | 80 | 22 % |
 | Allemagne | 2 | 4 | 10 | 17 | 37 | 70 | 19 % |
 | Pays-Bas | 2 | 4 | 10 | 17 | 16 | 49 | 13 % |
 | États-Unis | 2 | 4 | 10 | 16 | 16 | 48 | 13 % |
@@ -65,16 +65,16 @@ places de superstar, alors qu'elle a vingt gares au niveau. Dix-huit gares
 majeures sortaient, et le trou était brutal : après Montparnasse à 472
 mouvements par jour, la française suivante retenue tombait à 190.
 
-**Sept gares entrent donc hors quota**, sur décision du concepteur, parce qu'un
-jeu ferroviaire sans elles manquerait quelque chose : Part-Dieu, Saint-Jean,
-Flandres, Saint-Charles, Juvisy, Matabiau et Perrache. Montparnasse, déjà
-retenue par les quotas, complète la liste des emblèmes.
+**Dix gares entrent donc hors quota**, sur décision du concepteur, parce qu'un
+jeu ferroviaire sans elles manquerait quelque chose : Part-Dieu, Lyon,
+Saint-Jean, Flandres, Saint-Charles, Nantes, Juvisy, Nord, Matabiau et
+Perrache. Montparnasse, déjà retenue par les quotas, complète la liste.
 
-L'effectif passe donc de 360 à 367 joueurs et la France à 21 %. Le mécanisme
+L'effectif passe donc de 360 à 370 joueurs et la France à 22 %. Le mécanisme
 d'équilibrage n'est pas modifié : on nomme les exceptions plutôt que de tordre
 la règle.
 
-## Les dix-neuf superstars
+## Les vingt-deux superstars
 
 | Joueur | Pays | N | Ponctualité | K |
 |---|---|---:|---:|---:|
@@ -97,8 +97,12 @@ la règle.
 | **Juvisy** | France | 315 | 92,4 % | 84 |
 | **Matabiau** | France | 307 | 88,3 % | 82 |
 | **Perrache** | France | 262 | 93,5 % | 70 |
+| **Lyon** | France | 429 | 88,8 % | 115 |
+| **Nord** | France | 325 | 92,9 % | 87 |
+| **Nantes** | France | 320 | 90,0 % | 86 |
 
-Les sept dernières sont les emblèmes ajoutés hors quota.
+Les dix dernières sont les emblèmes ajoutés hors quota. Paris Gare de Lyon
+joue sous le nom de **Lyon** : la ville, elle, joue sous Part-Dieu et Perrache.
 
 Nationaltheatret à 80,4 % et Tikkurila à 97,9 % : deux superstars aux profils
 opposés, l'une qui trébuche souvent, l'autre presque infaillible. C'est
@@ -113,7 +117,7 @@ Six règles, et une trentaine d'arbitrages pris à la main là où les règles
 produisaient un non-mot. Détail complet, cas litigieux compris, dans
 `docs/noms-arbitrages.md`.
 
-**367 noms, 367 uniques, tous distincts.**
+**370 noms, 370 uniques, tous distincts.**
 
 
 ## Le contraste de ponctualité, préservé
@@ -136,7 +140,7 @@ normalisation, décision actée, et l'effectif garde toute son amplitude.
 
 | Fichier | Contenu |
 |---|---|
-| `docs/effectif-saison-1.csv` | les 367 joueurs : nom, pays, statut, N, K, ponctualité, fraîcheur, gare d'origine |
+| `docs/effectif-saison-1.csv` | les 370 joueurs : nom, pays, statut, N, K, ponctualité, fraîcheur, gare d'origine |
 | `sim/effectif.mjs` | la sélection : pyramide et liste des emblèmes en tête de fichier |
 | `sim/noms.mjs` | la fabrication des noms, exceptions comprises |
 | `docs/noms-arbitrages.md` | les règles et tous les arbitrages |

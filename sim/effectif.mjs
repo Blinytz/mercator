@@ -42,6 +42,7 @@ const RACINE = join(dirname(fileURLToPath(import.meta.url)), '..');
 const EMBLEMES = [
   'Lyon Part Dieu', 'Bordeaux Saint-Jean', 'Lille Flandres',
   'Marseille Saint-Charles', 'Juvisy', 'Toulouse Matabiau', 'Lyon Perrache',
+  'Paris Gare de Lyon Hall 1 - 2', 'Paris Gare du Nord', 'Nantes',
   'Paris Montparnasse Hall 1 - 2',   // déjà retenue par les quotas, listée par cohérence
 ];
 

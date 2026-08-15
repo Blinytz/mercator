@@ -111,6 +111,8 @@ export const EXCEPTIONS = {
 
   // -- France. Le composé n'est gardé que s'il est le nom, jamais s'il situe.
   'Lyon Part Dieu': 'Part-Dieu',
+  'Paris Gare de Lyon Hall 1 - 2': 'Lyon',          // la gare parisienne prend le nom, la ville joue sous Part-Dieu
+  'Paris Gare du Nord': 'Nord',
   'Toulouse Matabiau': 'Matabiau',
   'Lyon Perrache': 'Perrache',
   'Lille Flandres': 'Flandres',
