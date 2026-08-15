@@ -93,6 +93,7 @@ async function telecharger(url) {
 async function construire(nom, source) {
   const urls = Array.isArray(source.horaires_gtfs) ? source.horaires_gtfs : [source.horaires_gtfs];
   const trajets = {};
+  const arrets = {};
   let fuseau = null;
   const stats = { routesRail: 0, routesTotal: 0, tripsRail: 0, tripsTotal: 0, arretsRetenus: 0, arretsIgnores: 0 };
 
@@ -127,6 +128,16 @@ async function construire(nom, source) {
     }
     stats.tripsRail += tripsRail.size;
 
+    // Les sources sans statique de filtrage n'ont pas de table d'arrêts
+    // ailleurs : on la construit ici, sinon leurs gares restent des codes.
+    if (!source.static_gtfs) {
+      for (const s of lignesCsv(lire('stops.txt'))) {
+        if (!s.stop_id) continue;
+        arrets[s.stop_id] = [s.stop_name || '', s.parent_station || '',
+          Number(Number(s.stop_lat).toFixed(5)) || 0, Number(Number(s.stop_lon).toFixed(5)) || 0];
+      }
+    }
+
     for (const s of lignesCsv(lire('stop_times.txt'))) {
       if (!s.trip_id || !tripsRail.has(s.trip_id)) { stats.arretsIgnores++; continue; }
       const seq = Number(s.stop_sequence);
@@ -138,6 +149,18 @@ async function construire(nom, source) {
 
   if (!fuseau) throw new Error('aucun agency_timezone déclaré');
   if (!stats.arretsRetenus) throw new Error('aucun horaire ferroviaire retenu');
+
+  // Table d'arrêts pour les sources qui n'ont pas de statique de filtrage :
+  // sans elle, la Finlande reste identifiée par ses seuls codes officiels
+  // (TKL, PSL) et ses gares n'ont pas de nom lisible au catalogue.
+  if (!source.static_gtfs && Object.keys(arrets).length) {
+    const refdata = join(RACINE, 'state', 'refdata');
+    mkdirSync(refdata, { recursive: true });
+    const charge = gzipSync(JSON.stringify({ builtAt: new Date().toISOString(), arrets }));
+    writeFileSync(join(refdata, `${nom}_stops_${new Date().toISOString().slice(0, 10)}.json.gz`), charge);
+    writeFileSync(join(refdata, `${nom}_stops.json.gz`), charge);
+    console.log(`[${nom}] table d'arrêts : ${Object.keys(arrets).length} arrêts`);
+  }
 
   mkdirSync(SORTIE, { recursive: true });
   const jour = new Date().toISOString().slice(0, 10);

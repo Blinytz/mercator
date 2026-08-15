@@ -1,0 +1,321 @@
+nom;prenom;pays;statut;N;K;ponctualite;fraicheur;distincts;annulesJour;gareComplete;reseau;cle
+Ostkreuz;Berlin;Allemagne;superstar;1594.9;426;96.4;98.5;242;0;S Ostkreuz Bhf (Berlin);;sostkreuzbhfberlin@52.50,13.47
+Utrecht;;Pays-Bas;superstar;1143.7;305;94.6;99.1;586;0;Utrecht Centraal;;utrechtcentraal@52.09,5.11
+Strasbourg;;France;superstar;512.1;137;94.6;100;24;1.71;Strasbourg;;UIC87212027
+Oslo;;Norvege;superstar;838.3;224;86.6;97.8;802;0;Oslo S;;oslos@59.91,10.75
+Jamaica;;Etats-Unis;superstar;670.7;179;96;95.7;642;0.29;Jamaica;;jamaica@40.70,-73.81
+Fortitude Valley;;Australie;superstar;498.6;133;91.1;97.8;564;0;Fortitude Valley station;;fortitudevalleystation@-27.46,153.03
+Tikkurila;;Finlande;superstar;466.6;125;97.9;99.4;334;0;Tikkurila;;TKL
+Friedrichstr;Berlin;Allemagne;superstar;1304.1;348;96.8;99.1;158;0;S+U Friedrichstr. Bhf (Berlin);;sufriedrichstrbhfberlin@52.52,13.39
+Amsterdam;;Pays-Bas;superstar;1014.6;271;92.1;99.1;666;0;Amsterdam Centraal;;amsterdamcentraal@52.38,4.90
+Montparnasse;Paris;France;superstar;472.3;126;92.3;99.9;33;1.29;Paris Montparnasse Hall 1 - 2;;UIC87391003
+Nationaltheatret;;Norvege;superstar;607.6;163;80.4;100;755;0;Nationaltheatret stasjon;;nationaltheatretstasjon@59.92,10.73
+Penn;;Etats-Unis;superstar;403.6;108;94.5;99.9;663;0;Penn Station;;pennstation@40.75,-73.99
+Troisdorf;;Allemagne;star;199.6;64;82.2;96.1;39;0;Troisdorf Bf;;troisdorfbf@50.81,7.15
+Almelo;;Pays-Bas;star;196.4;63;96.9;96.9;213;0;Almelo;;almelo@52.36,6.66
+Amiens;;France;star;190.1;61;90.7;99.9;24;1.57;Amiens;;UIC87313874
+Hicksville;;Etats-Unis;star;190.3;61;92.1;98.6;420;0;Hicksville;;hicksville@40.77,-73.53
+Strømmen;;Norvege;star;133.7;43;86;98.6;334;0;Strømmen stasjon;;strmmenstasjon@59.95,11.00
+Northgate;;Australie;star;198.3;64;89.3;99.6;373;0;Northgate station;;northgatestation@-27.39,153.07
+Kerava;;Finlande;star;193.9;63;97.4;91.4;242;0;Kerava;;KE
+Connolly;;Irlande;star;177.1;57;94.7;87.9;25;0;Connolly;;connolly@53.35,-6.25
+Neufahrn;;Allemagne;star;199.1;64;84;98.3;28;0;Neufahrn;;neufahrn@48.32,11.66
+Vaartsche Rijn;Utrecht;Pays-Bas;star;196.4;63;94.2;99.7;296;0;Utrecht Vaartsche Rijn;;utrechtvaartscherijn@52.08,5.12
+Mans;Le;France;star;184.4;60;90.4;99.8;22;4.14;Le Mans;;UIC87396002
+Mineola;;Etats-Unis;star;184.4;60;91.6;98.5;449;0;Mineola;;mineola@40.74,-73.64
+Grorud;;Norvege;star;123.3;40;81.2;98.7;308;0;Grorud stasjon;;grorudstasjon@59.95,10.89
+Wooloowin;;Australie;star;181.6;59;90.2;97.4;352;0;Wooloowin station;;wooloowinstation@-27.42,153.04
+Louhela;;Finlande;star;149.9;48;97.5;98.4;239;0;Louhela;;LOH
+Harras;;Allemagne;star;199;64;86.6;95;31;0;Harras;;harras@48.12,11.54
+Naarden-Bussum;;Pays-Bas;star;195.9;63;93.9;99.1;321;0;Naarden-Bussum;;naardenbussum@52.28,5.16
+Grenoble;;France;star;180.6;58;88.8;100;22;3;Grenoble;;UIC87747006
+Stamford;;Etats-Unis;star;179.1;58;91.4;98.3;30;0;Stamford;;stamford@41.05,-73.54
+Holmlia;;Norvege;star;117.3;38;91.5;100;230;0;Holmlia stasjon;;holmliastasjon@59.84,10.80
+South Brisbane;;Australie;star;174.9;56;92.6;98.2;311;0;South Brisbane station;;southbrisbanestation@-27.47,153.02
+Martinlaakso;;Finlande;star;143.9;47;97.9;96.9;229;0;Martinlaakso;;MRL
+Vilbel;Bad;Allemagne;star;198.4;64;86.6;99.2;35;0;Bad Vilbel Bahnhof;;badvilbelbahnhof@50.19,8.74
+Roermond;;Pays-Bas;star;192.4;62;94;96.8;284;0;Roermond;;roermond@51.19,5.99
+Chambéry Challes-les-Eaux;;France;star;180;58;85.2;99.8;22;1;Chambéry - Challes-les-Eaux;;UIC87741009
+Fordham;;Etats-Unis;star;178.1;58;94.9;99.4;30;0;Fordham;;fordham@40.86,-73.89
+Hauketo;;Norvege;star;117.3;38;92.9;100;246;0;Hauketo stasjon;;hauketostasjon@59.85,10.80
+Boggo Road;;Australie;star;171.6;55;93;96.2;292;0;Boggo Road station;;boggoroadstation@-27.49,153.03
+Weil der Stadt;;Allemagne;titulaire;99.9;40;96.6;92.6;23;0;Weil der Stadt;;weilderstadt@48.76,8.87
+Montereau;;France;titulaire;99.3;40;86;99.4;31;2.71;Montereau;;UIC87682302
+Kew Gardens;;Etats-Unis;titulaire;99.4;40;91.5;100;298;0;Kew Gardens;;kewgardens@40.71,-73.83
+Lent;Nijmegen;Pays-Bas;titulaire;99.9;40;97.3;99.9;142;0;Nijmegen Lent;;nijmegenlent@51.86,5.86
+Wellington Point;;Australie;titulaire;91.9;37;95;99.4;175;0;Wellington Point station;;wellingtonpointstation@-27.49,153.24
+Tara Street;;Irlande;titulaire;85.6;35;91.2;89.4;17;0;Tara Street;;tarastreet@53.35,-6.25
+Moss;;Norvege;titulaire;97.1;39;88.7;97.1;268;0;Moss stasjon;;mossstasjon@59.43,10.66
+Hyvinkää;;Finlande;titulaire;71.1;29;98;92.6;150;0;Hyvinkää;;HY
+Pullach;;Allemagne;titulaire;99.9;40;89.6;93;24;0;Pullach;;pullach@48.06,11.52
+Brive-la-Gaillarde;;France;titulaire;96.6;39;92;100;14;4.71;Brive-la-Gaillarde;;UIC87594002
+Forest Hills;;Etats-Unis;titulaire;99.1;40;90.2;99.1;320;0;Forest Hills;;foresthills@40.72,-73.84
+Antwerpen;;Pays-Bas;titulaire;99.1;40;92.8;99.9;98;0;Antwerpen-Centraal;;antwerpencentraal@51.22,4.42
+Lota;;Australie;titulaire;90.4;37;92.6;99.4;246;0;Lota station;;lotastation@-27.47,153.19
+Dun Laoghaire Mallin;;Irlande;titulaire;77.4;31;87.6;85.8;21;0;Dun Laoghaire (Mallin);;dunlaoghairemallin@53.29,-6.13
+Heggedal;;Norvege;titulaire;75.6;31;83;100;212;0;Heggedal stasjon;;heggedalstasjon@59.79,10.43
+Järvenpää;;Finlande;titulaire;59.7;24;95.5;97.2;150;0;Järvenpää;;JP
+Rodgau-Nieder-Roden Rollwald;;Allemagne;titulaire;99.7;40;67.2;98.4;41;0;Rodgau-Nieder-Roden Rollwald Bahnhof;;rodgauniederrodenrollwaldbahnhof@49.99,8.85
+Béziers;;France;titulaire;95.1;39;80.5;99.7;18;2.71;Béziers;;UIC87781005
+Croton-Harmon;;Etats-Unis;titulaire;98.3;40;92.6;99.6;24;0;Croton-Harmon;;crotonharmon@41.19,-73.88
+Dukenburg;Nijmegen;Pays-Bas;titulaire;98.1;40;96.7;99.7;157;0;Nijmegen Dukenburg;;nijmegendukenburg@51.82,5.79
+Thorneside;;Australie;titulaire;90;36;94.9;98.7;221;0;Thorneside station;;thornesidestation@-27.49,153.19
+Howth Junction Donaghmede;;Irlande;titulaire;77;31;95.5;91.5;17;0;Howth Junction and Donaghmede;;howthjunctionanddonaghmede@53.39,-6.16
+Røyken;;Norvege;titulaire;75.4;31;83.3;99.8;200;0;Røyken stasjon;;rykenstasjon@59.75,10.39
+Saunakallio;;Finlande;titulaire;59.3;24;96.9;98.8;127;0;Saunakallio;;SAU
+Baden-Baden;;Allemagne;titulaire;99.7;40;78.1;96.5;161;0;Baden-Baden;;badenbaden@48.79,8.19
+Biganos Facture;;France;titulaire;92.9;38;90.2;99.8;12;0.57;Biganos Facture;;UIC87582478
+Brentwood;;Etats-Unis;titulaire;97.1;39;94.6;99.9;322;0;Brentwood;;brentwood@40.78,-73.24
+Goffert;Nijmegen;Pays-Bas;titulaire;97.6;40;96.6;98.3;144;0;Nijmegen Goffert;;nijmegengoffert@51.83,5.82
+Birkdale;;Australie;titulaire;89.9;36;92.7;99.1;223;0;Birkdale station;;birkdalestation@-27.49,153.22
+Blackrock;;Irlande;titulaire;74;30;90.3;85.6;21;0;Blackrock;;blackrock@53.30,-6.18
+Eidsvoll verk;;Norvege;titulaire;73.6;30;76.1;100;258;0;Eidsvoll verk stasjon;;eidsvollverkstasjon@60.29,11.17
+Crailsheim;;Allemagne;titulaire;99.7;40;65.5;94.6;48;0;Crailsheim Bahnhof;;crailsheimbahnhof@49.14,10.06
+Montmélian;;France;titulaire;92.9;38;88.2;99.7;17;0.57;Montmélian;;UIC87741181
+Lynbrook;;Etats-Unis;titulaire;96.9;39;92.5;97.8;282;0;Lynbrook;;lynbrook@40.66,-73.68
+Wijchen;;Pays-Bas;titulaire;96.7;39;96.3;97.6;155;0;Wijchen;;wijchen@51.81,5.73
+Altandi;;Australie;titulaire;89.7;36;91.9;99.4;198;0;Altandi station;;altandistation@-27.58,153.06
+Seapoint;;Irlande;titulaire;73.3;30;90.3;88.8;20;0;Seapoint;;seapoint@53.30,-6.17
+Gullhella;;Norvege;titulaire;70.9;29;79.4;100;261;0;Gullhella stasjon;;gullhellastasjon@59.81,10.44
+Wössingen;Ost;Allemagne;titulaire;99.6;40;78.5;97.1;299;0;Wössingen Ost;;wssingenost@49.02,8.61
+Nevers;;France;titulaire;92.3;37;86.8;99.8;19;1.86;Nevers;;UIC87696005
+Hillside Facility;;Etats-Unis;titulaire;96.6;39;91.6;98.1;279;0;Hillside Facility;;hillsidefacility@40.71,-73.78
+Zuid;Arnhem;Pays-Bas;titulaire;92.7;38;97.1;99.7;126;0;Arnhem Zuid;;arnhemzuid@51.96,5.85
+Manly;;Australie;titulaire;89.3;36;92.2;98.6;213;0;Manly station;;manlystation@-27.46,153.18
+Dalkey;;Irlande;titulaire;71.7;29;84.7;87.6;23;0;Dalkey;;dalkey@53.28,-6.10
+Bondivann;;Norvege;titulaire;70.9;29;81.3;100;234;0;Bondivann stasjon;;bondivannstasjon@59.82,10.43
+Leopoldshafen Frankfurter Straße;;Allemagne;titulaire;99.6;40;93.1;94.6;191;0;Leopoldshafen Frankfurter Straße;;leopoldshafenfrankfurterstrae@49.10,8.40
+Vierzon;;France;titulaire;90.1;37;89.7;100;16;3.86;Vierzon;;UIC87576009
+Lindenhurst;;Etats-Unis;titulaire;96.3;39;93;99.3;316;0;Lindenhurst;;lindenhurst@40.69,-73.37
+Bergen op Zoom;;Pays-Bas;titulaire;92.3;37;94.3;99.8;171;0;Bergen op Zoom;;bergenopzoom@51.49,4.30
+Wynnum;;Australie;titulaire;87.1;35;89.7;97.9;217;0;Wynnum station;;wynnumstation@-27.44,153.17
+Salthill Monkstown;;Irlande;titulaire;71.4;29;89.2;86.2;20;0;Salthill and Monkstown;;salthillandmonkstown@53.30,-6.15
+Spikkestad;;Norvege;titulaire;70.6;29;88.7;99.6;169;0;Spikkestad stasjon;;spikkestadstasjon@59.74,10.34
+Unterföhring;;Allemagne;titulaire;99.4;40;93.8;95.5;21;0;Unterföhring;;unterfhring@48.19,11.65
+Pessac;;France;titulaire;90;36;92.4;100;15;2;Pessac;;UIC87581751
+Copiague;;Etats-Unis;titulaire;95.7;39;93.3;98.7;307;0;Copiague;;copiague@40.68,-73.40
+Boven-Hardinxveld;;Pays-Bas;titulaire;91.9;37;97.5;96.5;152;0;Boven-Hardinxveld;;bovenhardinxveld@51.83,4.88
+Nundah;;Australie;titulaire;85.7;35;92.5;97.2;226;0;Nundah station;;nundahstation@-27.40,153.06
+Sandymount;;Irlande;titulaire;70.9;29;92.1;86.7;18;0;Sandymount;;sandymount@53.33,-6.22
+Vestby;;Norvege;titulaire;66.3;27;95;100;154;0;Vestby stasjon;;vestbystasjon@59.60,10.75
+Leopoldshafen Leopoldstraße;;Allemagne;titulaire;99.4;40;93.2;95.5;195;0;Leopoldshafen Leopoldstraße;;leopoldshafenleopoldstrae@49.10,8.40
+Selters Taunus Niederselters;;Allemagne;rotation;49.9;27;79.4;97.8;29;0;Selters (Taunus)-Niederselters Bahnhof;;selterstaunusniederseltersbahnhof@50.33,8.23
+Laon;;France;rotation;49.9;27;92.6;100;11;0.43;Laon;;UIC87296012
+Enschede Kennispark;;Pays-Bas;rotation;49.4;27;97.4;92.3;95;0;Enschede Kennispark;;enschedekennispark@52.24,6.84
+Hokksund;;Norvege;rotation;47.6;26;79.3;99.4;183;0;Hokksund stasjon;;hokksundstasjon@59.77,9.91
+Queens Village;;Etats-Unis;rotation;48.9;27;91.5;100;219;0;Queens Village;;queensvillage@40.72,-73.74
+Clonsilla;;Irlande;rotation;49.9;27;88;90.6;19;0;Clonsilla;;clonsilla@53.38,-6.42
+Dutton Park;;Australie;rotation;49.9;27;93.4;99.1;127;0;Dutton Park station;;duttonparkstation@-27.50,153.03
+Karjaa;;Finlande;rotation;34.9;19;98;94.2;50;0;Karjaa;;KR
+Fronhausen;;Allemagne;rotation;49.9;27;77.9;94.3;45;0;Fronhausen Bahnhof;;fronhausenbahnhof@50.71,8.70
+Saint-Dié-des-Vosges;;France;rotation;49.7;27;95.4;100;7;0;Saint-Dié-des-Vosges;;UIC87144014
+Brummen;;Pays-Bas;rotation;48.9;27;95.9;99.7;67;0;Brummen;;brummen@52.09,6.15
+Myrdal;;Norvege;rotation;46.9;25;87.8;100;117;0;Myrdal stasjon;;myrdalstasjon@60.74,7.12
+St Albans;;Etats-Unis;rotation;47.9;26;91.9;100;169;0;St. Albans;;stalbans@40.69,-73.77
+Drumcondra;;Irlande;rotation;49.3;27;95.4;91;20;0;Drumcondra;;drumcondra@53.36,-6.26
+Coopers;Plains;Australie;rotation;48.7;26;92.4;99.7;101;0;Coopers Plains station;;coopersplainsstation@-27.57,153.04
+Oitti;;Finlande;rotation;33.1;18;97.4;100;92;0;Oitti;;OI
+Bischweier;Baden;Allemagne;rotation;49.9;27;60.5;97.5;208;0;Bischweier (Baden);;bischweierbaden@48.83,8.28
+Mézidon Canon;;France;rotation;49.7;27;91.7;99.7;12;0;Mézidon - Canon;;UIC87444208
+Velp;;Pays-Bas;rotation;48;26;97.6;98.8;89;0;Velp;;velp@52.00,5.98
+Voss;;Norvege;rotation;44.9;24;93.6;100;111;0;Voss stasjon;;vossstasjon@60.63,6.41
+Shore;Bay;Etats-Unis;rotation;47.1;26;85.5;100;195;0;Bay Shore;;bayshore@40.72,-73.25
+Drogheda MacBride;;Irlande;rotation;44.7;24;80.5;81.7;24;0;Drogheda (MacBride);;droghedamacbride@53.71,-6.34
+Sunnybank;;Australie;rotation;48.4;26;92.9;98.8;109;0;Sunnybank station;;sunnybankstation@-27.58,153.05
+Herrala;;Finlande;rotation;32.4;18;97.8;97.8;79;0;Herrala;;HR
+Brehna;;Allemagne;rotation;49.9;27;90;91.6;22;0;Brehna;;brehna@51.55,12.22
+Saint-Roch;;France;rotation;49.3;27;91.6;100;8;0.29;Saint-Roch;;UIC87313080
+Brouwhuis;Helmond;Pays-Bas;rotation;47.4;26;97.9;99.4;106;0;Helmond Brouwhuis;;helmondbrouwhuis@51.47,5.70
+Sandefjord;;Norvege;rotation;44.9;24;87.6;100;163;0;Sandefjord stasjon;;sandefjordstasjon@59.14,10.22
+Sayville;;Etats-Unis;rotation;46.6;25;85.3;100;198;0;Sayville;;sayville@40.74,-73.09
+Clongriffin;;Irlande;rotation;43.7;24;96.1;91.9;17;0;Clongriffin;;clongriffin@53.40,-6.15
+Rocklea;;Australie;rotation;48;26;96.7;98.8;105;0;Rocklea station;;rockleastation@-27.54,153.01
+Mommila;;Finlande;rotation;32.1;18;97.3;97;97;0;Mommila;;MLA
+Alte Veste;;Allemagne;rotation;49.9;27;75.6;94.8;26;0;Alte Veste;;alteveste@49.45,10.97
+Pas Lanciers;;France;rotation;49.3;27;95.7;100;8;0.14;Pas des Lanciers;;UIC87753285
+Beek-Elsloo;;Pays-Bas;rotation;47.3;26;97;99.4;73;0;Beek-Elsloo;;beekelsloo@50.95,5.79
+Tønsberg;;Norvege;rotation;44.7;24;85.3;99.7;161;0;Tønsberg stasjon;;tnsbergstasjon@59.27,10.41
+Patchogue;;Etats-Unis;rotation;46.3;25;83.3;99.1;187;0;Patchogue;;patchogue@40.76,-73.02
+Broombridge;;Irlande;rotation;43.4;24;96.1;89.4;17;0;Broombridge;;broombridge@53.37,-6.30
+Edens Landing;;Australie;rotation;47.9;26;86.9;99.1;132;0;Edens Landing station;;edenslandingstation@-27.70,153.17
+Hikiä;;Finlande;rotation;30.1;17;97.2;97.2;95;0;Hikiä;;HK
+Neidenstein;;Allemagne;rotation;49.7;27;92;96.7;18;0;Neidenstein, Bahnhof;;neidensteinbahnhof@49.32,8.89
+Étaples Le Touquet;;France;rotation;49;27;86.6;100;17;0.14;Étaples - Le Touquet;;UIC87317065
+Rheden;;Pays-Bas;rotation;47.3;26;97.6;97.9;73;0;Rheden;;rheden@52.01,6.03
+Stokke;;Norvege;rotation;43.7;24;87.3;100;152;0;Stokke stasjon;;stokkestasjon@59.22,10.30
+Great River;;Etats-Unis;rotation;44.3;24;85.8;98.4;179;0;Great River;;greatriver@40.74,-73.17
+Ashtown;;Irlande;rotation;38.7;21;91.1;93.8;21;0;Ashtown;;ashtown@53.38,-6.33
+Wilston;;Australie;rotation;47.9;26;93.7;97.1;127;0;Wilston station;;wilstonstation@-27.44,153.02
+Langenhagen;Flughafen;Allemagne;rotation;49.7;27;81;97.5;33;0;Langenhagen Flughafen;;langenhagenflughafen@52.46,9.70
+Saint-Chamas;;France;rotation;48.9;27;95.9;99.7;7;0.29;Saint-Chamas;;UIC87753202
+Eygelshoven Markt;;Pays-Bas;rotation;47.1;26;96.7;100;95;0;Eygelshoven Markt;;eygelshovenmarkt@50.90,6.06
+Larvik;;Norvege;rotation;43.6;24;86.6;100;165;0;Larvik stasjon;;larvikstasjon@59.05,10.03
+Haven;New;Etats-Unis;rotation;43.9;24;97.1;100;14;0;New Haven;;newhaven@41.30,-72.93
+Coolmine;;Irlande;rotation;38.6;21;84.8;92.5;20;0;Coolmine;;coolmine@53.38,-6.39
+Mitchelton;;Australie;rotation;47.4;26;88;92.5;154;0;Mitchelton station;;mitcheltonstation@-27.41,152.98
+Roitzsch Bitterf;;Allemagne;rotation;49.7;27;90.2;89.9;23;0;Roitzsch(Bitterf);;roitzschbitterf@51.57,12.26
+Castelnau-d'Estrétefonds;;France;rotation;48.9;27;93;99.7;13;0.29;Castelnau-d'Estrétefonds;;UIC87611665
+Hout;Helmond;Pays-Bas;rotation;46.6;25;97.5;85.1;104;0;Helmond 't Hout;;helmondthout@51.47,5.63
+Skoppum;;Norvege;rotation;41.1;22;78.8;100;154;0;Skoppum stasjon;;skoppumstasjon@59.39,10.41
+Islip;;Etats-Unis;rotation;43.3;24;85.8;100;179;0;Islip;;islip@40.74,-73.21
+Portmarnock;;Irlande;rotation;38;21;90.6;91.4;17;0;Portmarnock;;portmarnock@53.42,-6.15
+Deagon;;Australie;rotation;42.3;23;92.9;94;121;0;Deagon station;;deagonstation@-27.33,153.06
+Birkenau;;Allemagne;rotation;49.7;27;83;95.6;22;0;Birkenau, Bahnhof;;birkenaubahnhof@49.56,8.71
+Ferté-sous-Jouarre;La;France;rotation;48.7;26;91.2;100;24;0.14;La Ferté-sous-Jouarre;;UIC87116517
+Bunde;;Pays-Bas;rotation;46.1;25;97.5;99.7;75;0;Bunde;;bunde@50.90,5.74
+Holmestrand;;Norvege;rotation;41.1;22;76.7;100;191;0;Holmestrand stasjon;;holmestrandstasjon@59.49,10.31
+Oakdale;;Etats-Unis;rotation;43.1;24;83.4;100;176;0;Oakdale;;oakdale@40.74,-73.13
+Park West Cherry Orchard;;Irlande;rotation;37.3;20;95.4;92.9;30;0;Park West and Cherry Orchard;;parkwestandcherryorchard@53.33,-6.38
+Woodridge;;Australie;rotation;42.1;23;93.2;100;89;0;Woodridge station;;woodridgestation@-27.64,153.10
+Oberau;;Allemagne;rotation;49.6;27;42.9;96.9;28;0;Oberau;;oberau@47.56,11.14
+Nemours Saint-Pierre;;France;rotation;48.4;26;73.2;99.1;32;0.43;Nemours - Saint-Pierre;;UIC87684126
+Veenendaal;Centrum;Pays-Bas;rotation;45.6;25;96.2;99.7;77;0;Veenendaal Centrum;;veenendaalcentrum@52.02,5.55
+Gran;;Norvege;rotation;41.1;22;86.5;100;182;0;Gran stasjon;;granstasjon@60.36,10.57
+Glenbrook;;Etats-Unis;rotation;40.3;22;95.7;100;15;0;Glenbrook;;glenbrook@41.07,-73.52
+Pelletstown;;Irlande;rotation;36.7;20;93.8;92.8;18;0;Pelletstown;;pelletstown@53.38,-6.31
+Kippa-Ring;;Australie;rotation;42;23;96.6;98;40;0;Kippa-Ring station;;kipparingstation@-27.23,153.08
+Wemmetsweiler;Rathaus;Allemagne;rotation;49.6;27;89;98.3;20;0;Wemmetsweiler Rathaus;;wemmetsweilerrathaus@49.37,7.09
+Saint-André-le-Gaz;;France;rotation;48.4;26;91.4;99.7;12;0.29;Saint-André-le-Gaz;;UIC87723494
+Veenendaal West;;Pays-Bas;rotation;45.1;25;97.2;98.8;86;0;Veenendaal West;;veenendaalwest@52.03,5.53
+Sande;;Norvege;rotation;41.1;22;72.6;100;193;0;Sande stasjon;;sandestasjon@59.59,10.20
+Malverne;;Etats-Unis;rotation;40.1;22;94.3;100;177;0;Malverne;;malverne@40.68,-73.67
+Castleknock;;Irlande;rotation;34.9;19;87.7;85.9;20;0;Castleknock;;castleknock@53.38,-6.37
+Salisbury;;Australie;rotation;40.6;22;96.5;98.3;93;0;Salisbury station;;salisburystation@-27.55,153.02
+Rockenhausen;;Allemagne;rotation;49.6;27;82.1;96.1;28;0;Rockenhausen, Bahnhof;;rockenhausenbahnhof@49.63,7.82
+Tain-l'Hermitage Tournon;;France;rotation;48.3;26;82.2;100;20;0.57;Tain-l'Hermitage - Tournon;;UIC87761163
+Rhenen;;Pays-Bas;rotation;44.9;24;96.2;100;68;0;Rhenen;;rhenen@51.96,5.58
+Lunner;;Norvege;rotation;41.1;22;88.9;100;155;0;Lunner stasjon;;lunnerstasjon@60.30,10.58
+Springdale;;Etats-Unis;rotation;39.4;22;96;98.9;15;0;Springdale;;springdale@41.09,-73.52
+Hazelhatch Celbridge;;Irlande;rotation;34.7;19;93;85;18;0;Hazelhatch and Celbridge;;hazelhatchandcelbridge@53.32,-6.52
+Domestic Airport;;Australie;rotation;40.6;22;96.1;94;100;0;Domestic Airport station;;domesticairportstation@-27.38,153.12
+Bevensen;Bad;Allemagne;rotation;49.4;27;77.5;96.9;43;0;Bad Bevensen;;badbevensen@53.08,10.57
+Biarritz;;France;rotation;48;26;86;100;19;1.43;Biarritz;;UIC87673400
+Heino;;Pays-Bas;rotation;44.7;24;97.4;100;76;0;Heino;;heino@52.43,6.22
+Grua;;Norvege;rotation;41.1;22;90.6;100;178;0;Grua stasjon;;gruastasjon@60.26,10.66
+West Hempstead;;Etats-Unis;rotation;39.1;21;94.2;100;156;0;West Hempstead;;westhempstead@40.70,-73.64
+Navan Road Parkway;;Irlande;rotation;34.6;19;87.2;85.8;19;0;Navan Road Parkway;;navanroadparkway@53.38,-6.35
+Fairfield;;Australie;rotation;40.6;22;94;97.3;132;0;Fairfield station;;fairfieldstation@-27.51,153.03
+Großkorbetha;;Allemagne;rotation;49.4;27;88.4;81.6;42;0;Großkorbetha;;grokorbetha@51.27,12.02
+Tullins Fures;;France;rotation;48;26;84.8;100;18;1.71;Tullins Fures;;UIC87761759
+Ruurlo;;Pays-Bas;rotation;44.4;24;92.9;97.5;140;0;Ruurlo;;ruurlo@52.08,6.45
+Harestua;;Norvege;rotation;41.1;22;87.2;100;168;0;Harestua stasjon;;harestuastasjon@60.21,10.72
+Ronshausen;;Allemagne;petit joueur;24.9;20;83.9;91.1;17;0;Ronshausen;;ronshausen@50.95,9.85
+Portets;;France;petit joueur;24.9;20;89.1;100;8;0.29;Portets;;UIC87582718
+Noorderkempen;;Pays-Bas;petit joueur;24.6;20;89.5;100;59;0;Noorderkempen;;noorderkempen@51.36,4.63
+Dover;Plains;Etats-Unis;petit joueur;24.3;20;92.4;98.8;16;0;Dover Plains;;doverplains@41.74,-73.58
+Rush Lusk;;Irlande;petit joueur;24.6;20;77.9;92;17;0;Rush and Lusk;;rushandlusk@53.52,-6.14
+Kjosfossen;;Norvege;petit joueur;19.4;16;94.9;100;36;0;Kjosfossen stasjon;;kjosfossenstasjon@60.75,7.14
+Shorncliffe;;Australie;petit joueur;21.3;18;91.9;88.2;66;0;Shorncliffe station;;shorncliffestation@-27.33,153.08
+Salo;;Finlande;petit joueur;23.3;19;97.5;90.6;37;0;Salo;;SLO
+Hermsdorf;Dresden;Allemagne;petit joueur;24.9;20;97.1;84.1;8;0;Hermsdorf (b Dresden) Bahnhof;;hermsdorfbdresdenbahnhof@51.17,13.82
+Elne;;France;petit joueur;24.9;20;89.1;99.4;11;0.43;Elne;;UIC87784207
+Apeldoorn Maten;;Pays-Bas;petit joueur;24.4;20;97.7;100;64;0;Apeldoorn De Maten;;apeldoorndematen@52.21,6.00
+Tenmile River;;Etats-Unis;petit joueur;23.4;19;92.7;98.2;14;0;Tenmile River;;tenmileriver@41.78,-73.56
+Skerries;;Irlande;petit joueur;24.3;20;76.5;90.4;19;0;Skerries;;skerries@53.57,-6.12
+Vatnahalsen;;Norvege;petit joueur;19.4;16;92.6;100;50;0;Vatnahalsen stasjon;;vatnahalsenstasjon@60.74,7.13
+Nambour;;Australie;petit joueur;19.4;16;86.8;93.8;64;0;Nambour station;;nambourstation@-26.63,152.96
+Elfershausen-Trimberg;;Allemagne;petit joueur;24.9;20;93.1;99.4;14;0;Elfershausen-Trimberg;;elfershausentrimberg@50.14,9.97
+Villefranche Vernet-les-Bains;;France;petit joueur;24.9;20;94.8;100;7;0.57;Villefranche - Vernet-les-Bains;;UIC87784686
+Mechelen;;Pays-Bas;petit joueur;24;20;91.1;100;31;0;Mechelen;;mechelen@51.02,4.48
+Branchville;;Etats-Unis;petit joueur;23.3;19;84;98.8;19;0;Branchville;;branchville@41.27,-73.44
+Donabate;;Irlande;petit joueur;23.3;19;91.4;88.1;15;0;Donabate;;donabate@53.49,-6.15
+Håreina;;Norvege;petit joueur;18;15;96.8;100;24;0;Håreina stasjon;;hreinastasjon@60.84,7.12
+Gröditz;;Allemagne;petit joueur;24.9;20;89.7;98.9;23;0;Gröditz Bahnhof;;grditzbahnhof@51.41,13.44
+Couëron;;France;petit joueur;24.9;20;93.1;100;7;1.86;Couëron;;UIC87481804
+Westf;Münster;Pays-Bas;petit joueur;23.7;19;84.3;82.2;23;0;Münster (Westf) Hbf;;mnsterwestfhbf@51.96,7.64
+Cannondale;;Etats-Unis;petit joueur;23.1;19;85.2;100;18;0;Cannondale;;cannondale@41.22,-73.43
+Balbriggan;;Irlande;petit joueur;23.1;19;74.1;86.2;18;0;Balbriggan;;balbriggan@53.61,-6.18
+Blomheller;;Norvege;petit joueur;18;15;94.4;100;30;0;Blomheller stasjon;;blomhellerstasjon@60.77,7.10
+Kempten;Allgäu Ost;Allemagne;petit joueur;24.9;20;55.2;95.6;21;0;Kempten (Allgäu) Ost;;kemptenallguost@47.73,10.33
+Bléré la Croix;;France;petit joueur;24.9;20;94.3;100;10;1.29;Bléré - la Croix;;UIC87574475
+Bentheim;Bad;Pays-Bas;petit joueur;23.7;19;74.7;99.4;51;0;Bad Bentheim;;badbentheim@52.31,7.16
+Bethel;;Etats-Unis;petit joueur;23;19;86.3;98.8;23;0;Bethel;;bethel@41.38,-73.42
+Laytown;;Irlande;petit joueur;23.1;19;77.8;86.2;17;0;Laytown Station;;laytownstation@53.68,-6.24
+Reinunga;;Norvege;petit joueur;18;15;92.9;100;44;0;Reinunga stasjon;;reinungastasjon@60.74,7.14
+Oberhaid;;Allemagne;petit joueur;24.9;20;94.8;92.1;12;0;Oberhaid;;oberhaid@49.93,10.82
+Calais Fréthun;;France;petit joueur;24.9;20;91.4;99.4;10;0;Calais - Fréthun;;UIC87281071
+Brussels Airport-Zaventem;;Pays-Bas;petit joueur;23.6;19;93.3;100;22;0;Brussels Airport-Zaventem;;brusselsairportzaventem@50.90,4.48
+Redding;;Etats-Unis;petit joueur;22.6;19;84.8;99.4;20;0;Redding;;redding@41.33,-73.43
+Gormanston Stn;;Irlande;petit joueur;22.3;18;73.7;85.7;19;0;Gormanston Stn;;gormanstonstn@53.64,-6.22
+Finse;;Norvege;petit joueur;17.4;14;81.1;100;75;0;Finse stasjon;;finsestasjon@60.60,7.50
+Rainau-Schwabsberg;;Allemagne;petit joueur;24.9;20;55.7;86.6;33;0;Rainau-Schwabsberg, Bahnhof;;rainauschwabsbergbahnhof@48.93,10.14
+Podensac;;France;petit joueur;24.7;20;89.6;100;8;0.29;Podensac;;UIC87582734
+Puurs;;Pays-Bas;petit joueur;22.6;19;91.8;100;26;0;Puurs;;puurs@51.08,4.28
+Wilton;;Etats-Unis;petit joueur;22.4;18;82.8;98.7;19;0;Wilton;;wilton@41.20,-73.43
+Limerick Colbert;;Irlande;petit joueur;22;18;96.1;80.2;12;0;Limerick (Colbert);;limerickcolbert@52.66,-8.62
+Haga;;Norvege;petit joueur;17.3;14;71.1;91;86;0;Haga stasjon;;hagastasjon@60.05,11.37
+Kutenholz;;Allemagne;petit joueur;24.9;20;95.4;90.6;12;0;Kutenholz;;kutenholz@53.47,9.31
+Saint-Médard-d'Eyrans;;France;petit joueur;24.7;20;89.6;98.9;8;0.29;Saint-Médard-d'Eyrans;;UIC87582692
+Rheine;;Pays-Bas;petit joueur;22.3;18;76.3;99.4;43;0;Rheine;;rheine@52.28,7.44
+Merritt;;Etats-Unis;petit joueur;22.3;18;84;96.9;17;0;Merritt 7;;merritt7@41.15,-73.43
+Dunboyne;;Irlande;petit joueur;17.9;15;87.2;90.6;15;0;Dunboyne;;dunboyne@53.42,-6.46
+Geilo;;Norvege;petit joueur;15.4;13;81.5;100;67;0;Geilo stasjon;;geilostasjon@60.53,8.21
+Meppen;;Allemagne;petit joueur;24.9;20;66.7;92.6;37;0;Meppen, Bahnhof;;meppenbahnhof@52.70,7.30
+Bègles;;France;petit joueur;24.7;20;90.2;99.4;8;0.29;Bègles;;UIC87581801
+Emmerich;;Pays-Bas;petit joueur;19.3;16;82.2;98.5;77;0;Emmerich;;emmerich@51.83,6.25
+Wassaic;;Etats-Unis;petit joueur;18.7;15;95.4;100;10;0;Wassaic;;wassaic@41.81,-73.56
+Monasterevin;;Irlande;petit joueur;16.7;14;87.2;90.7;17;0;Monasterevin;;monasterevin@53.15,-7.06
+Garbeck;Balve;Allemagne;petit joueur;24.9;20;97.1;97.2;11;0;Balve, Garbeck;;balvegarbeck@51.32,7.84
+Buisson;Le;France;petit joueur;24.7;20;79.2;98.3;15;0.57;Le Buisson;;UIC87595751
+Emmerich-Elten;;Pays-Bas;petit joueur;18.9;16;80.3;100;90;0;Emmerich-Elten;;emmerichelten@51.87,6.15
+Montauk;;Etats-Unis;petit joueur;17.4;14;73.8;100;82;0.14;Montauk;;montauk@41.05,-71.95
+Athenry;;Irlande;petit joueur;16.7;14;71.8;94.4;31;0;Athenry;;athenry@53.30,-8.75
+Steinwenden;;Allemagne;petit joueur;24.7;20;83.2;92.5;16;0;Steinwenden, Bahnhof;;steinwendenbahnhof@49.45,7.52
+Château-du-Loir;;France;petit joueur;24.7;20;72.3;100;12;3.43;Château-du-Loir;;UIC87396606
+Wesel;;Pays-Bas;petit joueur;17.6;15;85.4;100;29;0;Wesel;;wesel@51.66,6.63
+Bridgehampton;;Etats-Unis;petit joueur;17.1;14;75;100;96;0;Bridgehampton;;bridgehampton@40.94,-72.31
+Hansfield;;Irlande;petit joueur;16.3;14;89.5;89.8;13;0;Hansfield;;hansfield@53.39,-6.44
+Wünschendorf;;Allemagne;petit joueur;24.7;20;91.3;93;16;0;Wünschendorf;;wnschendorf@50.80,12.10
+Méru;;France;petit joueur;24.6;20;90.7;100;10;0.57;Méru;;UIC87313668
+Oberhausen-Sterkrade;;Pays-Bas;petit joueur;17;14;84.9;100;24;0;Oberhausen-Sterkrade;;oberhausensterkrade@51.51,6.84
+East Hampton;;Etats-Unis;petit joueur;17;14;77.3;100;84;0.29;East Hampton;;easthampton@40.97,-72.19
+Galway Ceannt;;Irlande;petit joueur;16.1;13;64.6;94.2;33;0;Galway (Ceannt);;galwayceannt@53.27,-9.05
+Mömbris-Mensengesäß;;Allemagne;petit joueur;24.7;20;96;95.1;11;0;Mömbris-Mensengesäß;;mmbrismensenges@50.07,9.17
+Collioure;;France;petit joueur;24.6;20;89.5;100;11;0.43;Collioure;;UIC87784256
+Zwolle Stadshagen;;Pays-Bas;petit joueur;15.3;13;94.4;100;36;0;Zwolle Stadshagen;;zwollestadshagen@52.53,6.05
+Amagansett;;Etats-Unis;petit joueur;16.7;14;76.1;100;97;0;Amagansett;;amagansett@40.98,-72.13
+Thurles;;Irlande;petit joueur;16;13;46.4;88.2;22;0;Thurles;;thurles@52.68,-7.82
+Kürbitz;;Allemagne;petit joueur;24.7;20;74.6;81.6;20;0;Kürbitz, Bahnhof;;krbitzbahnhof@50.46,12.07
+Bornel Belle-Église;;France;petit joueur;24.6;20;91.3;100;8;0.57;Bornel - Belle-Église;;UIC87276717
+Kaldenkirchen;;Pays-Bas;petit joueur;15.1;13;73.6;100;75;0;Kaldenkirchen;;kaldenkirchen@51.33,6.20
+Southampton;;Etats-Unis;petit joueur;16.6;14;78.4;100;93;0;Southampton;;southampton@40.89,-72.39
+Heinsberg Horst Borgansstraße;;Allemagne;petit joueur;24.7;20;79.8;97.2;17;0;Heinsberg, Horst Borgansstraße;;heinsberghorstborgansstrae@51.03,6.18
+Chambly;;France;petit joueur;24.6;20;91.3;100;9;0.57;Chambly;;UIC87276725
+Breyell;;Pays-Bas;petit joueur;15;12;74.3;100;80;0;Breyell;;breyell@51.30,6.24
+Hampton Bays;;Etats-Unis;petit joueur;15.9;13;81.1;100;84;0.14;Hampton Bays;;hamptonbays@40.88,-72.52
+Westheim-Langendorf;;Allemagne;petit joueur;24.7;20;95.4;95.1;13;0;Westheim-Langendorf;;westheimlangendorf@50.13,9.93
+Saint-Sulpice Auteuil;;France;petit joueur;24.4;20;91.8;100;9;0.57;Saint-Sulpice - Auteuil;;UIC87313684
+Düsseldorf;Flughafen;Pays-Bas;petit joueur;15;12;86.7;100;17;0;Düsseldorf Flughafen;;dsseldorfflughafen@51.29,6.79
+Westhampton;;Etats-Unis;petit joueur;15.9;13;77.5;100;87;0;Westhampton;;westhampton@40.83,-72.65
+Wolterdingen Soltau;;Allemagne;petit joueur;24.7;20;60.1;93.5;32;0;Wolterdingen(Soltau);;wolterdingensoltau@53.03,9.85
+Cerbère;;France;petit joueur;24.4;20;90.1;99.4;11;0.43;Cerbère;;UIC87785006
+Tiefenau;;Allemagne;petit joueur;24.7;20;90.2;98.3;16;0;Tiefenau Bahnhof;;tiefenaubahnhof@51.39,13.41
+Banyuls-sur-Mer;;France;petit joueur;24.4;20;90.1;100;10;0.43;Banyuls-sur-Mer;;UIC87784298
+Kälberau;;Allemagne;petit joueur;24.7;20;95.4;86.5;11;0;Kälberau;;klberau@50.09,9.09
+Bourg-en-Bresse Routière;;France;petit joueur;24.4;20;97.7;100;6;0;Bourg-en-Bresse Gare Routière;;UIC87696013
+Rövershagen Karls Erlebnisdorf;;Allemagne;petit joueur;24.7;20;97.7;91.1;9;0;Rövershagen Karls Erlebnisdorf;;rvershagenkarlserlebnisdorf@54.16,12.24
+Argelès-sur-Mer;;France;petit joueur;24.4;20;89.5;100;11;0.43;Argelès-sur-Mer;;UIC87784231
+Sinntal-Jossa;;Allemagne;petit joueur;24.7;20;93.6;96.1;13;0;Sinntal-Jossa Bahnhof;;sinntaljossabahnhof@50.23,9.60
+Ambazac;;France;petit joueur;24.4;20;94.7;100;7;0.57;Ambazac;;UIC87592311
+Brest Brest-Aspe;;Allemagne;petit joueur;24.7;20;96;88.7;9;0;Brest, Brest-Aspe;;brestbrestaspe@53.46,9.38
+Saint-Sulpice-Laurière;;France;petit joueur;24.4;20;95.3;100;6;0.57;Saint-Sulpice-Laurière;;UIC87592345
+Witzwort;;Allemagne;petit joueur;24.7;20;97.1;93.5;10;0;Witzwort;;witzwort@54.39,9.00
+Saint-Étienne-de-Montluc;;France;petit joueur;24.4;20;92.4;100;9;1.86;Saint-Étienne-de-Montluc;;UIC87481812
+Harblek;;Allemagne;petit joueur;24.7;20;97.1;81.6;9;0;Harblek;;harblek@54.36,8.96
+Port-Vendres;;France;petit joueur;24.3;20;90;100;10;0.43;Port-Vendres;;UIC87784264
+Würzbach;Saar;Allemagne;petit joueur;24.7;20;45.7;96.6;20;0;Würzbach (Saar);;wrzbachsaar@49.24,7.19
+Sables-d'Olonne;Les;France;petit joueur;24.3;20;87.1;99.4;11;0;Les Sables-d'Olonne;;UIC87486449
+Einöd;Saar;Allemagne;petit joueur;24.7;20;43.4;92.5;21;0;Einöd (Saar);;eindsaar@49.27,7.32
+Saint-Julien-du-Sault;;France;petit joueur;24.1;20;92.3;100;5;0;Saint-Julien-du-Sault;;UIC87683227
+Lutten;;Allemagne;petit joueur;24.7;20;65.9;86.9;27;0;Lutten;;lutten@52.77,8.34
+Lannemezan;;France;petit joueur;24.1;20;87;100;12;0.14;Lannemezan;;UIC87671123
+BASF;Süd;Allemagne;petit joueur;24.6;20;95.9;92;11;0;BASF, Bahnhof Süd;;basfbahnhofsd@49.49,8.44
+Sénas;;France;petit joueur;24.1;20;95.3;100;5;0.29;Sénas;;UIC87753715
+Heinsberg-Randerath;;Allemagne;petit joueur;24.6;20;80.2;94.5;16;0;Heinsberg-Randerath;;heinsbergranderath@51.02,6.18
+Mehun-sur-Yèvre;;France;petit joueur;24.1;20;94.1;100;8;1;Mehun-sur-Yèvre;;UIC87576116
+Schwalmstadt-Wiera;;Allemagne;petit joueur;24.6;20;73.3;90.5;33;0;Schwalmstadt-Wiera Bahnhof;;schwalmstadtwierabahnhof@50.88,9.14
+Nexon;;France;petit joueur;24;20;88.7;100;10;1.14;Nexon;;UIC87592725
+Kreimbach;;Allemagne;petit joueur;24.6;20;82.6;94.5;17;0;Kreimbach, Bahnhof;;kreimbachbahnhof@49.55,7.63
+Saint-Saturnin-lès-Avignon;;France;petit joueur;24;20;95.8;100;6;0.29;Saint-Saturnin-lès-Avignon;;UIC87765438
+Eppertshausen;;Allemagne;petit joueur;24.6;20;93;87.8;13;0;Eppertshausen Bahnhof;;eppertshausenbahnhof@49.95,8.84
+Saint-Cyr-en-Val;;France;petit joueur;24;20;94;100;8;0.57;Saint-Cyr-en-Val;;UIC87543116
