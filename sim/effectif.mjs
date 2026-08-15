@@ -34,9 +34,9 @@ const RACINE = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PYRAMIDE = [
   ['superstar', 12],
   ['star', 28],
-  ['titulaire', 60],
-  ['rotation', 100],
-  ['petit joueur', 120],
+  ['titulaire', 70],
+  ['rotation', 120],
+  ['petit joueur', 130],
 ];
 
 // ---- Lecture du catalogue ----
@@ -94,8 +94,8 @@ const ordreNommage = [...toutes].sort((a, b) => {
 });
 const noms = construireNoms(ordreNommage.map(g => ({ cle: g.cle, net: g.net })));
 for (const g of effectif) {
-  const n = noms.get(g.cle);
-  g.nom = n.nom; g.prenom = n.prenom; g.gareComplete = n.complet;
+  const n = noms.get(g.net + '|' + g.cle);
+  g.nom = n.nom; g.gareComplete = n.complet; g.motifNom = n.motif || '';
 }
 
 // ---- Synthèse ----
@@ -119,7 +119,7 @@ console.log('TOTAL'.padEnd(14) + PYRAMIDE.map(([s, q]) => String(q).padStart(11)
 
 console.log('\nLES DOUZE SUPERSTARS');
 for (const g of effectif.filter(g => g.statut === 'superstar')) {
-  console.log(`  ${(g.prenom ? g.prenom + ' ' : '').padStart(14)}${g.nom.padEnd(20)} ${g.pays.padEnd(12)} N=${String(g.N).padStart(7)}  ponct ${String(g.ponctualite).padStart(5)} %  K=${g.K}`);
+  console.log(`  ${g.nom.padEnd(26)} ${g.pays.padEnd(12)} N=${String(g.N).padStart(7)}  ponct ${String(g.ponctualite).padStart(5)} %  K=${g.K}`);
 }
 
 console.log('\nECHANTILLON PAR PAYS (meilleur de chaque statut)');
@@ -130,7 +130,7 @@ for (const p of PAYS) {
 }
 
 // ---- Fichier ----
-const entetes = ['nom', 'prenom', 'pays', 'statut', 'N', 'K', 'ponctualite', 'fraicheur', 'distincts', 'annulesJour', 'gareComplete', 'reseau', 'cle'];
+const entetes = ['nom', 'pays', 'statut', 'N', 'K', 'ponctualite', 'fraicheur', 'distincts', 'annulesJour', 'gareComplete', 'motifNom', 'reseau', 'cle'];
 writeFileSync(join(RACINE, 'docs', 'effectif-saison-1.csv'),
   entetes.join(';') + '\n' + effectif.map(g => entetes.map(k => String(g[k] ?? '').replace(/;/g, ',')).join(';')).join('\n') + '\n');
 console.log(`\nEcrit : docs/effectif-saison-1.csv (${effectif.length} joueurs)`);

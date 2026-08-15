@@ -1,27 +1,36 @@
 #!/usr/bin/env node
 // ============================================================
-// Noms de joueurs · du code technique au nom prononçable
+// Noms de joueurs · un seul nom, court, prononçable, unique
 //
-// L'identité de gare fabriquée à la collecte est volontairement brutale :
-// minuscules, ponctuation supprimée, coordonnées accolées. Elle sert à
-// reconnaître une gare malgré des identifiants qui changent, pas à être lue.
-// « Hamm (Westf) Hauptbahnhof » y devient « hammwestfhauptbahnhof ».
+// Une gare s'appelle « Saint-Étienne-de-Montluc » ou « Hamm (Westf)
+// Hauptbahnhof ». Un joueur s'appelle Montluc. Ce module fait la traduction.
 //
-// Ce module rend leur vrai nom aux gares, puis en tire un nom de joueur à la
-// façon du football : un NOM, celui qu'on lit sur le maillot, unique dans tout
-// le catalogue, et un PRÉNOM qui situe sans encombrer. Toulouse Matabiau joue
-// sous le nom de Matabiau, prénom Toulouse.
+// Le nom complet reste conservé pour la fiche du joueur : on simplifie ce qui
+// s'affiche sur le terrain, on ne perd rien.
 //
-// **Le nom retenu est le mot le plus RARE, pas le dernier.** Une première
-// version prenait le dernier mot significatif : elle donnait « Dieu » pour
-// Lyon Part-Dieu et « Berlin » pour Ostkreuz Bhf (Berlin), la ville étant
-// écrite à la fin en allemand. La rareté tranche sans connaître les langues :
-// dans un catalogue ferroviaire, Berlin revient des dizaines de fois et
-// Ostkreuz une seule, donc Ostkreuz identifie et Berlin situe.
+// SIX RÈGLES, dans cet ordre.
 //
-// Export : construireNoms(entrees) -> Map(cle -> { nom, prenom, complet })
-// entrees : [{ cle, net }] triées par importance décroissante, car en cas de
-// collision c'est la plus petite gare qui prend le nom composé.
+// 1. Retirer tout ce qui dit « ceci est une gare » : Hauptbahnhof, Centraal,
+//    Centrum, station, stasjon, et les marqueurs de réseau S, U, S+U.
+// 2. Couper aux particules de localisation et ne garder qu'un morceau :
+//    « Saint-Étienne-de-Montluc » donne Montluc, « Banyuls-sur-Mer » Banyuls,
+//    « Saint-Saturnin-lès-Avignon » Saturnin. Le morceau retenu est le plus
+//    rare, car le plus fréquent désigne l'agglomération, pas la gare.
+// 3. Retirer les orientations, Nord, Süd, West, Oost, sauf si c'est le dernier
+//    mot debout : une gare qui ne s'appelle que « Nord » garde Nord.
+// 4. Retirer le « Saint » initial : Saint-Saturnin joue sous le nom de
+//    Saturnin, comme le concepteur l'a tranché.
+// 5. Quand plusieurs noms de lieux sont accolés, n'en garder qu'un, le plus
+//    rare : « Wolterdingen Soltau » donne Wolterdingen, « Bornel Belle-Église »
+//    donne Bornel.
+// 6. Pas de nom composé, sauf en France où il reste rare et nécessaire :
+//    Part-Dieu se tient, Belle-Église non.
+//
+// Les cas que ces règles traitent mal sont corrigés à la main dans EXCEPTIONS,
+// chacun avec son motif. C'est volontaire : une règle qui essaierait de tout
+// couvrir produirait plus de dégâts que la douzaine de décisions qu'elle évite.
+//
+// Export : construireNoms(entrees) -> Map(cle -> { nom, complet })
 // ============================================================
 
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
@@ -32,9 +41,60 @@ import { fileURLToPath } from 'node:url';
 const RACINE = join(dirname(fileURLToPath(import.meta.url)), '..');
 const REF = join(RACINE, 'state', 'refdata');
 
-// ---- Reconstitution du nom d'origine ----------------------------------
-// On rejoue la fabrication d'identité du collecteur sur la table d'arrêts,
-// ce qui donne l'inverse : identité -> nom tel que le producteur l'écrit.
+// ---- Décisions prises à la main --------------------------------------
+// Clé : le nom complet de la gare. Valeur : le nom de joueur retenu.
+// Chaque ligne est un arbitrage que les règles ne savent pas rendre seules.
+export const EXCEPTIONS = {
+  // -- Patronymes : l'usage colle le préfixe, et c'est lui qui fait le nom.
+  'Drogheda Mac Bride': 'MacBride',
+  'Dun Laoghaire (Mallin)': 'Mallin',
+
+  // -- Noms propres en deux mots. Les couper les détruirait : « New Haven »
+  // n'est pas « New » plus « Haven ». À distinguer de deux villes accolées,
+  // « Wolterdingen Soltau », où l'on ne garde qu'un nom.
+  'Grand Central': 'Grand Central',
+  'Fortitude Valley station': 'Fortitude Valley',
+  'Kew Gardens': 'Kew Gardens',
+  'Hempstead Gardens': 'Hempstead Gardens',
+  'Penn Station': 'Penn',
+
+  // -- Homonymes réels : le qualificatif fait partie de l'identité de la gare,
+  // le retirer confondrait deux gares distinctes du même réseau.
+  'Wynnum station': 'Wynnum',
+  'Wynnum Central station': 'Wynnum Central',
+  'Islip': 'Islip',
+  'Central Islip': 'Central Islip',
+  'West Hempstead': 'West Hempstead',
+  'Veenendaal Centrum': 'Veenendaal',
+  'Veenendaal West': 'Veenendaal West',
+
+  // -- Abréviations laissées tronquées par le producteur.
+  'S+U Friedrichstr. Bhf (Berlin)': 'Friedrichstraße',
+  'S Ostkreuz Bhf (Berlin)': 'Ostkreuz',
+  'S Südkreuz Bhf (Berlin)': 'Südkreuz',
+  'S Westkreuz (Berlin)': 'Westkreuz',
+
+  // -- Générique accolé à un lieu : le générique saute.
+  'Eygelshoven Markt': 'Eygelshoven',
+  'Tara Street': 'Tara',
+
+  // -- France. Le composé n'est gardé que s'il est le nom, jamais s'il situe.
+  'Lyon Part Dieu': 'Part-Dieu',
+  'Paris Montparnasse Hall 1 - 2': 'Montparnasse',
+  'Brive-la-Gaillarde': 'Brive',                    // « la Gaillarde » est un surnom de ville
+  'Castelnau-d\'Estrétefonds': 'Castelnau',
+  'Tain-l\'Hermitage - Tournon': 'Tain',
+  'Lamotte-Beuvron': 'Lamotte',
+  'Pas des Lanciers': 'Lanciers',                   // « Pas » seul ne nomme rien
+  'Saint-Médard-d\'Eyrans': 'Médard',
+  'Saint-Cyr-en-Val': 'Cyr',                        // « Val » seul ne nomme rien
+  'Saint-Sulpice-Laurière': 'Laurière',             // commune double : le second terme est le plus distinctif
+  'Les Sables-d\'Olonne': 'Olonne',
+  'La Ferté-Saint-Aubin': 'Aubin',                  // « Ferté » est déjà ambigu, voir La Ferté-sous-Jouarre
+  'Saint-Dié-des-Vosges': 'Dié',                    // décision incertaine, voir le rapport
+};
+
+// ---- Reconstitution du nom d'origine ---------------------------------
 function tableNoms(source) {
   const noms = new Map();
   if (!existsSync(REF)) return noms;
@@ -74,9 +134,6 @@ function tableUic() {
   return noms;
 }
 
-// La Finlande s'identifie par code officiel (TKL, PSL) et non par nom+position.
-// Sa table d'arrêts, construite depuis le 15 août par src/horaires.mjs, donne
-// la correspondance ; le dictionnaire ci-dessous ne sert plus que de secours.
 function tableCodes(source) {
   const noms = new Map();
   const fichiers = existsSync(REF) ? readdirSync(REF).filter(f => f.startsWith(`${source}_stops`)).sort() : [];
@@ -86,90 +143,62 @@ function tableCodes(source) {
     catch { continue; }
     for (const [id, a] of Object.entries(arrets)) {
       if (!a?.[0]) continue;
-      const code = id.replace(/_\d+$/, '');     // le quai n'est pas la gare
+      const code = id.replace(/_\d+$/, '');
       if (!noms.has(code)) noms.set(code, a[0].trim());
     }
   }
   return noms;
 }
 
-const NOMS_FI = {
-  HKI: 'Helsinki', PSL: 'Pasila', TKL: 'Tikkurila', TPE: 'Tampere', TKU: 'Turku',
-  OL: 'Oulu', KUO: 'Kuopio', JY: 'Jyväskylä', LH: 'Lahti', KV: 'Kouvola',
-  RI: 'Riihimäki', HML: 'Hämeenlinna', SLO: 'Salo', KKN: 'Kirkkonummi',
-  LOH: 'Lohja', MRL: 'Myyrmäki', KIL: 'Kilo', HK: 'Hanko', SK: 'Seinäjoki',
-  JNS: 'Joensuu', VS: 'Vaasa', KEM: 'Kemi', ROI: 'Rovaniemi', PM: 'Pieksämäki',
-  OLK: 'Oulunkylä', ML: 'Malmi', 'KÄP': 'Käpylä', KE: 'Kerava', HP: 'Hiekkaharju',
-  PJM: 'Pohjois-Haaga', KAN: 'Kannelmäki', PLA: 'Pitäjänmäki', LPV: 'Leppävaara',
-  EPO: 'Espoo', KLH: 'Kauklahti', MAS: 'Masala', TRL: 'Tuomarila', JRS: 'Järvenpää',
-  SAU: 'Saunakallio', PRL: 'Purola', NUP: 'Nuppulinna', RKL: 'Rekola', KYT: 'Koivukylä',
-  HKH: 'Hiekkaharju', VMO: 'Vantaankoski', VEH: 'Vehkala', LNA: 'Louhela',
-  MLO: 'Martinlaakso', HHL: 'Huopalahti', VLP: 'Valimo', PUS: 'Puistola',
-  TNA: 'Tapanila', PMK: 'Pukinmäki', HNA: 'Hiekkaharju',
-};
-
-// ---- Nettoyage --------------------------------------------------------
-// Les mots qui disent « ceci est une gare » n'identifient personne.
+// ---- Règle 1 : ce qui dit « gare » ------------------------------------
 const MOTS_GARE = new RegExp('\\b(' + [
   'hauptbahnhof', 'hbf', 'bahnhof', 'bhf', 'bf', 'haltepunkt',
-  'gare', 'sncf', 'centraal', 'station', 'stations', 'stasjon',
-  'railway', 'rail', 'asema', 'holdeplass',
+  'gare', 'sncf', 'centraal', 'centrum', 'centre', 'center', 'central',
+  'station', 'stations', 'stasjon', 'railway', 'rail', 'asema', 'holdeplass',
+  'strasse', 'straße', 'str', 'street', 'st', 'road', 'rd', 'terminal',
+  'platform', 'stop', 'halt',
 ].join('|') + ')\\b', 'gi');
 
-// Marqueurs de réseau en tête de nom allemand : S, U, S+U, et quais divers.
 const BRUIT = [
   /^\s*S\s*\+\s*U\b/i, /^\s*[SU]\s+(?=[A-ZÄÖÜ])/,
   /\bstop\s*\d+\b.*$/i, /\bplatform\s*\d+\b.*$/i, /\bhall\s*[\d\s-]+$/i,
   /\bnear\b.*$/i, /\bkryss\b.*$/i, /\bsnuplass\b.*$/i, /\bgleis\s*\d+.*$/i,
 ];
 
-// Mots-outils sans valeur d'identification, retirés avant tout choix.
-const OUTILS = new Set(['de', 'du', 'des', 'et', 'and', 'the', 'og', 'i', 'zu', 'auf']);
+// ---- Règle 2 : particules de localisation -----------------------------
+// Elles annoncent un complément de lieu : ce qui suit situe, ce qui précède
+// ou ce qui suit peut nommer, on choisira par la rareté.
+const PARTICULES = /\s*[-\s](?:sur|sous|lès|les|le[zs]|en|de|du|d'|des|am|an\s+der|an|im|ob|bei|auf|op|aan|a\/d|upon|on|by|nad|ved)[-\s]\s*/i;
 
-// Mots génériques de géographie : ils appartiennent au nom quand ils y sont
-// (Fortitude Valley, Tara Street) mais ne peuvent jamais faire un prénom à eux
-// seuls, car ils ne situent rien.
-const GENERIQUES = new Set(['street', 'st', 'str', 'road', 'rd', 'valley', 'junction',
-  'hills', 'hill', 'park', 'gardens', 'central', 'centre', 'center', 'north', 'south',
-  'east', 'west', 'nord', 'sud', 'est', 'ouest', 'ville', 'stadt', 'city', 'lufthavn',
-  'airport', 'terminal', 'oost', 'noord', 'zuid', 'west']);
+// ---- Règle 3 : orientations ------------------------------------------
+const ORIENTATIONS = new Set(['nord', 'sud', 'est', 'ouest', 'north', 'south', 'east', 'west',
+  'nord', 'süd', 'sued', 'ost', 'west', 'oost', 'noord', 'zuid', 'øst', 'vest', 'nedre', 'øvre',
+  'upper', 'lower', 'old', 'new', 'neu', 'alt', 'oben', 'unten', 'ober', 'unter', 'mitte', 'midt']);
 
-// À partir de combien d'occurrences un mot cesse d'identifier une gare pour
-// désigner une agglomération. « Berlin » revient des dizaines de fois,
-// « Ostkreuz » une seule.
-const SEUIL_VILLE = 4;
+// ---- Règle 4 : le « Saint » initial -----------------------------------
+const SAINTS = /^(saint|sainte|sankt|st|ste|sant|san)[-\s]+/i;
+
+// Mots qui ne nomment personne.
+const OUTILS = new Set(['de', 'du', 'des', 'et', 'and', 'the', 'og', 'i', 'zu', 'auf', 'la', 'le', 'les', 'van', 'der', 'den', 'die', 'das', 'am', 'an', 'im', 'op', 'aan', 'bei']);
+
+const SEUIL_VILLE = 3;   // à partir de 3 gares partageant le mot, c'est une agglomération
 
 function nettoyer(nom) {
   let t = nom;
   for (const r of BRUIT) t = t.replace(r, ' ');
-  t = t.replace(/\(([^)]*)\)/g, ' $1 ');       // « Hamm (Westf) » -> « Hamm Westf »
+  t = t.replace(/\(([^)]*)\)/g, ' $1 ');
   t = t.replace(MOTS_GARE, ' ');
   t = t.replace(/[_/,;.]+/g, ' ');
-  t = t.replace(/\s+-\s+/g, ' ');              // « Étaples - Le Touquet »
-  // Traits d'union orphelins laissés par la parenthèse ouverte :
-  // « Selters (Taunus)-Niederselters » devient « Selters Taunus -Niederselters ».
+  t = t.replace(/\s+-\s+/g, ' ');
   t = t.replace(/\s+-(?=\S)/g, ' ').replace(/(?<=\S)-\s+/g, ' ');
   t = t.replace(/\s+/g, ' ').replace(/^[-\s]+|[-\s]+$/g, '');
   return t;
 }
 
-// Découpe simple : on ne recolle rien, le nom sera repris comme sous-chaîne
-// contiguë de l'original. Une version antérieure recollait les jetons et
-// produisait « Le-Mans », « Der-Stadt », « Op-Zoom ».
-function jetons(propre) {
-  return propre.split(/\s+/).filter(m => {
-    const n = m.toLowerCase().replace(/[^a-zà-ÿ0-9]/g, '');
-    if (!n) return false;
-    if (OUTILS.has(n)) return false;
-    if (/^\d+$/.test(n)) return false;                       // « 125 »
-    if (n.replace(/[^a-zà-ÿ]/g, '').length <= 1) return false; // le « S » de Oslo S
-    return true;
-  });
-}
-
-const estVille = (mot, freq) => {
-  const n = mot.toLowerCase().replace(/[^a-zà-ÿ0-9]/g, '');
-  return !GENERIQUES.has(n) && (freq.get(n) || 0) >= SEUIL_VILLE;
+const normal = m => m.toLowerCase().replace(/[^a-zà-ÿ0-9]/g, '');
+const utile = m => {
+  const n = normal(m);
+  return n && !OUTILS.has(n) && !/^\d+$/.test(n) && n.replace(/[^a-zà-ÿ]/g, '').length > 1;
 };
 
 // ============================================================
@@ -177,65 +206,108 @@ export function construireNoms(entrees) {
   const tables = {};
   const uic = tableUic();
 
-  // Passe 1 : récupérer le nom d'origine et le découper.
-  const decoupes = new Map();
+  // Passe 1 : nom d'origine, et fréquence des mots sur tout le catalogue.
+  const bruts = new Map();
   const frequence = new Map();
+  // Indexé par réseau ET clé : une gare frontalière comme Eygelshoven existe
+  // dans deux réseaux avec la même clé, et un index par clé seule les
+  // confondrait, la seconde écrasant la première.
+  const idx = (net, cle) => net + '|' + cle;
   for (const { cle, net } of entrees) {
     let nom = '';
     if (net === 'fr_sncf') nom = uic.get(cle) || '';
-    else if (net === 'fi_digitraffic') {
-      tables.fi ??= tableCodes('fi_digitraffic');
-      nom = tables.fi.get(cle) || NOMS_FI[cle] || cle;
-    } else { tables[net] ??= tableNoms(net); nom = tables[net].get(cle) || ''; }
-    const j = jetons(nettoyer(nom));
-    decoupes.set(cle, { original: nom, jetons: j });
-    for (const m of new Set(j.map(x => x.toLowerCase()))) {
+    else if (net === 'fi_digitraffic') { tables.fi ??= tableCodes('fi_digitraffic'); nom = tables.fi.get(cle) || cle; }
+    else { tables[net] ??= tableNoms(net); nom = tables[net].get(cle) || ''; }
+    bruts.set(idx(net, cle), nom);
+    for (const m of new Set(nettoyer(nom).split(/[\s-]+/).filter(utile).map(normal))) {
       frequence.set(m, (frequence.get(m) || 0) + 1);
     }
   }
 
-  // Passe 2 : on retire les villes en tête et en queue, et ce qui reste au
-  // milieu est le nom, repris tel quel, dans son orthographe d'origine.
-  const pris = new Set();
-  const resultat = new Map();
-  for (const { cle } of entrees) {
-    const { original, jetons: j } = decoupes.get(cle);
-    if (!j.length) {
-      const secours = original || cle;
-      resultat.set(cle, { nom: secours, prenom: '', complet: secours, sansNom: !original });
-      pris.add(secours.toLowerCase());
-      continue;
-    }
+  const rarete = m => frequence.get(normal(m)) || 0;
 
-    // On rogne tant qu'il reste au moins un mot : une gare dont tous les mots
-    // sont des villes garde le dernier, « Paris Gare de Lyon » donnant Lyon.
-    let debut = 0, fin = j.length - 1;
-    while (debut < fin && estVille(j[debut], frequence)) debut++;
-    while (fin > debut && estVille(j[fin], frequence)) fin--;
-
-    const avant = j.slice(0, debut), apres = j.slice(fin + 1);
-    let nom = j.slice(debut, fin + 1).join(' ');
-    let prenom = [...avant, ...apres].join(' ');
-
-    // Unicité du nom porté sur le maillot : on lui rend d'abord son prénom,
-    // du plus proche au plus lointain, avant de recourir à un suffixe.
-    if (pris.has(nom.toLowerCase())) {
-      for (let k = avant.length - 1; k >= 0 && pris.has(nom.toLowerCase()); k--) {
-        nom = avant[k] + ' ' + nom;
-        prenom = [...avant.slice(0, k), ...apres].join(' ');
-      }
-      for (let k = 0; k < apres.length && pris.has(nom.toLowerCase()); k++) {
-        nom = nom + ' ' + apres[k];
-        prenom = avant.join(' ');
-      }
+  // Choisit le segment le plus rare, à égalité le premier : c'est ce qui donne
+  // Wolterdingen plutôt que Soltau, et Bornel plutôt que Belle-Église.
+  function meilleur(segments) {
+    let choix = null;
+    for (const s of segments) {
+      const mots = s.split(/[\s-]+/).filter(utile);
+      if (!mots.length) continue;
+      const score = Math.min(...mots.map(rarete));
+      if (!choix || score < choix.score) choix = { s, score };
     }
-    if (pris.has(nom.toLowerCase())) {
-      let n = 2;
-      while (pris.has(`${nom} ${n}`.toLowerCase())) n++;
-      nom = `${nom} ${n}`;
-    }
-    pris.add(nom.toLowerCase());
-    resultat.set(cle, { nom, prenom, complet: original || cle });
+    return choix ? choix.s : '';
   }
+
+  // Passe 2 : simplification.
+  const pris = new Map();
+  const resultat = new Map();
+  const journal = [];
+  for (const { cle, net } of entrees) {
+    const original = bruts.get(idx(net, cle)) || cle;
+    let nom, motif = '';
+
+    if (EXCEPTIONS[original]) {
+      nom = EXCEPTIONS[original];
+      motif = 'exception';
+    } else {
+      const propre = nettoyer(original);
+      // Règle 2 : couper aux particules, garder le morceau le plus rare.
+      const segments = propre.split(PARTICULES).filter(Boolean);
+      let choisi = segments.length > 1 ? meilleur(segments) : propre;
+      if (!choisi) choisi = propre;
+
+      // Règle 5 : plusieurs lieux accolés, on garde le plus rare.
+      let mots = choisi.split(/\s+/).filter(utile);
+      // Règle 3 : orientations retirées, sauf si elles sont tout ce qui reste.
+      const sansOrientation = mots.filter(m => !ORIENTATIONS.has(normal(m)));
+      if (sansOrientation.length) mots = sansOrientation;
+      if (mots.length > 1) {
+        let iBest = 0;
+        for (let i = 1; i < mots.length; i++) if (rarete(mots[i]) < rarete(mots[iBest])) iBest = i;
+        // Un mot fréquent au milieu de mots rares est l'agglomération.
+        mots = [mots[iBest]];
+        motif = 'plusieurs lieux, gardé le plus rare';
+      }
+      nom = mots.join(' ') || choisi;
+
+      // Règle 4 : le « Saint » initial saute s'il reste quelque chose.
+      const sansSaint = nom.replace(SAINTS, '');
+      if (sansSaint && sansSaint !== nom && utile(sansSaint.split(/[-\s]/)[0])) {
+        nom = sansSaint; motif = motif ? motif + ' ; Saint retiré' : 'Saint retiré';
+      }
+
+      // Règle 6 : composé toléré en France seulement.
+      if (nom.includes('-') && net !== 'fr_sncf') {
+        const part = nom.split('-').filter(utile);
+        if (part.length > 1) {
+          let iBest = 0;
+          for (let i = 1; i < part.length; i++) if (rarete(part[i]) < rarete(part[iBest])) iBest = i;
+          nom = part[iBest];
+          motif = motif ? motif + ' ; composé réduit' : 'composé réduit';
+        }
+      }
+      nom = nom.replace(/^[-\s]+|[-\s]+$/g, '');
+      if (!nom) { nom = nettoyer(original) || original; motif = 'aucune simplification possible'; }
+    }
+
+    // Unicité : sur collision, on revient au nom complet nettoyé, puis on suffixe.
+    const cleNom = nom.toLowerCase();
+    if (pris.has(cleNom)) {
+      const secours = nettoyer(original).replace(/\s+/g, ' ').trim();
+      if (secours && !pris.has(secours.toLowerCase())) {
+        journal.push({ cle, original, nom, retenu: secours, raison: 'collision avec ' + pris.get(cleNom) });
+        nom = secours;
+      } else {
+        let n = 2;
+        while (pris.has(`${nom} ${n}`.toLowerCase())) n++;
+        journal.push({ cle, original, nom, retenu: `${nom} ${n}`, raison: 'collision non résolue avec ' + pris.get(cleNom) });
+        nom = `${nom} ${n}`;
+      }
+    }
+    pris.set(nom.toLowerCase(), nom);
+    resultat.set(idx(net, cle), { nom, complet: original, motif });
+  }
+  resultat.journalCollisions = journal;
   return resultat;
 }

@@ -1,4 +1,4 @@
-# Effectif de la saison 1 · 320 joueurs
+# Effectif de la saison 1 · 360 joueurs
 
 Établi le 15 août 2026 à partir du catalogue qualifié de 6 555 gares, sur trois
 demandes du concepteur : casser la domination allemande, rendre les noms
@@ -8,10 +8,11 @@ prononçables, et ramener l'effectif à une taille jouable.
 
 | | Catalogue qualifié | Effectif de la saison |
 |---|---:|---:|
-| Joueurs | 6 555 | **320** |
+| Joueurs | 6 555 | **360** |
 | Part de l'Allemagne | 72 % | **19 %** |
 | Superstars | 377 | **12** |
 | Noms illisibles | la majorité | **aucun** |
+| Mots par nom | 3 à 5 | **1** dans 353 cas sur 360 |
 
 ## La pyramide
 
@@ -22,12 +23,12 @@ produit qu'une poignée de très grands joueurs.
 |---|---:|---|---:|
 | Superstar | 12 | 200 et plus | 3 |
 | Star | 28 | 100 à 200 | 2,5 |
-| Titulaire | 60 | 50 à 100 | 2 |
-| Rotation | 100 | 25 à 50 | 1,5 |
-| Petit joueur | 120 | 15 à 25 | 1 |
+| Titulaire | 70 | 50 à 100 | 2 |
+| Rotation | 120 | 25 à 50 | 1,5 |
+| Petit joueur | 130 | 15 à 25 | 1 |
 
-320 joueurs pour 8 équipes, soit 40 par équipe : de quoi composer un onze,
-tenir un banc et laisser au mercato de quoi négocier. La réserve des 6 235
+360 joueurs pour 8 équipes, soit 45 par équipe : de quoi composer un onze,
+tenir un banc et laisser au mercato de quoi négocier. La réserve des 6 195
 autres gares qualifiées reste disponible si le jeu s'ouvre un jour à plus de
 clubs.
 
@@ -39,13 +40,13 @@ récupèrent que le surplus dont les autres n'ont pas l'usage.
 
 | Pays | Superstar | Star | Titulaire | Rotation | Petit | Total | Part |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| Allemagne | 2 | 4 | 9 | 14 | 32 | 61 | 19 % |
-| France | 2 | 4 | 8 | 14 | 32 | 60 | 19 % |
-| Pays-Bas | 2 | 4 | 8 | 14 | 16 | 44 | 14 % |
-| États-Unis | 2 | 4 | 8 | 13 | 16 | 43 | 13 % |
-| Norvège | 2 | 4 | 8 | 14 | 8 | 36 | 11 % |
-| Irlande | 0 | 1 | 8 | 13 | 13 | 35 | 11 % |
-| Australie | 1 | 4 | 8 | 13 | 2 | 28 | 9 % |
+| Allemagne | 2 | 4 | 10 | 17 | 37 | 70 | 19 % |
+| France | 2 | 4 | 10 | 17 | 37 | 70 | 19 % |
+| Pays-Bas | 2 | 4 | 10 | 17 | 16 | 49 | 14 % |
+| États-Unis | 2 | 4 | 10 | 16 | 16 | 48 | 13 % |
+| Norvège | 2 | 4 | 9 | 16 | 8 | 39 | 11 % |
+| Irlande | 0 | 1 | 9 | 16 | 13 | 39 | 11 % |
+| Australie | 1 | 4 | 9 | 16 | 2 | 32 | 9 % |
 | Finlande | 1 | 3 | 3 | 5 | 1 | 13 | 4 % |
 
 Deux écarts subsistent, et ils sont réels, pas arbitraires. **L'Irlande n'a
@@ -61,8 +62,8 @@ ailleurs. C'est sans conséquence : c'est en haut que se joue la partie.
 
 | Joueur | Pays | N | Ponctualité | K |
 |---|---|---:|---:|---:|
-| Berlin **Ostkreuz** | Allemagne | 1 595 | 96,4 % | 426 |
-| Berlin **Friedrichstr** | Allemagne | 1 304 | 96,8 % | 348 |
+| **Ostkreuz** | Allemagne | 1 595 | 96,4 % | 426 |
+| **Friedrichstraße** | Allemagne | 1 304 | 96,8 % | 348 |
 | **Utrecht** | Pays-Bas | 1 144 | 94,6 % | 305 |
 | **Amsterdam** | Pays-Bas | 1 015 | 92,1 % | 271 |
 | **Oslo** | Norvège | 838 | 86,6 % | 224 |
@@ -70,7 +71,7 @@ ailleurs. C'est sans conséquence : c'est en haut que se joue la partie.
 | **Nationaltheatret** | Norvège | 608 | 80,4 % | 163 |
 | **Strasbourg** | France | 512 | 94,6 % | 137 |
 | **Fortitude Valley** | Australie | 499 | 91,1 % | 133 |
-| Paris **Montparnasse** | France | 472 | 92,3 % | 126 |
+| **Montparnasse** | France | 472 | 92,3 % | 126 |
 | **Tikkurila** | Finlande | 467 | 97,9 % | 125 |
 | **Penn** | États-Unis | 404 | 94,5 % | 108 |
 
@@ -80,30 +81,15 @@ exactement le contraste recherché.
 
 ## Les noms
 
-Un **nom**, celui qu'on lit sur le maillot, unique dans tout l'effectif, et un
-**prénom** facultatif qui situe. Toulouse Matabiau joue sous le nom de
-Matabiau, prénom Toulouse.
+Un **seul nom**, court et unique, sans prénom : Matabiau s'appelle Matabiau.
+Le nom complet de la gare reste dans la fiche du joueur.
 
-Le nom d'origine avait été perdu par la collecte, qui fabrique une identité
-volontairement brutale pour reconnaître une gare malgré des identifiants
-changeants : « Hamm (Westf) Hauptbahnhof » y devient `hammwestfhauptbahnhof`.
-Les vrais noms ont été récupérés dans les tables d'arrêts archivées chaque jour.
+Six règles, et une trentaine d'arbitrages pris à la main là où les règles
+produisaient un non-mot. Détail complet, cas litigieux compris, dans
+`docs/noms-arbitrages.md`.
 
-**Le nom retenu n'est pas le dernier mot, c'est ce qui reste une fois la ville
-retirée, et la ville se reconnaît à sa fréquence.** Une première version prenait
-le dernier mot significatif : elle donnait « Dieu » pour Lyon Part-Dieu et
-« Berlin » pour Ostkreuz Bhf (Berlin), l'allemand plaçant la ville à la fin. La
-fréquence tranche sans connaître les langues : dans un catalogue ferroviaire,
-Berlin revient des dizaines de fois et Ostkreuz une seule.
+**360 noms, 360 uniques, 7,7 caractères en moyenne, 353 en un seul mot.**
 
-Le nom est ensuite repris **tel quel dans l'orthographe d'origine**, comme
-sous-chaîne contiguë. Une version intermédiaire recollait les mots et produisait
-« Le-Mans », « Der-Stadt », « Op-Zoom » ; désormais Le Mans, Weil der Stadt et
-Bergen op Zoom sortent intacts.
-
-Résultat : **320 noms, 320 distincts, aucun cassé.** Les gares finlandaises,
-identifiées par codes officiels, ont retrouvé leurs noms grâce à une table
-d'arrêts désormais construite pour elles aussi.
 
 ## Le contraste de ponctualité, préservé
 
@@ -125,7 +111,8 @@ normalisation, décision actée, et l'effectif garde toute son amplitude.
 
 | Fichier | Contenu |
 |---|---|
-| `docs/effectif-saison-1.csv` | les 320 joueurs : nom, prénom, pays, statut, N, K, ponctualité, fraîcheur, gare d'origine |
+| `docs/effectif-saison-1.csv` | les 360 joueurs : nom, pays, statut, N, K, ponctualité, fraîcheur, gare d'origine |
 | `sim/effectif.mjs` | la sélection, pyramide réglable en tête de fichier |
-| `sim/noms.mjs` | la fabrication des noms |
+| `sim/noms.mjs` | la fabrication des noms, exceptions comprises |
+| `docs/noms-arbitrages.md` | les règles et tous les arbitrages |
 | `docs/catalogue-joueurs.md` | le catalogue complet des 6 555 gares qualifiées, qui reste la réserve |
