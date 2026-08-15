@@ -6,8 +6,10 @@
 name: refdata
 
 on:
-  schedule:
-    - cron: '35 3 * * *'
+  # Campagne terminee le 15 aout 2026 : le declencheur est coupe pour ne pas
+  # faire tourner des executions a vide. A retablir pour la prochaine saison.
+  # schedule:
+  #   - cron: '35 3 * * *'
   workflow_dispatch:
 
 permissions:
