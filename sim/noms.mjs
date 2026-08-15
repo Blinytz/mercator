@@ -82,6 +82,10 @@ export const EXCEPTIONS = {
   // -- Générique accolé à un lieu : le générique saute.
   'Eygelshoven Markt': 'Eygelshoven',
   'Tara Street': 'Tara',
+  // Décisions du concepteur. « Central Islip » prend le nom court : c'est la
+  // plus grosse des deux gares homonymes, l'autre sort de l'effectif.
+  'Central Islip': 'Islip',
+  'BASF, Bahnhof Süd': 'Bahnhof',
 
   // -- Les Saint. Certains sont utiles, d'autres non, et c'est subjectif :
   // aucune règle ne le tranche, chaque cas est arbitré par le concepteur.
@@ -185,13 +189,19 @@ function tableCodes(source) {
 }
 
 // ---- Règle 1 : ce qui dit « gare » ------------------------------------
-const MOTS_GARE = new RegExp('\\b(' + [
-  'hauptbahnhof', 'hbf', 'bahnhof', 'bhf', 'bf', 'haltepunkt',
-  'gare', 'sncf', 'centraal', 'centrum', 'centre', 'center', 'central',
-  'station', 'stations', 'stasjon', 'railway', 'rail', 'asema', 'holdeplass',
-  'strasse', 'straße', 'str', 'street', 'st', 'road', 'rd', 'terminal',
-  'platform', 'stop', 'halt',
-].join('|') + ')\\b', 'gi');
+// Les frontières sont posées à la main plutôt qu'avec \b : pour une expression
+// régulière, une lettre accentuée n'est pas une lettre. \b voyait donc une
+// frontière de mot au milieu de « Strømmen », juste après « Str », y
+// reconnaissait le mot « rue » et rendait « ømmen ».
+const LETTRE = 'A-Za-zÀ-ÖØ-öø-ÿ0-9';
+const MOTS_GARE = new RegExp(
+  `(?<![${LETTRE}])(?:` + [
+    'hauptbahnhof', 'hbf', 'bahnhof', 'bhf', 'bf', 'haltepunkt',
+    'gare', 'sncf', 'centraal', 'centrum', 'centre', 'center', 'central',
+    'station', 'stations', 'stasjon', 'railway', 'rail', 'asema', 'holdeplass',
+    'strasse', 'straße', 'str', 'street', 'st', 'road', 'rd', 'terminal',
+    'platform', 'stop', 'halt',
+  ].join('|') + `)(?![${LETTRE}])`, 'gi');
 
 const BRUIT = [
   /^\s*S\s*\+\s*U\b/i, /^\s*[SU]\s+(?=[A-ZÄÖÜ])/,

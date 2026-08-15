@@ -46,6 +46,14 @@ const EMBLEMES = [
   'Paris Montparnasse Hall 1 - 2',   // déjà retenue par les quotas, listée par cohérence
 ];
 
+// Gares écartées de l'effectif alors qu'elles sont qualifiées. Elles restent
+// au catalogue : c'est un choix de casting, pas un rejet de qualité.
+const ECARTEES = [
+  // Deux gares homonymes du LIRR, et le concepteur veut le nom court pour la
+  // plus grosse. La petite sort, remplacée par le candidat suivant.
+  'Islip',
+];
+
 // La pyramide. Modifiable ici, c'est le seul réglage de l'effectif.
 const PYRAMIDE = [
   ['superstar', 12],
@@ -67,6 +75,11 @@ const toutes = csv.slice(1).map(l => {
     statut: c[col.statut], K: +c[col.K],
   };
 }).sort((a, b) => b.N - a.N);
+
+// L'écart se fait sur le nom complet de la gare, seul identifiant lisible.
+const nomsCatalogue = construireNoms(toutes.map(g => ({ cle: g.cle, net: g.net })));
+const estEcartee = g => ECARTEES.includes(nomsCatalogue.get(g.net + '|' + g.cle)?.complet);
+const candidatesToutes = toutes.filter(g => !estEcartee(g));
 
 // ---- Remplissage progressif ----
 // La place suivante va toujours au pays le moins servi qui a encore des
@@ -92,7 +105,7 @@ function repartir(candidats, quota) {
 const effectif = [];
 const manques = [];
 for (const [statut, quota] of PYRAMIDE) {
-  const candidats = toutes.filter(g => g.statut === statut);
+  const candidats = candidatesToutes.filter(g => g.statut === statut);
   const choisis = repartir(candidats, quota);
   if (choisis.length < quota) manques.push(`${statut} : ${choisis.length} sur ${quota} demandés`);
   for (const g of choisis) effectif.push(g);
@@ -101,7 +114,7 @@ for (const [statut, quota] of PYRAMIDE) {
 // ---- Les emblèmes, ajoutés par-dessus les quotas ----
 // Il faut leur nom de gare complet pour les reconnaître : le catalogue ne
 // porte que l'identité technique, on passe donc par le module de noms.
-const nomsBruts = construireNoms(toutes.map(g => ({ cle: g.cle, net: g.net })));
+const nomsBruts = nomsCatalogue;
 const dejaPris = new Set(effectif.map(g => g.net + '|' + g.cle));
 const ajoutes = [];
 for (const emblème of EMBLEMES) {
