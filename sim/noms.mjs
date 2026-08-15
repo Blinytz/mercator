@@ -18,8 +18,13 @@
 //    rare, car le plus fréquent désigne l'agglomération, pas la gare.
 // 3. Retirer les orientations, Nord, Süd, West, Oost, sauf si c'est le dernier
 //    mot debout : une gare qui ne s'appelle que « Nord » garde Nord.
-// 4. Retirer le « Saint » initial : Saint-Saturnin joue sous le nom de
-//    Saturnin, comme le concepteur l'a tranché.
+// 4. Le « Saint » initial se décide cas par cas, et c'est assumé comme
+//    subjectif : aucune règle ne le tranche. On le garde quand ce qui
+//    resterait est un prénom banal (Saint-Jean, Saint-Charles, Saint-Pierre,
+//    Saint-Quentin) ou un mot trop faible pour tenir seul (Saint-Cyr,
+//    Saint-Dié, Saint-Roch). On le retire quand le mot est distinctif à lui
+//    seul : Saturnin, Médard, Chamas, Aubin. Tous ces cas sont dans
+//    EXCEPTIONS, arbitrés un par un.
 // 5. Quand plusieurs noms de lieux sont accolés, n'en garder qu'un, le plus
 //    rare : « Wolterdingen Soltau » donne Wolterdingen, « Bornel Belle-Église »
 //    donne Bornel.
@@ -78,6 +83,32 @@ export const EXCEPTIONS = {
   'Eygelshoven Markt': 'Eygelshoven',
   'Tara Street': 'Tara',
 
+  // -- Les Saint. Certains sont utiles, d'autres non, et c'est subjectif :
+  // aucune règle ne le tranche, chaque cas est arbitré par le concepteur.
+  // On garde le Saint quand ce qui resterait est un prénom banal (Jean,
+  // Charles, Pierre, Quentin, André) ou un mot trop faible pour tenir seul
+  // (Cyr, Dié, Roch). On le retire quand le mot est distinctif à lui seul
+  // (Saturnin, Médard, Chamas, Aubin).
+  'Saint-Cyr-en-Val': 'Saint-Cyr',
+  'Saint-Dié-des-Vosges': 'Saint-Dié',
+  'Saint-Quentin': 'Saint-Quentin',
+  'Saint-Roch': 'Saint-Roch',
+  'Nemours - Saint-Pierre': 'Saint-Pierre',
+  'Bordeaux Saint-Jean': 'Saint-Jean',
+  'Marseille Saint-Charles': 'Saint-Charles',
+  'Montpellier Saint-Roch': 'Montpellier',        // Saint-Roch est déjà pris
+  'Saint-Chamas': 'Chamas',
+  'Saint-Médard-d\'Eyrans': 'Médard',
+  'Saint-Saturnin-lès-Avignon': 'Saturnin',
+  'La Ferté-Saint-Aubin': 'Aubin',
+  // Quatre arbitrages rendus le 16 août sur question posée.
+  'Saint-André-le-Gaz': 'Le Gaz',
+  'Saint-Sulpice - Auteuil': 'Auteuil',
+  'Saint-Julien-du-Sault': 'Sault',
+  'Saint-Sulpice-Laurière': 'Laurière',
+  // Votre exemple d'origine, que la règle appliquait de travers.
+  'Saint-Étienne-de-Montluc': 'Montluc',
+
   // -- France. Le composé n'est gardé que s'il est le nom, jamais s'il situe.
   'Lyon Part Dieu': 'Part-Dieu',
   'Paris Montparnasse Hall 1 - 2': 'Montparnasse',
@@ -87,11 +118,7 @@ export const EXCEPTIONS = {
   'Lamotte-Beuvron': 'Lamotte',
   'Pas des Lanciers': 'Lanciers',                   // « Pas » seul ne nomme rien
   'Saint-Médard-d\'Eyrans': 'Médard',
-  'Saint-Cyr-en-Val': 'Cyr',                        // « Val » seul ne nomme rien
-  'Saint-Sulpice-Laurière': 'Laurière',             // commune double : le second terme est le plus distinctif
   'Les Sables-d\'Olonne': 'Olonne',
-  'La Ferté-Saint-Aubin': 'Aubin',                  // « Ferté » est déjà ambigu, voir La Ferté-sous-Jouarre
-  'Saint-Dié-des-Vosges': 'Dié',                    // décision incertaine, voir le rapport
 };
 
 // ---- Reconstitution du nom d'origine ---------------------------------

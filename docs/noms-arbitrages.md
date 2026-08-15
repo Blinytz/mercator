@@ -2,7 +2,7 @@
 
 15 août 2026. Effectif porté à 360 joueurs, prénoms supprimés, noms simplifiés.
 
-**Résultat : 360 noms, 360 uniques, 7,7 caractères en moyenne, 353 en un seul
+**Résultat : 360 noms, 360 uniques, 7,8 caractères en moyenne, 353 en un seul
 mot.** Le nom complet de la gare est conservé dans chaque fiche.
 
 ## Les six règles
@@ -15,7 +15,8 @@ mot.** Le nom complet de la gare est conservé dans chaque fiche.
    rare, car le plus fréquent désigne l'agglomération, pas la gare.
 3. **Retirer les orientations**, Nord, Süd, West, Oost, sauf si c'est le seul
    mot qui reste debout.
-4. **Retirer le « Saint » initial**, comme vous l'avez tranché sur Saturnin.
+4. **Le « Saint » initial se décide cas par cas.** C'est assumé comme
+   subjectif : aucune règle ne le tranche. Voir la section dédiée.
 5. **Plusieurs lieux accolés : n'en garder qu'un**, le plus rare.
    Wolterdingen Soltau donne Wolterdingen, Bornel Belle-Église donne Bornel.
 6. **Composé français seulement**, et rare : Part-Dieu se tient, pas
@@ -81,34 +82,39 @@ Retirer le qualificatif les confondrait, je l'ai donc gardé.
 | Saint-Cyr-en-Val | *Val* | **Cyr** |
 | Eygelshoven Markt | *Eygelshoven Markt* | **Eygelshoven** |
 
-## Ce dont je ne suis pas sûr
+## Les Saint, arbitrés un par un
 
-**Saint-Dié-des-Vosges donne Dié**, et c'est le nom qui me satisfait le moins.
-Votre règle sur Saturnin impose de retirer le « Saint », mais « Dié » seul ne
-veut rien dire en français, là où Saturnin ou Médard restent des prénoms. Les
-alternatives seraient Saint-Dié, qui rouvre le préfixe, ou Vosges, qui est un
-massif et non une ville. J'ai suivi la règle. **Dites-moi si vous préférez une
-exception.**
+Vous avez posé la règle : certains Saint sont utiles, d'autres non, et c'est
+subjectif. **On garde le Saint quand ce qui resterait est un prénom banal ou un
+mot trop faible pour tenir seul. On le retire quand le mot est distinctif.**
 
-**Saint-Sulpice-Laurière donne Laurière et non Sulpice.** C'est une commune
-double : les deux moitiés sont des noms de lieux réels. J'ai pris Laurière
-parce qu'il est plus distinctif et évite un énième nom de saint, mais Sulpice
-serait aussi défendable et plus conforme à la règle du Saint retiré.
+Quatorze gares de l'effectif sont concernées.
 
-**Les Sables-d'Olonne donne Olonne et non Sables.** Olonne est plus
-distinctif, Sables plus reconnaissable. J'ai privilégié la distinction.
+| Gare | Nom du joueur | |
+|---|---|---|
+| Saint-Quentin | **Saint-Quentin** | Quentin seul est un prénom banal |
+| Saint-Dié-des-Vosges | **Saint-Dié** | votre décision |
+| Saint-Cyr-en-Val | **Saint-Cyr** | votre décision |
+| Saint-Roch | **Saint-Roch** | Roch seul ne tient pas |
+| Nemours - Saint-Pierre | **Saint-Pierre** | Pierre seul est un prénom banal |
+| Saint-Chamas | **Chamas** | votre réponse : distinctif |
+| Saint-Médard-d'Eyrans | **Médard** | distinctif |
+| Saint-Saturnin-lès-Avignon | **Saturnin** | votre exemple d'origine |
+| La Ferté-Saint-Aubin | **Aubin** | votre décision : assez distinctif |
+| Saint-Étienne-de-Montluc | **Montluc** | votre exemple d'origine |
+| Saint-André-le-Gaz | **Le Gaz** | votre réponse |
+| Saint-Sulpice - Auteuil | **Auteuil** | votre réponse |
+| Saint-Julien-du-Sault | **Sault** | votre réponse |
+| Saint-Sulpice-Laurière | **Laurière** | second terme, plus distinctif |
 
-**La Ferté-Saint-Aubin donne Aubin.** « Ferté » aurait été mon premier choix,
-mais il est déjà ambigu : La Ferté-sous-Jouarre figure aussi dans l'effectif,
-sous le nom de Jouarre.
+Deux gares hors effectif sont déjà arbitrées pour le jour où elles y entreraient :
+Bordeaux Saint-Jean donne **Saint-Jean**, Marseille Saint-Charles donne
+**Saint-Charles**.
 
-**Bordeaux Saint-Jean donne Jean, Marseille Saint-Charles donne Charles.**
-C'est l'application stricte de la règle du Saint retiré. Ces deux noms sont
-très banals pour des gares aussi importantes, mais l'alternative rouvrirait le
-préfixe partout.
+**Une erreur corrigée au passage.** Saint-Étienne-de-Montluc donnait *Étienne*
+alors que votre consigne d'origine disait Montluc : la règle de rareté avait
+retenu le mauvais morceau. C'est réparé.
 
-**Hempstead Gardens reste en deux mots** faute d'alternative : West Hempstead
-occupe déjà la forme courte.
 
 ## Une découverte au passage
 

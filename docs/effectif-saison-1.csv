@@ -106,7 +106,7 @@ Wynnum Central;Australie;titulaire;85.7;35;92.2;96;216;0;Wynnum Central station;
 Glenageary;Irlande;titulaire;70.9;29;83.9;86.7;21;0;Glenageary;;;glenageary@53.28,-6.12
 Ås;Norvege;titulaire;66.3;27;95.3;100;143;0;Ås stasjon;;;sstasjon@59.66,10.79
 Ebenhausen;Allemagne;titulaire;99.3;40;92.9;96.8;25;0;Ebenhausen (Unterfr);plusieurs lieux, gardé le plus rare;;ebenhausenunterfr@50.13,10.14
-Quentin;France;titulaire;87.9;36;91.4;99.8;15;1;Saint-Quentin;Saint retiré;;UIC87296004
+Saint-Quentin;France;titulaire;87.9;36;91.4;99.8;15;1;Saint-Quentin;exception;;UIC87296004
 Central Islip;Etats-Unis;titulaire;95.4;39;93.3;99.4;293;0;Central Islip;exception;;centralislip@40.79,-73.19
 Didam;Pays-Bas;titulaire;91.3;37;96.7;99.5;198;0;Didam;;;didam@51.93,6.13
 Selters;Allemagne;rotation;49.9;27;79.4;97.8;29;0;Selters (Taunus)-Niederselters Bahnhof;plusieurs lieux, gardé le plus rare;;selterstaunusniederseltersbahnhof@50.33,8.23
@@ -118,7 +118,7 @@ Clonsilla;Irlande;rotation;49.9;27;88;90.6;19;0;Clonsilla;;;clonsilla@53.38,-6.4
 Dutton;Australie;rotation;49.9;27;93.4;99.1;127;0;Dutton Park station;plusieurs lieux, gardé le plus rare;;duttonparkstation@-27.50,153.03
 Karjaa;Finlande;rotation;34.9;19;98;94.2;50;0;Karjaa;;;KR
 Fronhausen;Allemagne;rotation;49.9;27;77.9;94.3;45;0;Fronhausen Bahnhof;;;fronhausenbahnhof@50.71,8.70
-Dié;France;rotation;49.7;27;95.4;100;7;0;Saint-Dié-des-Vosges;exception;;UIC87144014
+Saint-Dié;France;rotation;49.7;27;95.4;100;7;0;Saint-Dié-des-Vosges;exception;;UIC87144014
 Brummen;Pays-Bas;rotation;48.9;27;95.9;99.7;67;0;Brummen;;;brummen@52.09,6.15
 Myrdal;Norvege;rotation;46.9;25;87.8;100;117;0;Myrdal stasjon;;;myrdalstasjon@60.74,7.12
 Albans;Etats-Unis;rotation;47.9;26;91.9;100;169;0;St. Albans;;;stalbans@40.69,-73.77
@@ -134,7 +134,7 @@ Drogheda;Irlande;rotation;44.7;24;80.5;81.7;24;0;Drogheda (MacBride);plusieurs l
 Sunnybank;Australie;rotation;48.4;26;92.9;98.8;109;0;Sunnybank station;;;sunnybankstation@-27.58,153.05
 Herrala;Finlande;rotation;32.4;18;97.8;97.8;79;0;Herrala;;;HR
 Brehna;Allemagne;rotation;49.9;27;90;91.6;22;0;Brehna;;;brehna@51.55,12.22
-Roch;France;rotation;49.3;27;91.6;100;8;0.29;Saint-Roch;Saint retiré;;UIC87313080
+Saint-Roch;France;rotation;49.3;27;91.6;100;8;0.29;Saint-Roch;exception;;UIC87313080
 Brouwhuis;Pays-Bas;rotation;47.4;26;97.9;99.4;106;0;Helmond Brouwhuis;plusieurs lieux, gardé le plus rare;;helmondbrouwhuis@51.47,5.70
 Sandefjord;Norvege;rotation;44.9;24;87.6;100;163;0;Sandefjord stasjon;;;sandefjordstasjon@59.14,10.22
 Sayville;Etats-Unis;rotation;46.6;25;85.3;100;198;0;Sayville;;;sayville@40.74,-73.09
@@ -157,7 +157,7 @@ Great;Etats-Unis;rotation;44.3;24;85.8;98.4;179;0;Great River;plusieurs lieux, g
 Ashtown;Irlande;rotation;38.7;21;91.1;93.8;21;0;Ashtown;;;ashtown@53.38,-6.33
 Wilston;Australie;rotation;47.9;26;93.7;97.1;127;0;Wilston station;;;wilstonstation@-27.44,153.02
 Langenhagen;Allemagne;rotation;49.7;27;81;97.5;33;0;Langenhagen Flughafen;plusieurs lieux, gardé le plus rare;;langenhagenflughafen@52.46,9.70
-Chamas;France;rotation;48.9;27;95.9;99.7;7;0.29;Saint-Chamas;Saint retiré;;UIC87753202
+Chamas;France;rotation;48.9;27;95.9;99.7;7;0.29;Saint-Chamas;exception;;UIC87753202
 Eygelshoven;Pays-Bas;rotation;47.1;26;96.7;100;95;0;Eygelshoven Markt;exception;;eygelshovenmarkt@50.90,6.06
 Larvik;Norvege;rotation;43.6;24;86.6;100;165;0;Larvik stasjon;;;larvikstasjon@59.05,10.03
 Haven;Etats-Unis;rotation;43.9;24;97.1;100;14;0;New Haven;;;newhaven@41.30,-72.93
@@ -178,14 +178,14 @@ Oakdale;Etats-Unis;rotation;43.1;24;83.4;100;176;0;Oakdale;;;oakdale@40.74,-73.1
 Cherry;Irlande;rotation;37.3;20;95.4;92.9;30;0;Park West and Cherry Orchard;plusieurs lieux, gardé le plus rare;;parkwestandcherryorchard@53.33,-6.38
 Woodridge;Australie;rotation;42.1;23;93.2;100;89;0;Woodridge station;;;woodridgestation@-27.64,153.10
 Oberau;Allemagne;rotation;49.6;27;42.9;96.9;28;0;Oberau;;;oberau@47.56,11.14
-Pierre;France;rotation;48.4;26;73.2;99.1;32;0.43;Nemours - Saint-Pierre;plusieurs lieux, gardé le plus rare , Saint retiré;;UIC87684126
+Saint-Pierre;France;rotation;48.4;26;73.2;99.1;32;0.43;Nemours - Saint-Pierre;exception;;UIC87684126
 Veenendaal;Pays-Bas;rotation;45.6;25;96.2;99.7;77;0;Veenendaal Centrum;exception;;veenendaalcentrum@52.02,5.55
 Gran;Norvege;rotation;41.1;22;86.5;100;182;0;Gran stasjon;;;granstasjon@60.36,10.57
 Glenbrook;Etats-Unis;rotation;40.3;22;95.7;100;15;0;Glenbrook;;;glenbrook@41.07,-73.52
 Pelletstown;Irlande;rotation;36.7;20;93.8;92.8;18;0;Pelletstown;;;pelletstown@53.38,-6.31
 Kippa;Australie;rotation;42;23;96.6;98;40;0;Kippa-Ring station;composé réduit;;kipparingstation@-27.23,153.08
 Wemmetsweiler;Allemagne;rotation;49.6;27;89;98.3;20;0;Wemmetsweiler Rathaus;plusieurs lieux, gardé le plus rare;;wemmetsweilerrathaus@49.37,7.09
-André-le-Gaz;France;rotation;48.4;26;91.4;99.7;12;0.29;Saint-André-le-Gaz;Saint retiré;;UIC87723494
+Le Gaz;France;rotation;48.4;26;91.4;99.7;12;0.29;Saint-André-le-Gaz;exception;;UIC87723494
 Veenendaal West;Pays-Bas;rotation;45.1;25;97.2;98.8;86;0;Veenendaal West;exception;;veenendaalwest@52.03,5.53
 Sande;Norvege;rotation;41.1;22;72.6;100;193;0;Sande stasjon;;;sandestasjon@59.59,10.20
 Malverne;Etats-Unis;rotation;40.1;22;94.3;100;177;0;Malverne;;;malverne@40.68,-73.67
@@ -314,7 +314,7 @@ Chambly;France;petit joueur;24.6;20;91.3;100;9;0.57;Chambly;;;UIC87276725
 Breyell;Pays-Bas;petit joueur;15;12;74.3;100;80;0;Breyell;;;breyell@51.30,6.24
 Bays;Etats-Unis;petit joueur;15.9;13;81.1;100;84;0.14;Hampton Bays;plusieurs lieux, gardé le plus rare;;hamptonbays@40.88,-72.52
 Langendorf;Allemagne;petit joueur;24.7;20;95.4;95.1;13;0;Westheim-Langendorf;composé réduit;;westheimlangendorf@50.13,9.93
-Sulpice;France;petit joueur;24.4;20;91.8;100;9;0.57;Saint-Sulpice - Auteuil;plusieurs lieux, gardé le plus rare , Saint retiré;;UIC87313684
+Auteuil;France;petit joueur;24.4;20;91.8;100;9;0.57;Saint-Sulpice - Auteuil;exception;;UIC87313684
 Düsseldorf;Pays-Bas;petit joueur;15;12;86.7;100;17;0;Düsseldorf Flughafen;plusieurs lieux, gardé le plus rare;;dsseldorfflughafen@51.29,6.79
 Westhampton;Etats-Unis;petit joueur;15.9;13;77.5;100;87;0;Westhampton;;;westhampton@40.83,-72.65
 Wolterdingen;Allemagne;petit joueur;24.7;20;60.1;93.5;32;0;Wolterdingen(Soltau);plusieurs lieux, gardé le plus rare;;wolterdingensoltau@53.03,9.85
@@ -330,13 +330,13 @@ Ambazac;France;petit joueur;24.4;20;94.7;100;7;0.57;Ambazac;;;UIC87592311
 Brest;Allemagne;petit joueur;24.7;20;96;88.7;9;0;Brest, Brest-Aspe;plusieurs lieux, gardé le plus rare , composé réduit;;brestbrestaspe@53.46,9.38
 Laurière;France;petit joueur;24.4;20;95.3;100;6;0.57;Saint-Sulpice-Laurière;exception;;UIC87592345
 Witzwort;Allemagne;petit joueur;24.7;20;97.1;93.5;10;0;Witzwort;;;witzwort@54.39,9.00
-Étienne;France;petit joueur;24.4;20;92.4;100;9;1.86;Saint-Étienne-de-Montluc;Saint retiré;;UIC87481812
+Montluc;France;petit joueur;24.4;20;92.4;100;9;1.86;Saint-Étienne-de-Montluc;exception;;UIC87481812
 Harblek;Allemagne;petit joueur;24.7;20;97.1;81.6;9;0;Harblek;;;harblek@54.36,8.96
 Port-Vendres;France;petit joueur;24.3;20;90;100;10;0.43;Port-Vendres;;;UIC87784264
 Würzbach;Allemagne;petit joueur;24.7;20;45.7;96.6;20;0;Würzbach (Saar);plusieurs lieux, gardé le plus rare;;wrzbachsaar@49.24,7.19
 Olonne;France;petit joueur;24.3;20;87.1;99.4;11;0;Les Sables-d'Olonne;exception;;UIC87486449
 Einöd;Allemagne;petit joueur;24.7;20;43.4;92.5;21;0;Einöd (Saar);plusieurs lieux, gardé le plus rare;;eindsaar@49.27,7.32
-Sault;France;petit joueur;24.1;20;92.3;100;5;0;Saint-Julien-du-Sault;;;UIC87683227
+Sault;France;petit joueur;24.1;20;92.3;100;5;0;Saint-Julien-du-Sault;exception;;UIC87683227
 Lutten;Allemagne;petit joueur;24.7;20;65.9;86.9;27;0;Lutten;;;lutten@52.77,8.34
 Lannemezan;France;petit joueur;24.1;20;87;100;12;0.14;Lannemezan;;;UIC87671123
 BASF;Allemagne;petit joueur;24.6;20;95.9;92;11;0;BASF, Bahnhof Süd;;;basfbahnhofsd@49.49,8.44
@@ -346,9 +346,9 @@ Mehun;France;petit joueur;24.1;20;94.1;100;8;1;Mehun-sur-Yèvre;;;UIC87576116
 Schwalmstadt;Allemagne;petit joueur;24.6;20;73.3;90.5;33;0;Schwalmstadt-Wiera Bahnhof;composé réduit;;schwalmstadtwierabahnhof@50.88,9.14
 Nexon;France;petit joueur;24;20;88.7;100;10;1.14;Nexon;;;UIC87592725
 Kreimbach;Allemagne;petit joueur;24.6;20;82.6;94.5;17;0;Kreimbach, Bahnhof;;;kreimbachbahnhof@49.55,7.63
-Saturnin;France;petit joueur;24;20;95.8;100;6;0.29;Saint-Saturnin-lès-Avignon;Saint retiré;;UIC87765438
+Saturnin;France;petit joueur;24;20;95.8;100;6;0.29;Saint-Saturnin-lès-Avignon;exception;;UIC87765438
 Eppertshausen;Allemagne;petit joueur;24.6;20;93;87.8;13;0;Eppertshausen Bahnhof;;;eppertshausenbahnhof@49.95,8.84
-Cyr;France;petit joueur;24;20;94;100;8;0.57;Saint-Cyr-en-Val;exception;;UIC87543116
+Saint-Cyr;France;petit joueur;24;20;94;100;8;0.57;Saint-Cyr-en-Val;exception;;UIC87543116
 Niedermohr;Allemagne;petit joueur;24.6;20;87.2;89.6;14;0;Niedermohr, Bahnhof;;;niedermohrbahnhof@49.46,7.47
 Hennebont;France;petit joueur;24;20;85.1;100;9;0.14;Hennebont;;;UIC87476259
 Obersinn;Allemagne;petit joueur;24.6;20;91.9;97.2;16;0;Obersinn;;;obersinn@50.21,9.62
