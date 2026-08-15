@@ -635,10 +635,12 @@ Dans cet ordre.
    fraîcheur, `sim/verifier-jointure.mjs` rejoue la validation. Détail et
    mesures dans `docs/jointure-statique.md`.
 3. **Débloquer la Suisse** si le concepteur fournit le GTFS statique.
-4. **Qualifier** sur la fenêtre du 5 au 11 août, en appliquant mécaniquement les
-   critères de la partie 3, et produire `docs/catalogue-joueurs.md` : liste
-   nominative par pays, N, K par statut, ponctualité, fraîcheur, et les rejets
-   avec leur motif.
+4. ~~Qualifier et produire le catalogue.~~ **Fait le 15 août** sur la fenêtre
+   du 7 au 13, couverte à 100 % : **6 555 gares qualifiées** sur 11 198
+   observées, dont 377 superstars. L'Île-de-France est écartée de la saison 1,
+   la Finlande fusionnée par gare et non par quai. Voir
+   `docs/catalogue-joueurs.md`, calcul rejouable dans `sim/qualification.mjs`.
+   **En attente de la validation explicite du concepteur.**
 5. **Rejouer la simulation du moteur** sur le catalogue officiel, avec bots
    adaptatifs, et proposer un ajustement paramétrique pour atteindre la cible de
    buts.
@@ -661,6 +663,10 @@ Dans cet ordre.
 | `docs/tri-gares.csv` | tri des 2 743 gares en trois familles |
 | `docs/etat-donnees-retenues.csv` | listes nominatives |
 | `docs/jointure-statique.md` | reconstitution de l'heure d'événement, mesures du 4 août |
+| `docs/catalogue-joueurs.md` | catalogue officiel de la saison 1, 6 555 gares, 15 août |
+| `docs/catalogue-retenus.csv` | liste nominative des qualifiées, avec statut et K |
+| `docs/catalogue-rejetes.csv` | les rejets et leurs motifs |
+| `sim/qualification.mjs` | la qualification, rejouable |
 | `sim/jointure.mjs` | jointure statique : heure, déduplication, fraîcheur |
 | `sim/verifier-jointure.mjs` | validation de la jointure contre la vérité SNCF |
 | `sim/moteur2.mjs` | simulateur du moteur v3 |
