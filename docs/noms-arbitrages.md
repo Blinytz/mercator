@@ -32,7 +32,7 @@ font pas : **un nom propre en deux mots reste entier, deux villes accolées
 n'en donnent qu'une.** Fortitude Valley et Kew Gardens sont des noms ;
 Wolterdingen Soltau est une juxtaposition.
 
-Sept noms sur 360 gardent deux mots à ce titre : Fortitude Valley, Grand
+Huit noms sur 360 gardent deux mots à ce titre : Fortitude Valley, Grand
 Central, Kew Gardens, Hempstead Gardens, West Hempstead, Central Islip,
 Wynnum Central, Veenendaal West.
 
@@ -69,17 +69,16 @@ Retirer le qualificatif les confondrait, je l'ai donc gardé.
 | Tain-l'Hermitage - Tournon | **Tain** | deux communes accolées |
 | Lamotte-Beuvron | **Lamotte** | |
 | Les Sables-d'Olonne | **Olonne** | |
-| Saint-Médard-d'Eyrans | **Médard** | |
-| Saint-Sulpice-Laurière | **Laurière** | |
-| La Ferté-Saint-Aubin | **Aubin** | |
 | Lyon Part Dieu | **Part-Dieu** | composé gardé, c'est le nom et non la situation |
 
-### Trois cas où la règle produisait un non-mot
+Les gares à Saint ont leur propre section plus bas : leur cas ne se règle pas
+par une règle.
+
+### Deux cas où la règle produisait un non-mot
 
 | Gare | Ce que donnait la règle | Nom retenu |
 |---|---|---|
 | Pas des Lanciers | *Pas* | **Lanciers** |
-| Saint-Cyr-en-Val | *Val* | **Cyr** |
 | Eygelshoven Markt | *Eygelshoven Markt* | **Eygelshoven** |
 
 ## Les Saint, arbitrés un par un
