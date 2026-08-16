@@ -21,7 +21,7 @@ import { readFileSync } from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { CATALOGUE, FORMATIONS, simuler, creerJoueur, rng } from './moteur2.mjs';
+import { CATALOGUE, VALEURS_HANDOFF, appliquerRenfort, FORMATIONS, simuler, creerJoueur, rng } from './moteur2.mjs';
 import { PROFILS, politiqueAdaptative } from './profils.mjs';
 
 const RACINE = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -38,18 +38,7 @@ const chrono = JSON.parse(gunzipSync(readFileSync(join(RACINE, 'sim', 'chronolog
 // ---- Renfort défensif ----
 // On agit sur ce qui bloque : durée et nombre de charges des postures. Le
 // catalogue d'origine est sauvegardé pour que chaque essai reparte du même.
-const ORIGINE = JSON.parse(JSON.stringify(CATALOGUE));
-const EST_BLOC = c => c.produit === 'blocArret' || c.produit === 'blocContre'
-  || (c.produit === 'multi' && (c.etats || []).some(([t]) => t.startsWith('bloc')));
-function renfortDefensif(facteur) {
-  for (const [nom, c] of Object.entries(ORIGINE)) {
-    const cible = CATALOGUE[nom];
-    if (!EST_BLOC(c)) { cible.duree = c.duree; cible.charges = c.charges; continue; }
-    cible.duree = Math.round(c.duree * facteur);
-    cible.charges = Math.max(1, Math.round((c.charges || 1) * facteur));
-    if (c.etats) cible.etats = c.etats.map(([t, n]) => [t, t.startsWith('bloc') ? Math.round(n * facteur) : n]);
-  }
-}
+const renfortDefensif = appliquerRenfort;   // le moteur porte desormais le calage
 
 // ---- Composition, avec écart de qualité possible ----
 let multK = 1;

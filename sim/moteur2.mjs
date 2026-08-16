@@ -30,6 +30,12 @@ export const CFG = {
   reflexeAdverse: { minMinutes: 120, maxMinutes: 240 },
   annulationCompteNegatif: true,   // une annulation vaut un retard, décision du 16 août
   seuilsStatut: { superstar: 200, star: 100, titulaire: 50, rotation: 25 },
+  // Calage du 16 août, sur l'effectif réel et 380 520 événements ferroviaires.
+  // Multiplie durée et charges des seules consignes qui produisent un bloc.
+  // C'est le seul réglage d'équilibrage global : il ne touche ni K, ni la
+  // production cible, ni la résolution des frappes. À 1,5 le jeu rend 28,7
+  // buts par match de sept jours, pour une cible de 28.
+  renfortDefensif: 1.5,
 };
 
 export const coutK = (coef, K) => Math.max(1, Math.ceil(coef * K));
@@ -76,6 +82,27 @@ export const CATALOGUE = {
   sortieAerienne:    { poste: 'G', coef: 0.5, cond: null, elimine: 0, produit: 'domination', duree: 6 },
   relanceRapide:     { poste: 'G', coef: 0.8, cond: null, elimine: 0, produit: 'multi', etats: [['blocContre', 5], ['passe', 3]], duree: 5, bonus: { cible: 'milieuAllie', coef: 0.2, n: 1 } },
 };
+
+// ---- Application du calage ----------------------------------------------
+// Les valeurs ci-dessus restent celles du handoff v3, lisibles telles quelles.
+// Le renfort est appliqué ici, en un seul endroit, pour qu'on voie d'un coup
+// d'oeil ce que l'équilibrage a changé et ce qu'il n'a pas touché.
+export const VALEURS_HANDOFF = JSON.parse(JSON.stringify(CATALOGUE));
+const produitUnBloc = c => c.produit === 'blocArret' || c.produit === 'blocContre'
+  || (c.produit === 'multi' && (c.etats || []).some(([t]) => t.startsWith('bloc')));
+
+export function appliquerRenfort(facteur = CFG.renfortDefensif) {
+  for (const [nom, origine] of Object.entries(VALEURS_HANDOFF)) {
+    const c = CATALOGUE[nom];
+    if (!produitUnBloc(origine)) { c.duree = origine.duree; c.charges = origine.charges; continue; }
+    c.duree = Math.round(origine.duree * facteur);
+    c.charges = Math.max(1, Math.round((origine.charges || 1) * facteur));
+    if (origine.etats) {
+      c.etats = origine.etats.map(([t, n]) => [t, t.startsWith('bloc') ? Math.round(n * facteur) : n]);
+    }
+  }
+}
+appliquerRenfort();
 
 export const FORMATIONS = {
   '3-4-3': { D: 3, M: 4, A: 3 }, '4-3-3': { D: 4, M: 3, A: 3 }, '4-4-2': { D: 4, M: 4, A: 2 },
