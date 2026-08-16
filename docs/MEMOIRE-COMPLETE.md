@@ -452,6 +452,19 @@ données trouées par notre propre panne.
 - Changements de consigne illimités, quantité brute de K conservée hors état
   actif, jauge entièrement consommée dès qu'une action est tentée.
 - Ciblage allié préparé à l'avance, ciblage adverse aléatoire.
+- **Les trois horloges du joueur**, validées le 16 août. La **forme**, les sept
+  dernières journées, bouge chaque jour. La **note** et le **prix**, tirés de
+  la régularité sur 28 jours glissants, bougent entre deux matchs. Le **rang**,
+  tiré du trafic sur 28 jours glissants, bouge aussi entre deux matchs. Tout se
+  fige au coup d'envoi.
+- **Le rang dit la stature, la note dit la forme**, et les deux se
+  chevauchent. Une superstar reste une superstar malgré des semaines
+  médiocres, parce que le rang suit le trafic et qu'une gare ne rétrécit pas
+  parce que ses trains sont en retard. Mais sa note s'effondre et son prix
+  avec.
+- **Une gare sous 50 % de ponctualité est écartée de l'effectif** : sa jauge
+  perd plus qu'elle ne gagne et n'atteint jamais le seuil. Filtre automatique,
+  pas une liste.
 
 ## Les critères de qualification d'un joueur
 
