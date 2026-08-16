@@ -46,7 +46,20 @@ const EMBLEMES = [
   'Paris Montparnasse Hall 1 - 2',   // déjà retenue par les quotas, listée par cohérence
 ];
 
-// Gares écartées de l'effectif alors qu'elles sont qualifiées. Elles restent
+// Une gare sous 50 % de ponctualité perd plus de jauge qu'elle n'en gagne :
+// sa jauge n'atteint jamais le seuil et le joueur ne se déclenche JAMAIS.
+// Ce n'est pas un joueur faible, c'est un joueur mort. Mesure du 16 août :
+// quatre gares de l'effectif étaient dans ce cas, Oberau, Thurles, Würzbach
+// et Einöd. Le filtre est automatique et non une liste, pour qu'aucune ne
+// puisse revenir par une future sélection.
+//
+// La jauge monte de N x (2p - 1) par jour et le seuil vaut 0,8 x N / A, donc
+// le rythme réel vaut A x (2p - 1) / 0,8 : le trafic s'annule, seule la
+// ponctualité décide.
+const CIBLE_ACTIONS = { superstar: 3, star: 2.5, titulaire: 2, rotation: 1.5, 'petit joueur': 1 };
+const rythmeReel = g => CIBLE_ACTIONS[g.statut] * (2 * g.ponctualite / 100 - 1) / 0.8;
+
+// Gares écartées à la main alors qu'elles sont qualifiées. Elles restent
 // au catalogue : c'est un choix de casting, pas un rejet de qualité.
 const ECARTEES = [
   // Deux gares homonymes du LIRR, et le concepteur veut le nom court pour la
@@ -79,7 +92,8 @@ const toutes = csv.slice(1).map(l => {
 // L'écart se fait sur le nom complet de la gare, seul identifiant lisible.
 const nomsCatalogue = construireNoms(toutes.map(g => ({ cle: g.cle, net: g.net })));
 const estEcartee = g => ECARTEES.includes(nomsCatalogue.get(g.net + '|' + g.cle)?.complet);
-const candidatesToutes = toutes.filter(g => !estEcartee(g));
+const morts = toutes.filter(g => rythmeReel(g) <= 0);
+const candidatesToutes = toutes.filter(g => !estEcartee(g) && rythmeReel(g) > 0);
 
 // ---- Remplissage progressif ----
 // La place suivante va toujours au pays le moins servi qui a encore des
