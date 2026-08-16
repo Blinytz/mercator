@@ -24,6 +24,11 @@ export const CFG = {
   dureeMatchJours: 7,
   chaineSecondsBallonsMax: 5,
   cascadeBonusMax: 3,          // borne ajoutée : voir rapport, non spécifiée par le handoff
+  // Délai de réflexe des clubs adverses, en minutes. Réglable par le joueur,
+  // bornes comprises : c'est le curseur de difficulté. Deux à quatre heures
+  // par défaut, soit le rythme d'un humain attentif mais pas rivé à l'écran.
+  reflexeAdverse: { minMinutes: 120, maxMinutes: 240 },
+  annulationCompteNegatif: true,   // une annulation vaut un retard, décision du 16 août
   seuilsStatut: { superstar: 200, star: 100, titulaire: 50, rotation: 25 },
 };
 
@@ -255,7 +260,15 @@ export function simuler(equipes, evenementsParJoueur, alea, options = {}) {
   }
 
   const politique = options.politique || null;
-  let jourCourant = 0, prochaineDecision = 0;
+  // Réflexe des clubs adverses : le délai avant qu'ils ne revoient leurs
+  // consignes est tiré au hasard dans un intervalle, et non fixe. Un bot qui
+  // réagit toujours au même rythme est lisible, et un bot qui réagit
+  // instantanément est imbattable. L'intervalle est un réglage du joueur, ses
+  // deux bornes comprises : c'est le curseur de difficulté du jeu.
+  const reflexeMin = options.reflexeMinMin ?? CFG.reflexeAdverse.minMinutes;
+  const reflexeMax = Math.max(reflexeMin, options.reflexeMaxMin ?? CFG.reflexeAdverse.maxMinutes);
+  const tirerDelai = () => reflexeMin + Math.floor(alea() * (reflexeMax - reflexeMin + 1));
+  let jourCourant = 0, prochaineDecision = tirerDelai();
 
   for (const [t, j, delta] of file) {
     // 1. Expirations
@@ -264,7 +277,7 @@ export function simuler(equipes, evenementsParJoueur, alea, options = {}) {
     for (const p of joueurs) if (p.consigneEnAttente && !aUnEtatActif(p)) { appliquerConsigne(p, p.consigneEnAttente); p.consigneEnAttente = null; }
     // Bots adaptatifs : révision périodique des consignes
     if (politique && t >= prochaineDecision) {
-      prochaineDecision = t + (options.periodeDecisionMin || 120);
+      prochaineDecision = t + tirerDelai();
       for (const p of joueurs) {
         const nom = politique(p, { etats, joueurs, S, t, equipe: p.equipe, etatsActifs, aUnEtatActif });
         if (nom && CATALOGUE[nom] && CATALOGUE[nom].poste === p.poste) changer(p, nom, t);
