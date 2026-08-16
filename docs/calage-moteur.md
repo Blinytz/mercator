@@ -131,9 +131,85 @@ réagit toujours au même rythme serait lisible.
 | `sim/detail-calage.mjs` | le détail par duel aux réglages candidats |
 | `docs/calage-resultats.txt` | la sortie brute de la campagne |
 
+## Suite du 16 août : le bon levier n'est pas K
+
+**K × 5,5 contredit une règle actée.** La partie 3 du mémoire fixe la
+production cible à 3 actions par jour pour une superstar et 1 pour un petit
+joueur. Le multiplicateur ramène la superstar à 0,68 action par jour et le
+petit joueur à une action toutes les 106 heures. L'effectif deviendrait
+spectateur.
+
+**Renforcer la défense fait le même travail sans casser cette règle**, et
+c'est le levier que le concepteur avait lui-même choisi en août. On multiplie
+la durée et le nombre de charges des postures défensives : les frappes restent
+aussi nombreuses, elles aboutissent moins souvent.
+
+| Renfort défensif | Buts | Frappes | Conversion |
+|---|---:|---:|---:|
+| × 1, réglage actuel | 149,3 | 260 | 57 % |
+| × 3 | 51,6 | 216 | 24 % |
+| × 5 | 31,1 | 206 | 15 % |
+| **× 6** | **26,3** | 201 | 13 % |
+| × 8 | 15,7 | 193 | 8 % |
+
+**Défense × 6 donne 26,3 buts pour une cible de 28, et la production cible
+reste intacte.** Le nombre de frappes ne baisse que de 260 à 201 : les joueurs
+continuent d'agir, ce sont les buts qui deviennent rares. C'est le réglage à
+retenir.
+
+## Le bot adaptatif est un handicap, pas une force
+
+Mesure la plus importante de la journée, et elle est contre-intuitive.
+
+| Politique adverse | Buts humain | Buts adverse | Victoires humaines |
+|---|---:|---:|---:|
+| bridée, ne lit pas le jeu | 0,8 | 1,8 | **13 %** |
+| adaptative, lit le jeu | 18,0 | 0,5 | **67 %** |
+
+**Le bot le plus bête est de très loin le plus dur à battre.** Un adversaire
+qui garde sa consigne de départ conserve ses postures défensives et bloque
+tout ; le bot adaptatif, lui, bascule sur des consignes offensives et se
+découvre. Il ne joue pas mieux, il joue plus attaquant.
+
+Cela explique aussi l'anomalie des fenêtres de réflexe. Plus le bot est lent à
+s'adapter, plus il garde son profil initial, donc plus il défend bien :
+
+| Fenêtre de réflexe | Victoires humaines |
+|---|---:|
+| 2 à 4 h | 67 % |
+| 6 à 12 h | 83 % |
+| 12 à 24 h | 90 % |
+| 24 à 48 h | 87 % |
+| 48 à 96 h | 67 % |
+
+La courbe n'a aucun sens pour un curseur de difficulté : elle monte puis
+redescend, parce qu'elle mélange deux effets opposés.
+
+**Conséquence : la politique adaptative doit être réécrite avant tout
+équilibrage sérieux.** Tant qu'elle affaiblit celui qui l'applique, aucun
+réglage bâti dessus n'a de sens.
+
+## Un curseur de difficulté qui marche
+
+L'écart de qualité entre effectifs, lui, se comporte proprement.
+
+| Handicap adverse | Buts humain | Victoires humaines |
+|---|---:|---:|
+| aucun, effectifs égaux | 18,0 | 67 % |
+| 1 cran de statut plus bas | 27,1 | 80 % |
+| 2 crans plus bas | 40,3 | 93 % |
+| 3 crans plus bas | 48,8 | 90 % |
+
+Monotone jusqu'à deux crans, lisible, et facile à expliquer au joueur : les
+clubs adverses recrutent moins bien. C'est le curseur à retenir, une fois la
+politique du bot réparée.
+
 ## Ce qui reste à décider
 
-1. **Valider K × 5,5**, ou viser plus bas si 28 buts par match vous semble
-   encore trop pour un match de sept jours.
-2. **Trouver un vrai curseur de difficulté**, le réflexe n'en étant pas un.
-3. Ensuite seulement, développer le jeu.
+1. **Valider défense × 6** plutôt que K × 5,5, pour préserver la production
+   cible actée.
+2. **Réécrire la politique du bot adaptatif** : elle doit défendre quand elle
+   mène et attaquer quand elle est menée, pas se découvrir en permanence.
+3. **Retenir l'écart d'effectif comme curseur de difficulté**, le réflexe
+   n'en étant pas un.
+4. Ensuite seulement, développer le jeu.
