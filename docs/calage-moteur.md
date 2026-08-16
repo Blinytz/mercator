@@ -213,3 +213,95 @@ politique du bot réparée.
 3. **Retenir l'écart d'effectif comme curseur de difficulté**, le réflexe
    n'en étant pas un.
 4. Ensuite seulement, développer le jeu.
+
+
+---
+
+# Réécriture de la politique adverse · 16 août, second temps
+
+## Ce qui n'allait pas
+
+Dans le moteur, **seul un bloc actif empêche un but**. Or l'ancienne politique
+envoyait ses défenseurs sur `interception`, `dominationAerienne` et
+`debordeEtCentre`, et son gardien sur `sortieAerienne` : aucune de ces
+consignes ne produit de bloc. La ligne défensive se déshabillait d'elle-même,
+et l'attaque adverse marquait sans obstacle.
+
+Ce n'était donc pas un bot trop faible, c'était un bot qui se sabotait.
+
+## La nouvelle doctrine
+
+La politique tient désormais une doctrine plutôt qu'une liste de réflexes.
+
+1. **Le gardien produit toujours un bloc.** Sans exception.
+2. **La défense maintient un plancher de charges de blocs actives.** Tant que
+   le plancher n'est pas tenu, tous les défenseurs bloquent.
+3. **Au-dessus du plancher seulement**, un défenseur peut se projeter.
+4. **Le milieu crée**, sauf quand le club mène : un milieu redescend couvrir.
+5. **L'attaque consomme** ce qu'on lui offre avant de tenter sa chance.
+
+Le plancher monte quand le club mène et descend quand il est mené, ce qui
+donne un comportement lisible de vrai entraîneur. Un réglage `agressivite`,
+de 0 à 1, rabote le plancher : c'est un second curseur de difficulté.
+
+## L'effet, mesuré
+
+| Politique adverse | Avant | Après |
+|---|---:|---:|
+| bridée, ne lit pas le jeu | 13 % de victoires humaines | 60 % |
+| **adaptative** | **67 %** | **38 %** |
+
+**Le rapport s'est inversé, et dans le bon sens.** Le bot qui lit le jeu est
+maintenant nettement plus dur à battre que celui qui ne fait rien, ce qui est
+la moindre des choses pour une intelligence adverse.
+
+Les buts se sont aussi rééquilibrés : le club adverse marquait 0,5 but par
+match, il en marque 4,5 contre 10,2 à l'humain.
+
+## Le réflexe devient un vrai curseur
+
+| Fenêtre de réflexe | Victoires humaines |
+|---|---:|
+| 2 à 4 h | **38 %** |
+| 6 à 12 h | 45 % |
+| 12 à 24 h | 60 % |
+| 24 à 48 h | 55 % |
+| 48 à 96 h | 55 % |
+
+La courbe monte proprement jusqu'à 24 heures puis plafonne, au lieu de monter
+et redescendre. **Le réglage que vous aviez demandé fonctionne maintenant**,
+et la fenêtre de 6 à 12 heures que vous suggériez donne un jeu équilibré à
+45 % de victoires.
+
+L'écart d'effectif reste le curseur le plus large : 38 %, 45 %, 65 %, 95 % de
+victoires selon que l'adversaire recrute zéro, un, deux ou trois crans plus bas.
+
+## Le calage se déplace
+
+Le bot défendant désormais correctement, il n'a plus besoin d'être aidé. Le
+renfort défensif tombe de × 6 à **× 1,5**.
+
+| Renfort défensif | Buts | Frappes | Conversion |
+|---|---:|---:|---:|
+| × 1 | 59,5 | 224 | 27 % |
+| × 1,25 | 52,1 | 223 | 23 % |
+| **× 1,5** | **28,7** | 225 | 13 % |
+| × 1,75 | 25,1 | 221 | 11 % |
+| × 2 | 22,2 | 216 | 10 % |
+| × 3 | 10,0 | 210 | 5 % |
+
+**Défense × 1,5 donne 28,7 buts pour une cible de 28.** Le catalogue n'est
+presque pas touché, la production cible est intacte, et K reste tel que le
+cadrage le définit.
+
+## Réglages retenus
+
+| Réglage | Valeur | Effet |
+|---|---|---|
+| Renfort défensif | × 1,5 | 28,7 buts par match |
+| Réflexe adverse | 2 à 4 h | 38 % de victoires, difficile |
+| Agressivité du bot | 0,35 | défend d'abord, attaque quand il peut |
+| Coût des actions K | inchangé | production cible respectée |
+
+Deux curseurs de difficulté sont disponibles et se cumulent : la fenêtre de
+réflexe, de 2 heures à 4 jours, et l'écart d'effectif, de zéro à trois crans.

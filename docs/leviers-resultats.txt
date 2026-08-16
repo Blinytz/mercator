@@ -1,36 +1,36 @@
-LEVIERS · 30 matchs par point de mesure
+LEVIERS · 40 matchs par point de mesure
 
 A. RENFORCER LA DEFENSE PLUTOT QUE RALENTIR TOUT LE MONDE
    Le renfort multiplie duree et charges des postures defensives.
    renfort       buts  frappes  conversion   ecart a la cible
-   x1           149.3      260        57 %   +121.3
-   x2            74.2      233        32 %   +46.2
-   x3            51.6      216        24 %   +23.6
-   x4            38.9      212        18 %   +10.9
-   x5            31.1      206        15 %   +3.1
-   x6            26.3      201        13 %   -1.7
-   x8            15.7      193         8 %   -12.3
+   x1            59.5      224        27 %   +31.5
+   x1.25         52.1      223        23 %   +24.1
+   x1.5          28.7      225        13 %   +0.7
+   x1.75         25.1      221        11 %   -2.9
+   x2            22.2      216        10 %   -5.8
+   x2.5          12.4      215         6 %   -15.6
+   x3            10.0      210         5 %   -18.0
 
-   RETENU : defense x 6, 26.3 buts, production cible intacte
+   RETENU : defense x 1.5, 28.7 buts, production cible intacte
 
 B. CURSEURS DE DIFFICULTE, mesures sur le taux de victoire humain
 
    B1. Fenetres de reflexe tardives
    intervalle          humain  adverse  victoires
-   2-4 h                 18.0      0.5       67 %
-   6-12 h                22.8      0.9       83 %
-   12-24 h               27.0      2.3       90 %
-   24-48 h               18.2      0.2       87 %
-   48-96 h               13.0      0.8       67 %
+   2-4 h                 10.2      4.5       38 %
+   6-12 h                17.5      5.9       45 %
+   12-24 h               22.1      5.9       60 %
+   24-48 h               23.8      5.8       55 %
+   48-96 h               19.1      6.5       55 %
 
    B2. Ecart de qualite entre effectifs
    handicap adverse        humain  adverse  victoires
-   aucun, effectifs egaux    18.0      0.5       67 %
-   1 cran plus bas           27.1      0.8       80 %
-   2 crans plus bas          40.3      0.0       93 %
-   3 crans plus bas          48.8      0.1       90 %
+   aucun, effectifs egaux    10.2      4.5       38 %
+   1 cran plus bas           14.3      4.3       45 %
+   2 crans plus bas          25.8      4.2       65 %
+   3 crans plus bas          41.2      3.0       95 %
 
    B3. Intelligence du bot
    politique               humain  adverse  victoires
-   bride, ne lit pas le jeu     0.8      1.8       13 %
-   adaptatif, lit le jeu     18.0      0.5       67 %
+   bride, ne lit pas le jeu    10.7     11.0       60 %
+   adaptatif, lit le jeu     10.2      4.5       38 %

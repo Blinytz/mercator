@@ -131,7 +131,7 @@ console.log('   ' + 'renfort'.padEnd(10) + 'buts'.padStart(8) + 'frappes'.padSta
   + 'conversion'.padStart(12) + '   ecart a la cible');
 multK = 1;
 let meilleurDef = null;
-for (const f of [1, 2, 3, 4, 5, 6, 8]) {
+for (const f of [1, 1.25, 1.5, 1.75, 2, 2.5, 3]) {
   renfortDefensif(f);
   const r = campagne(adapt, DUELS, Math.max(10, Math.round(N / 2)));
   const conv = 100 * r.total / r.frappes;
